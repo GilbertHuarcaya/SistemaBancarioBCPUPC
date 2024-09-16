@@ -1,0 +1,7 @@
+﻿  Cola.cpp
+  Lista.cpp
+  SistemaBancarioBCPUPC.cpp
+C:\Users\GHMPC\OneDrive\Escritorio\SistemaBancarioBCPUPC\SistemaBancarioBCPUPC\SistemaBancarioBCPUPC.cpp(31,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código...
+  AssemblyInfo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  SistemaBancarioBCPUPC.vcxproj -> C:\Users\GHMPC\OneDrive\Escritorio\SistemaBancarioBCPUPC\SistemaBancarioBCPUPC\x64\Debug\SistemaBancarioBCPUPC.exe
