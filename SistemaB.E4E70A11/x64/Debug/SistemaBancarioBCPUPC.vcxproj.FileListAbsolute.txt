@@ -1,2 +1,0 @@
-C:\Users\GHMPC\OneDrive\Escritorio\SistemaBancarioBCPUPC\SistemaBancarioBCPUPC\SistemaB.E4E70A11\x64\Debug\SistemaBancarioBCPUPC.vcxproj.AssemblyReference.cache
-C:\Users\Alumnos\Documents\SistemaBancarioBCPUPC\SistemaB.E4E70A11\x64\Debug\SistemaBancarioBCPUPC.vcxproj.AssemblyReference.cache

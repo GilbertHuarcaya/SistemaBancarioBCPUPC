@@ -6,6 +6,7 @@
 #include "Cliente.h"
 #include <string>
 #include <algorithm>
+#include "Menu.h"
 
 using namespace System;
 using namespace std;
@@ -29,11 +30,6 @@ void mostrar_clientes(Lista<Cliente*> l) {
 int main()
 {
     srand(time(0));
-    Lista<Cliente*> l;
-    for (int i = 0; i < 11; i++) {
-        registrar_cliente(l, i + 1);
-    }
-    mostrar_clientes(l);
-    system("pause");
+    mostrarUsuarios();
     return 0;
 }
