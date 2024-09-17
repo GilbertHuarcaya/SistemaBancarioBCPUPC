@@ -6,7 +6,7 @@ class Sede {
 private:
     int id;
     string name;
-    string address;
+    string adress;
     string phone;
     bool isActive;
 
@@ -16,13 +16,20 @@ public:
     // Métodos de acceso
     int getId();
     string getName();
-    string getAddress();
+    string getAdress();
     string getPhone();
 
     // Métodos de manipulación
-    void updateName();
-    void updateAddress(string address);
+    void updateName(string name);
+    void updateAdress(string adress);
     void updatePhone(string phone);
     void activate();
     void deactivate();
 };
+int Sede::getId() { return id;}
+string Sede::getName() { return name;}
+string Sede::getAdress() { return adress;}
+string Sede::getPhone() { return phone;}
+void Sede::updateName(string name) { this->name = name;}
+void Sede::updateAdress(string adress) { this->adress = adress;}
+void Sede::updatePhone(string phone) { this->phone = phone;}

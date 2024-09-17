@@ -129,6 +129,7 @@
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="CuentaBancaria.h" />
+    <ClInclude Include="DatosRandom.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Operacion.h" />

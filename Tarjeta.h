@@ -8,10 +8,11 @@ private:
     bool isActive;
     string code;
     int CVV;
+    double amount;
     string type;
     string currency;
-    time_t Createdate;
-    time_t expirationDate;
+    string Creationdate;
+    string expirationDate;
 
 public:
     Tarjeta(int id, string TarjetaNumber, int CVV, string type, string currency, time_t expirationDate);
@@ -21,8 +22,10 @@ public:
     string getTarjetaNumber();
     string getType();
     double getAmount();
+    string getCurrency();
     string getDescription();
-    time_t getExpirationDate();
+    string getCreationdate();
+    string getExpirationDate();
     bool getIsActive();
 
     // Métodos de manipulación
@@ -31,3 +34,11 @@ public:
     void activate();
     void deactivate();
 };
+int Tarjeta::getId() { return id;}
+string Tarjeta::getTarjetaNumber() { return code;}
+string Tarjeta::getType() { return type;}
+double Tarjeta::getAmount() { return amount;}
+string Tarjeta::getCurrency() { return currency;}
+string Tarjeta::getCreationdate() { return Creationdate;}
+string Tarjeta::getExpirationDate() { return expirationDate;}
+bool Tarjeta::getIsActive() { return isActive;}
