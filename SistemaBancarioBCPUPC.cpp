@@ -15,9 +15,7 @@ using namespace std;
 int main()
 {
     srand(static_cast<unsigned int>(time(0)));
-    
-    ListaDeClientes listaClientes;
-    listaClientes.menu();
+    mostrarMenuPrincipal();
     system("pause");
     return 0;
 }

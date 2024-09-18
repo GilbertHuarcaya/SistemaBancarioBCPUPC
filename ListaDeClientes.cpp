@@ -76,7 +76,7 @@ void ListaDeClientes::actualizarDatos(int id)
 	cin >> nombre;
 	cout << "Ingrese la direccion del cliente: ";
 	cin >> direccion;
-	cout << "Ingrese el telefono del cliente: ";|
+	cout << "Ingrese el telefono del cliente: ";
 	cin >> telefono;
 	cout << "Ingrese el email del cliente: ";
 	cin >> email;
@@ -138,6 +138,9 @@ void ListaDeClientes::menu()
 			agregarClienteRandom();
 			cout << "Cliente agregado" << endl;
 			system("pause");
+			break;
+		case 7:
+			cout << "Saliendo del menu de clientes" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
