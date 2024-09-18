@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Operacion.h"
 
-Operacion::Operacion(    string Tipo,
+Operacion::Operacion(string Tipo,
     double Cantidad,
     string Descripcion,
     string Fecha,
@@ -9,9 +9,9 @@ Operacion::Operacion(    string Tipo,
     int idCuentaDestino,
     string Estado)
 {
-	this->id = Tipo;
-	this-Cantidad = Cantidad;
-	this Descripcion = Descripcion;
+	this->Tipo = Tipo;
+	this->Cantidad = Cantidad;
+	this->Descripcion = Descripcion;
 	this->Fecha = Fecha;
 	this->idCuentaOrigen = idCuentaOrigen;
 	this->idCuentaDestino = idCuentaDestino;

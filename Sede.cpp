@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "Sede.h"
+#include "string"
+using namespace std;
 
-Sede(int id, string Nombre, string Direccion, string Telefono, bool Activado);
+Sede::Sede(std::string Nombre, std::string Direccion, std::string Telefono, bool Activado)
 {
-	this->id = id;
 	this->Nombre = Nombre;
 	this->Direccion = Direccion;
 	this->Telefono = Telefono;
 	this->Activado = true;
 }
 
-string Sede::getId() { return id; }
 string Sede::getNombre() { return Nombre; }
 string Sede::getDireccion() { return Direccion; }
 string Sede::getTelefono() { return Telefono; }
