@@ -4,23 +4,25 @@
 using namespace std;
 
 class Cliente {
-public:
-    Cliente(const string& nombre, const string& direccion, const string& telefono, const string& id);
-    string descripcion() const;
-    Cliente(){}
-    string getID();
-    string getEmail();
-    string getNombre();
-    string getTelefono();
 private:
     string nombre;
+    string apellido;
     string direccion;
     string telefono;
     string email;
     string DNI;
-    string id;
+public:
+    Cliente(string nombre,  string apellido,  string direccion,  string telefono,  string email,  string DNI);
+    string descripcion() ;
+    string getEmail();
+    string getNombre();
+    string getApellido();
+    string getTelefono();
+    string getDNI();
+    void setNombre(string nombre);
+    void setApellido(string apellido);
+    void setDireccion(string direccion);
+    void setTelefono(string telefono);
+    void setEmail(string email);
+    void setDNI(string DNI);
 };
-string Cliente::getID(){return id;}
-string Cliente::getEmail() {return email;}
-string Cliente::getNombre() {return nombre;}
-string Cliente::getTelefono() { return telefono;}

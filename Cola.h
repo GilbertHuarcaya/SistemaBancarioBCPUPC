@@ -14,8 +14,8 @@ private:
 public:
 	Cola()
 	{
-		this->inicio = NULL;
-		this->fin = NULL;
+		this->inicio = nullptr;
+		this->fin = nullptr;
 	}
 	void enqueue(T v);
 	T dequeue();
@@ -26,7 +26,7 @@ public:
 template<class T>
 bool Cola<T>::esVacia()
 {
-	return (inicio == NULL);
+	return (inicio == nullptr);
 }
 
 template<class T>
@@ -43,7 +43,7 @@ void Cola<T>::enqueue(T v)
 		fin->siguiente = nodo;
 		fin = nodo;
 	}
-	nodo = NULL;
+	nodo = nullptr;
 }
 
 template<class T>
@@ -53,8 +53,8 @@ T Cola<T>::dequeue()
 
 	if (inicio == fin)
 	{
-		inicio = NULL;
-		fin = NULL;
+		inicio = nullptr;
+		fin = nullptr;
 	}
 	else
 	{

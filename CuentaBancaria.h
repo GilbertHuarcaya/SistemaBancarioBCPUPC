@@ -25,5 +25,3 @@ public:
     double calculateBalance();
     vector<Operacion*> getTransactions();
 };
-int CuentaBancaria::getId() { return id;}
-string CuentaBancaria::getAccountNumber() { return accountNumber;}

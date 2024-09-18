@@ -7,29 +7,17 @@
 #include <string>
 #include <algorithm>
 #include "Menu.h"
+#include "ListaDeClientes.h"
 
 using namespace System;
 using namespace std;
 
-void registrar_cliente(Lista<Cliente*>& l, int i) {
-    string num(1, i + '0');
-    l.push_back(new Cliente("nombre " + num, "dir " + num, "telefono " + num, num));
-}
-
-void mostrar_clientes(Lista<Cliente*> l) {
-    cout << "Clientes:\n";
-    Cliente* elem;
-
-    do {
-        elem = l.next();
-        cout << elem->descripcion() << endl;
-
-    } while (!l.esVacia());
-}
-
 int main()
 {
-    srand(time(0));
-    mostrarUsuarios();
+    srand(static_cast<unsigned int>(time(0)));
+    
+    ListaDeClientes listaClientes;
+    listaClientes.menu();
+    system("pause");
     return 0;
 }

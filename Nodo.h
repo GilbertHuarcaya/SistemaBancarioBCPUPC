@@ -5,13 +5,30 @@ template<class T>
 class Nodo
 {
 public:
+	int id;
 	T dato;
 	Nodo<T>* siguiente;
 
-	Nodo(T v, Nodo<T>* sig = NULL)
+	Nodo(T v, int id, Nodo<T>* sig = nullptr)
 	{
+		this->id = id;
 		dato = v;
 		siguiente = sig;
+	}
+
+	int getId()
+	{
+		return id;
+	}
+
+	T getDato()
+	{
+		return dato;
+	}
+
+	Nodo<T>* getSiguiente()
+	{
+		return siguiente;
 	}
 };
 

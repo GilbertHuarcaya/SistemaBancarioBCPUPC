@@ -23,7 +23,6 @@ public:
     string getType();
     double getAmount();
     string getCurrency();
-    string getDescription();
     string getCreationdate();
     string getExpirationDate();
     bool getIsActive();
@@ -34,11 +33,3 @@ public:
     void activate();
     void deactivate();
 };
-int Tarjeta::getId() { return id;}
-string Tarjeta::getTarjetaNumber() { return code;}
-string Tarjeta::getType() { return type;}
-double Tarjeta::getAmount() { return amount;}
-string Tarjeta::getCurrency() { return currency;}
-string Tarjeta::getCreationdate() { return Creationdate;}
-string Tarjeta::getExpirationDate() { return expirationDate;}
-bool Tarjeta::getIsActive() { return isActive;}

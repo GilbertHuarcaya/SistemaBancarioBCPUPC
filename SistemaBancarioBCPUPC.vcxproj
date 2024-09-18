@@ -126,11 +126,14 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Canal.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="CuentaBancaria.h" />
     <ClInclude Include="DatosRandom.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaDeCanales.h" />
+    <ClInclude Include="ListaDeClientes.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Operacion.h" />
@@ -141,10 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Canal.cpp" />
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Cola.cpp" />
     <ClCompile Include="CuentaBancaria.cpp" />
     <ClCompile Include="Lista.cpp" />
+    <ClCompile Include="ListaDeCanales.cpp" />
+    <ClCompile Include="ListaDeClientes.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Operacion.cpp" />
     <ClCompile Include="pch.cpp">

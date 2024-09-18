@@ -26,10 +26,3 @@ public:
     void activate();
     void deactivate();
 };
-int Sede::getId() { return id;}
-string Sede::getName() { return name;}
-string Sede::getAdress() { return adress;}
-string Sede::getPhone() { return phone;}
-void Sede::updateName(string name) { this->name = name;}
-void Sede::updateAdress(string adress) { this->adress = adress;}
-void Sede::updatePhone(string phone) { this->phone = phone;}

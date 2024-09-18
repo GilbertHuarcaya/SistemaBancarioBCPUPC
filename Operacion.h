@@ -20,8 +20,3 @@ public:
     string getDescription();
     string getDate();
 };
-int Operacion::getId() { return id;}
-string Operacion::getType() { return type;}
-double Operacion::getAmount() { return amount;}
-string Operacion::getDescription() { return description;}
-string Operacion::getDate() { return date;}
