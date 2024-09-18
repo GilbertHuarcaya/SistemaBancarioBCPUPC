@@ -1,35 +1,34 @@
 #include "pch.h"
 #include "Tarjeta.h"
 
-Tarjeta::Tarjeta(int id, string TarjetaNumber, int CVV, string type, string currency, time_t expirationDate)
+Tarjeta::Tarjeta(int id, bool Activado, string Codigo, int CVV, double saldo, string TipoTarjeta, string Divisa, string FechaCreacion, string FechaCaducidad, string NombreCliente, string ApellidoCliente)
 {
 }
 
-int Tarjeta::getId() { return id; }
-string Tarjeta::getTarjetaNumber() { return code; }
-string Tarjeta::getType() { return type; }
-double Tarjeta::getAmount() { return amount; }
-string Tarjeta::getCurrency() { return currency; }
-string Tarjeta::getCreationdate() { return Creationdate; }
-string Tarjeta::getExpirationDate() { return expirationDate; }
-bool Tarjeta::getIsActive() { return isActive; }
+int Tarjeta::getId() { return id;}
+int Tarjeta::getCVV() { return CVV;}
+string Tarjeta::getCodigo() { return Codigo;}
+string Tarjeta::getTipoTarjeta() { return TipoTarjeta;}
+double Tarjeta::getSaldo() { return saldo;}
+string Tarjeta::getDivisa() { return Divisa;}
+string Tarjeta::getFechaCreacion() { return FechaCreacion;}
+string Tarjeta::getFechaCaducidad() { return FechaCaducidad;}
+bool Tarjeta::getActivado() { return Activado;}
+string Tarjeta::getNombreCliente() { return NombreCliente;}
+string Tarjeta::getApellidoCliente() { return ApellidoCliente;}
 
 void Tarjeta::updateAmount()
 {
-	this->amount = amount;
-}
-
-void Tarjeta::validateTarjeta(Tarjeta)
-{
-	this->isActive = true;
+	this->saldo = saldo;
 }
 
 void Tarjeta::activate()
 {
-	this->isActive = true;
+	this->Activado = true;
 }
 
 void Tarjeta::deactivate()
 {
-	this->isActive = false;
+	this->Activado = false;
 }
+
