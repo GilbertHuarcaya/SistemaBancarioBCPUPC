@@ -1,28 +1,24 @@
 #include "pch.h"
 #include "Canal.h"
 
-Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, ETipoDeCanal tipoDeCanal)
+Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, ETipoDeCanal tipoDeCanal)
 {
 	this->nombre = nombre;
 	this->direccion = direccion;
 	this->ciudad = ciudad;
 	this->distrito = distrito;
 	this->departamento = departamento;
-	this->fechaCreacion = fechaCreacion;
-	this->fechaModificacion = fechaModificacion;
 	this->activo = activo;
 	this->tipoDeCanal = tipoDeCanal;
 }
 
-Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, int tipoDeCanal)
+Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, int tipoDeCanal)
 {
 	this->nombre = nombre;
 	this->direccion = direccion;
 	this->ciudad = ciudad;
 	this->distrito = distrito;
 	this->departamento = departamento;
-	this->fechaCreacion = fechaCreacion;
-	this->fechaModificacion = fechaModificacion;
 	this->activo = activo;
 	ETipoDeCanal tipoDeCanalConEnum;
 	switch (tipoDeCanal)
@@ -56,8 +52,6 @@ Canal::Canal(ETipoDeCanal tipoDeCanal)
 	this->ciudad = "";
 	this->distrito = "";
 	this->departamento = "";
-	this->fechaCreacion = "";
-	this->fechaModificacion = "";
 	this->activo = true;
 	this->tipoDeCanal = tipoDeCanal;
 }
@@ -103,7 +97,7 @@ string Canal::descripcion()
 
 	return "Nombre: " + nombre + "\nDireccion: " +
 		direccion + "\nCiudad: " + ciudad + "\nDistrito: " + distrito + "\nDepartamento: " + departamento +
-		"\nFecha de creacion: " + fechaCreacion + "\nFecha de modificacion: " + fechaModificacion + "\nActivo: " + to_string(activo) + "\nTipo de canal: " + tipoDeCanal;
+		"\nActivo: " + to_string(activo) + "\nTipo de canal: " + tipoDeCanal;
 }
 
 string Canal::getDireccion()
@@ -129,16 +123,6 @@ string Canal::getDepartamento()
 ETipoDeCanal Canal::getTipoDeCanal()
 {
 	return tipoDeCanal;
-}
-
-string Canal::getFechaCreacion()
-{
-	return fechaCreacion;
-}
-
-string Canal::getFechaModificacion()
-{
-	return fechaModificacion;
 }
 
 bool Canal::getActivo()
@@ -174,14 +158,4 @@ void Canal::setDepartamento(string departamento)
 void Canal::setTipoDeCanal(ETipoDeCanal tipoDeCanal)
 {
 	this->tipoDeCanal = tipoDeCanal;
-}
-
-void Canal::setFechaCreacion(string fechaCreacion)
-{
-	this->fechaCreacion = fechaCreacion;
-}
-
-void Canal::setFechaModificacion(string fechaModificacion)
-{
-	this->fechaModificacion = fechaModificacion;
 }

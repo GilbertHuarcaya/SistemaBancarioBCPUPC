@@ -4,10 +4,10 @@
 using namespace std;
 
 enum ETipoDeCanal {
-	WEB = 1,
-	APP,
-	VENTANILLA,
+	VENTANILLA = 1,
 	AGENTE,
+	WEB,
+	APP,
 	YAPE,
 	OTRO
 };
@@ -20,13 +20,11 @@ private:
 	string ciudad;
 	string distrito;
 	string departamento;
-	string fechaCreacion;
-	string fechaModificacion;
 	bool activo;
 	ETipoDeCanal tipoDeCanal;
 public:
-	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, ETipoDeCanal tipoDeCanal);
-	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, int tipoDeCanal);
+	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, ETipoDeCanal tipoDeCanal);
+	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, int tipoDeCanal);
 	Canal(ETipoDeCanal tipoDeCanal);
 	~Canal();
 	string getNombre();
@@ -36,18 +34,13 @@ public:
 	string getDistrito();
 	string getDepartamento();
 	ETipoDeCanal getTipoDeCanal();
-	string getFechaCreacion();
-	string getFechaModificacion();
 	bool getActivo();
 	void setNombre(string nombre);
-	void setDescripcion(string descripcion);
 	void setDireccion(string direccion);
 	void setCiudad(string ciudad);
 	void setDistrito(string distrito);
 	void setDepartamento(string departamento);
 	void setTipoDeCanal(ETipoDeCanal tipoDeCanal);
-	void setFechaCreacion(string fechaCreacion);
-	void setFechaModificacion(string fechaModificacion);
 
 };
 

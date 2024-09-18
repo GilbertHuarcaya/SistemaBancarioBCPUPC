@@ -25,6 +25,11 @@ string Cliente::getApellido()
 }
 string Cliente::getTelefono() { return telefono; }
 
+string Cliente::getDireccion()
+{
+	return direccion;
+}
+
 string Cliente::getDNI()
 {
 	return DNI;

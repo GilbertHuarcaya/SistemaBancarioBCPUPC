@@ -1,0 +1,1006 @@
+ID,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal
+1,YAPE,- -,-, -,-,1,5
+2,APP,- -,-, -,-,1,4
+3,WEB,- -,-, -,-,1,3
+4,Talane,Lunder,Bronx,New York,United States,0,2
+5,Aimbu,Memorial,Rochester,New York,United States,0,2
+6,Oodoo,Packers,Jamaica,New York,United States,0,1
+7,Edgeblab,Debs,Buffalo,New York,United States,1,2
+8,Ntag,Luster,Rochester,New York,United States,1,2
+9,Eidel,Hayes,Hicksville,New York,United States,1,2
+10,Brightdog,Sauthoff,Buffalo,New York,United States,1,1
+11,Quinu,Randy,New York City,New York,United States,0,2
+12,Tanoodle,Kedzie,Staten Island,New York,United States,0,2
+13,Quatz,Corry,New York City,New York,United States,1,1
+14,Jetwire,Nova,Jamaica,New York,United States,1,2
+15,Realblab,Hallows,New York City,New York,United States,0,2
+16,Plambee,Ramsey,Rochester,New York,United States,0,2
+17,Livetube,Pierstorff,Buffalo,New York,United States,0,2
+18,Feednation,Menomonie,Buffalo,New York,United States,1,1
+19,Zoonoodle,Cody,Albany,New York,United States,0,2
+20,Thoughtbridge,Oakridge,Syracuse,New York,United States,1,1
+21,Quatz,Florence,New York City,New York,United States,1,1
+22,Trudoo,Lyons,Rochester,New York,United States,0,2
+23,Geba,Golf Course,Hicksville,New York,United States,1,2
+24,Izio,Reinke,New York City,New York,United States,1,1
+25,Meezzy,Helena,New Hyde Park,New York,United States,1,1
+26,Oyoloo,Dovetail,New York City,New York,United States,0,1
+27,Wikivu,Cordelia,Yonkers,New York,United States,0,1
+28,Fliptune,Upham,Brooklyn,New York,United States,1,2
+29,Dynazzy,Rutledge,New York City,New York,United States,0,2
+30,Quatz,Aberg,Rochester,New York,United States,1,2
+31,Myworks,Fulton,New York City,New York,United States,0,1
+32,Mudo,Victoria,Rochester,New York,United States,0,1
+33,Zoomdog,Blue Bill Park,New York City,New York,United States,0,1
+34,Vimbo,Meadow Ridge,Schenectady,New York,United States,0,2
+35,Mycat,Sloan,Jamaica,New York,United States,1,1
+36,Kanoodle,Burning Wood,Jamaica,New York,United States,1,1
+37,Zoomlounge,Glendale,New York City,New York,United States,1,1
+38,Thoughtblab,8th,New York City,New York,United States,1,1
+39,Buzzshare,Elmside,Bronx,New York,United States,0,2
+40,Vimbo,Caliangt,New York City,New York,United States,1,2
+41,Youfeed,Autumn Leaf,New York City,New York,United States,0,1
+42,Mita,Walton,Bronx,New York,United States,0,1
+43,Einti,Superior,New Hyde Park,New York,United States,0,1
+44,Devpoint,Kinsman,Flushing,New York,United States,1,2
+45,Avamm,Crownhardt,Albany,New York,United States,0,1
+46,Yodo,Tony,New York City,New York,United States,1,2
+47,Brightbean,Kingsford,Staten Island,New York,United States,1,2
+48,Innojam,Bobwhite,New York City,New York,United States,1,2
+49,Wikivu,Clove,Jamaica,New York,United States,1,1
+50,Yakijo,3rd,Bronx,New York,United States,0,1
+51,Demivee,Ruskin,Brooklyn,New York,United States,0,1
+52,Flashset,Continental,New York City,New York,United States,1,1
+53,Babbleblab,Bluejay,Albany,New York,United States,1,1
+54,Chatterpoint,Sunfield,New York City,New York,United States,0,2
+55,Thoughtworks,Chinook,New York City,New York,United States,1,1
+56,Thoughtsphere,Hallows,New York City,New York,United States,1,1
+57,Minyx,Ohio,Bronx,New York,United States,0,1
+58,Demizz,Sunfield,New York City,New York,United States,1,1
+59,Skivee,Burrows,Brooklyn,New York,United States,0,2
+60,Jabbersphere,Bunker Hill,New York City,New York,United States,1,2
+61,Demivee,Saint Paul,Bronx,New York,United States,0,1
+62,Pixope,Fairfield,Brooklyn,New York,United States,1,2
+63,Mydo,Mendota,Jamaica,New York,United States,0,2
+64,Kwinu,Brentwood,Buffalo,New York,United States,0,1
+65,Riffpath,Arapahoe,Jamaica,New York,United States,0,2
+66,Realcube,Manley,New York City,New York,United States,0,1
+67,Meejo,Rowland,New York City,New York,United States,1,1
+68,Aibox,Mallard,Brooklyn,New York,United States,1,2
+69,Oyoyo,Scoville,Staten Island,New York,United States,1,1
+70,Buzzdog,Mayfield,Brooklyn,New York,United States,0,1
+71,Skinte,Fuller,Rochester,New York,United States,0,1
+72,Kimia,Almo,Buffalo,New York,United States,0,1
+73,Wordware,Troy,Port Washington,New York,United States,1,1
+74,Devbug,Atwood,Brooklyn,New York,United States,1,1
+75,Eamia,Steensland,Flushing,New York,United States,0,2
+76,Twinte,Daystar,Elmira,New York,United States,1,2
+77,Tagpad,Duke,New York City,New York,United States,1,1
+78,Gabcube,Debra,Brooklyn,New York,United States,0,1
+79,Dynava,Garrison,Port Washington,New York,United States,0,1
+80,Rhybox,Evergreen,Jamaica,New York,United States,1,1
+81,Riffpath,Sunfield,Staten Island,New York,United States,0,1
+82,Divavu,Atwood,Schenectady,New York,United States,0,1
+83,Tagopia,Debra,Bronx,New York,United States,1,1
+84,Topicshots,Carey,New York City,New York,United States,1,2
+85,Yabox,Rutledge,New Hyde Park,New York,United States,0,1
+86,Gabspot,Vahlen,New Hyde Park,New York,United States,0,2
+87,Kanoodle,Stoughton,Jamaica,New York,United States,1,1
+88,Kazu,Londonderry,Hicksville,New York,United States,1,1
+89,Bubblebox,Michigan,New York City,New York,United States,0,1
+90,Skivee,Lien,Brooklyn,New York,United States,0,1
+91,Youopia,Kim,Rochester,New York,United States,1,2
+92,Livetube,Anniversary,Buffalo,New York,United States,1,1
+93,Dynabox,Maple,New York City,New York,United States,1,2
+94,Yamia,Mcbride,Flushing,New York,United States,1,2
+95,Demimbu,Transport,Rochester,New York,United States,1,1
+96,Photojam,Fairfield,Yonkers,New York,United States,0,1
+97,Fliptune,Service,New Hyde Park,New York,United States,0,1
+98,Gabcube,Lake View,Brooklyn,New York,United States,1,1
+99,Topicshots,Jana,Brooklyn,New York,United States,0,2
+100,Tavu,Thackeray,New York City,New York,United States,0,1
+101,Demizz,Anthes,Albany,New York,United States,0,1
+102,Fiveclub,4th,New York City,New York,United States,0,1
+103,Quatz,Mosinee,Rochester,New York,United States,0,1
+104,Jayo,Farmco,Brooklyn,New York,United States,1,2
+105,Voomm,Mockingbird,Brooklyn,New York,United States,0,1
+106,Rhybox,Marquette,New York City,New York,United States,0,1
+107,Jabbercube,La Follette,Hicksville,New York,United States,1,1
+108,Jetpulse,4th,Buffalo,New York,United States,1,2
+109,Meejo,Ramsey,Staten Island,New York,United States,0,2
+110,Kwideo,Melby,Brooklyn,New York,United States,1,2
+111,Meeveo,Bobwhite,New York City,New York,United States,1,2
+112,Buzzdog,Utah,New York City,New York,United States,0,2
+113,Voolith,Monument,Brooklyn,New York,United States,1,2
+114,Blognation,Express,New Hyde Park,New York,United States,1,2
+115,Teklist,Fordem,New York City,New York,United States,1,2
+116,Dynabox,West,Syracuse,New York,United States,1,2
+117,Chatterpoint,Maywood,Albany,New York,United States,1,1
+118,Ntags,West,Rochester,New York,United States,1,1
+119,Cogidoo,Esch,Jamaica,New York,United States,0,1
+120,Thoughtstorm,Kinsman,Rochester,New York,United States,0,2
+121,Rhyloo,Graceland,New York City,New York,United States,0,1
+122,Tagtune,Michigan,New York City,New York,United States,1,1
+123,Yambee,Waxwing,Hicksville,New York,United States,0,2
+124,Reallinks,Ohio,Buffalo,New York,United States,1,2
+125,Yambee,Gina,New York City,New York,United States,0,2
+126,Aivee,Melrose,New York City,New York,United States,0,1
+127,Feedbug,Valley Edge,Albany,New York,United States,0,2
+128,Browsebug,Kinsman,New Hyde Park,New York,United States,1,2
+129,Devcast,Alpine,New York City,New York,United States,1,2
+130,Thoughtstorm,Atwood,Syracuse,New York,United States,1,1
+131,Skajo,Charing Cross,Bronx,New York,United States,0,2
+132,Kayveo,Bartelt,Jamaica,New York,United States,1,2
+133,Mybuzz,Kenwood,Port Washington,New York,United States,1,1
+134,Zoomcast,Westerfield,New York City,New York,United States,0,2
+135,Jetwire,Waubesa,Bronx,New York,United States,0,1
+136,Wikido,Amoth,New York City,New York,United States,0,2
+137,Innojam,Arkansas,Syracuse,New York,United States,0,2
+138,Gabcube,Clemons,Bronx,New York,United States,1,2
+139,Twitterlist,Beilfuss,Buffalo,New York,United States,1,2
+140,Katz,Miller,Jamaica,New York,United States,0,1
+141,Cogidoo,Bluejay,Bronx,New York,United States,1,1
+142,Blogpad,Dovetail,Elmira,New York,United States,1,1
+143,Mudo,Jenna,Great Neck,New York,United States,1,1
+144,Youtags,Blaine,Jamaica,New York,United States,0,1
+145,Thoughtbeat,Meadow Vale,Brooklyn,New York,United States,1,2
+146,Meejo,Mockingbird,New York City,New York,United States,0,1
+147,Gigaclub,Twin Pines,Brooklyn,New York,United States,0,2
+148,Linkbridge,Kingsford,Buffalo,New York,United States,0,2
+149,Pixonyx,Farragut,Buffalo,New York,United States,1,2
+150,Chatterpoint,Badeau,New Hyde Park,New York,United States,1,1
+151,Quire,Washington,Buffalo,New York,United States,1,1
+152,Roodel,Rusk,Albany,New York,United States,1,2
+153,Livefish,Independence,New York City,New York,United States,1,1
+154,Photobug,Pierstorff,New York City,New York,United States,0,2
+155,Tanoodle,Vidon,Bronx,New York,United States,1,2
+156,Mybuzz,Dunning,New York City,New York,United States,1,1
+157,Tekfly,Stone Corner,New York City,New York,United States,0,2
+158,Eazzy,Marcy,Brooklyn,New York,United States,1,1
+159,Fivespan,Esch,Bronx,New York,United States,0,1
+160,Youopia,Farwell,New York City,New York,United States,0,1
+161,Flashspan,Melrose,Brooklyn,New York,United States,0,1
+162,Babblestorm,West,Rochester,New York,United States,1,1
+163,Ntag,Algoma,New York City,New York,United States,0,1
+164,Livetube,Bultman,New York City,New York,United States,0,2
+165,Buzzdog,Green Ridge,Yonkers,New York,United States,0,2
+166,Tagopia,Lotheville,Flushing,New York,United States,1,2
+167,Tavu,Forest Run,Buffalo,New York,United States,0,1
+168,Meedoo,Randy,New York City,New York,United States,1,2
+169,Buzzbean,Burrows,New York City,New York,United States,0,1
+170,Dabjam,Barnett,New York City,New York,United States,0,1
+171,Brainverse,Everett,Rochester,New York,United States,0,2
+172,Riffpath,Dexter,Elmira,New York,United States,0,2
+173,Buzzbean,Melvin,Yonkers,New York,United States,1,2
+174,Flashpoint,Dawn,New York City,New York,United States,0,2
+175,Photobug,Badeau,Bronx,New York,United States,1,2
+176,Topicshots,Arrowood,New York City,New York,United States,1,1
+177,Skidoo,Raven,Flushing,New York,United States,0,1
+178,Jabbersphere,Swallow,Schenectady,New York,United States,1,2
+179,Edgepulse,Westerfield,Brooklyn,New York,United States,0,1
+180,Photojam,Jackson,Buffalo,New York,United States,0,1
+181,Ozu,High Crossing,New York City,New York,United States,0,2
+182,Zoovu,Onsgard,New York City,New York,United States,1,2
+183,Roombo,Heffernan,New York City,New York,United States,1,1
+184,Linkbuzz,Hintze,Jamaica,New York,United States,1,2
+185,Fivebridge,7th,New York City,New York,United States,1,1
+186,Pixoboo,Onsgard,Brooklyn,New York,United States,1,1
+187,Voonte,Chinook,Staten Island,New York,United States,0,2
+188,Gabspot,Service,Jamaica,New York,United States,1,2
+189,Topdrive,Bartelt,Rochester,New York,United States,1,1
+190,Wikibox,Brown,Buffalo,New York,United States,0,1
+191,Meevee,Farragut,New York City,New York,United States,1,1
+192,Kazu,Stang,Brooklyn,New York,United States,1,1
+193,Trudeo,Gulseth,New York City,New York,United States,1,1
+194,Dynava,Acker,New York City,New York,United States,1,2
+195,Babbleblab,Vera,Brooklyn,New York,United States,0,2
+196,Feedbug,Green,Bronx,New York,United States,0,1
+197,Oyoloo,Arrowood,Brooklyn,New York,United States,1,1
+198,Voonix,Spohn,Albany,New York,United States,1,1
+199,Fivechat,Ramsey,Jamaica,New York,United States,0,1
+200,Blogspan,Shasta,Rochester,New York,United States,0,1
+201,Shufflebeat,Grasskamp,Rochester,New York,United States,0,1
+202,Vinte,Alpine,Syracuse,New York,United States,0,1
+203,Cogibox,Scott,New York City,New York,United States,1,2
+204,Dabvine,Jana,Rochester,New York,United States,0,2
+205,Bluezoom,Elka,Flushing,New York,United States,1,2
+206,Izio,Steensland,New Hyde Park,New York,United States,0,1
+207,Centizu,Waubesa,Buffalo,New York,United States,1,2
+208,Voonte,Truax,Albany,New York,United States,1,1
+209,Wikizz,Tennyson,New York City,New York,United States,1,1
+210,Gabtune,Dunning,Brooklyn,New York,United States,0,2
+211,Lazz,Hayes,New York City,New York,United States,1,2
+212,Ainyx,Miller,New York City,New York,United States,0,1
+213,Kwilith,Maple Wood,Albany,New York,United States,0,2
+214,Abatz,Hansons,Jamaica,New York,United States,1,2
+215,Meedoo,Texas,Jamaica,New York,United States,1,1
+216,Ainyx,Birchwood,Brooklyn,New York,United States,0,2
+217,Viva,Hooker,Brooklyn,New York,United States,0,2
+218,Latz,Debra,New York City,New York,United States,0,1
+219,Rooxo,Meadow Valley,Rochester,New York,United States,1,1
+220,Devpoint,4th,New York City,New York,United States,0,1
+221,Blogtag,Mendota,Bronx,New York,United States,1,2
+222,Brightbean,Bowman,New York City,New York,United States,1,1
+223,Quaxo,Sachtjen,Rochester,New York,United States,0,2
+224,Gabtune,Goodland,New York City,New York,United States,0,2
+225,Aivee,Harper,New York City,New York,United States,0,1
+226,Oodoo,Arkansas,Jamaica,New York,United States,0,1
+227,Kwimbee,Garrison,Albany,New York,United States,0,1
+228,Topicstorm,Rusk,Rochester,New York,United States,1,2
+229,Meevee,Golden Leaf,New York City,New York,United States,0,2
+230,Yambee,Northridge,Albany,New York,United States,1,1
+231,Livetube,Hintze,New York City,New York,United States,1,2
+232,Twitterbridge,Lawn,New York City,New York,United States,1,1
+233,Thoughtmix,Quincy,Albany,New York,United States,1,1
+234,Eimbee,Victoria,New York City,New York,United States,0,1
+235,Livepath,Ohio,New York City,New York,United States,1,1
+236,Riffpedia,Sunbrook,New Hyde Park,New York,United States,0,2
+237,JumpXS,Dapin,Albany,New York,United States,0,1
+238,Wordtune,Eagle Crest,Staten Island,New York,United States,1,2
+239,Voonder,Starling,Rochester,New York,United States,0,1
+240,Bluezoom,Transport,Elmira,New York,United States,0,2
+241,Buzzshare,Rusk,Port Washington,New York,United States,0,2
+242,Voonyx,Derek,Albany,New York,United States,0,2
+243,Skidoo,Bluestem,New York City,New York,United States,0,1
+244,Leenti,Summerview,Bronx,New York,United States,1,2
+245,Nlounge,Vera,Albany,New York,United States,1,1
+246,Topicware,Mariners Cove,Brooklyn,New York,United States,0,1
+247,Skippad,Arizona,New York City,New York,United States,1,1
+248,Brainbox,Havey,New York City,New York,United States,0,2
+249,Wikivu,Pierstorff,Jamaica,New York,United States,1,1
+250,Jaxnation,Red Cloud,Hicksville,New York,United States,1,1
+251,Kare,Talmadge,Elmira,New York,United States,1,1
+252,Skidoo,Goodland,New York City,New York,United States,0,1
+253,Wordtune,Southridge,New York City,New York,United States,1,2
+254,Buzzdog,Stephen,New York City,New York,United States,0,2
+255,Fivebridge,Lillian,Rochester,New York,United States,1,2
+256,Tagtune,Rieder,Rochester,New York,United States,1,2
+257,Plajo,Duke,Hicksville,New York,United States,1,1
+258,Ntag,Dottie,Albany,New York,United States,0,2
+259,Realpoint,Fuller,Rochester,New York,United States,0,1
+260,Flipbug,Coleman,Bronx,New York,United States,1,1
+261,Buzzshare,Transport,Brooklyn,New York,United States,0,2
+262,Chatterpoint,Cardinal,New York City,New York,United States,0,2
+263,Feedfire,Messerschmidt,New York City,New York,United States,1,2
+264,Feedfish,Bay,New Hyde Park,New York,United States,1,2
+265,Devpoint,Mayer,New York City,New York,United States,0,1
+266,Kwideo,Ridge Oak,Rochester,New York,United States,0,1
+267,Wikido,Debs,Flushing,New York,United States,0,1
+268,Fliptune,Clove,Brooklyn,New York,United States,1,1
+269,Thoughtbeat,Kedzie,New York City,New York,United States,0,1
+270,Buzzbean,Corry,Albany,New York,United States,0,1
+271,Dabfeed,Drewry,Albany,New York,United States,1,1
+272,Meedoo,Nancy,New York City,New York,United States,0,2
+273,Skynoodle,Rowland,Elmira,New York,United States,1,2
+274,Dabjam,Cordelia,New York City,New York,United States,0,1
+275,Jaloo,Meadow Valley,New York City,New York,United States,1,2
+276,Yakijo,Sachtjen,Great Neck,New York,United States,1,1
+277,Voonder,Surrey,Brooklyn,New York,United States,1,2
+278,Blognation,Bluejay,New York City,New York,United States,1,1
+279,Thoughtblab,Loftsgordon,New York City,New York,United States,0,1
+280,Fatz,Monument,Syracuse,New York,United States,0,1
+281,Skibox,Starling,Bronx,New York,United States,1,1
+282,Tagfeed,Sundown,Staten Island,New York,United States,0,2
+283,Devshare,Mayfield,Bronx,New York,United States,1,1
+284,Topicstorm,Bay,Buffalo,New York,United States,0,1
+285,Livetube,Pennsylvania,Buffalo,New York,United States,0,2
+286,Thoughtbridge,Debra,Jamaica,New York,United States,1,2
+287,Meetz,Maple,New York City,New York,United States,1,2
+288,Tazzy,Pennsylvania,Rochester,New York,United States,1,1
+289,Eayo,Lien,Staten Island,New York,United States,1,1
+290,Skyvu,Esker,New York City,New York,United States,0,2
+291,Wikizz,Vermont,Albany,New York,United States,1,1
+292,Topdrive,Reinke,Rochester,New York,United States,1,1
+293,Gabtune,Superior,Brooklyn,New York,United States,0,1
+294,Meevee,Sunnyside,Bronx,New York,United States,0,1
+295,Zava,Welch,Bronx,New York,United States,1,2
+296,Plajo,Ronald Regan,Syracuse,New York,United States,0,2
+297,Yakijo,Merrick,Jamaica,New York,United States,0,1
+298,Oyondu,Debs,Flushing,New York,United States,1,1
+299,Midel,Dexter,New York City,New York,United States,1,2
+300,Zoombeat,Fisk,New York City,New York,United States,0,1
+301,Rhynyx,Upham,Brooklyn,New York,United States,1,1
+302,Mudo,Grasskamp,New York City,New York,United States,0,1
+303,Bluejam,Washington,New York City,New York,United States,0,1
+304,Myworks,Sundown,Rochester,New York,United States,0,2
+305,Twinte,Londonderry,New York City,New York,United States,0,1
+306,Skaboo,Sunfield,Albany,New York,United States,1,2
+307,Yakijo,Charing Cross,New York City,New York,United States,1,1
+308,Edgeclub,Old Gate,Bronx,New York,United States,0,1
+309,Zoomzone,Drewry,New York City,New York,United States,1,1
+310,Photojam,Lakeland,Elmira,New York,United States,1,1
+311,Fliptune,Acker,Brooklyn,New York,United States,1,1
+312,Jabbercube,Nelson,Flushing,New York,United States,1,1
+313,Youspan,Namekagon,New York City,New York,United States,1,1
+314,Demimbu,Susan,New York City,New York,United States,1,1
+315,Mynte,Westend,Flushing,New York,United States,0,2
+316,Yata,Bellgrove,Elmira,New York,United States,1,2
+317,Yadel,Vera,Brooklyn,New York,United States,1,1
+318,Gabspot,Lukken,Bronx,New York,United States,1,1
+319,Blogtag,Mesta,New York City,New York,United States,1,2
+320,Fivechat,Bunker Hill,New York City,New York,United States,1,1
+321,Gevee,Basil,Yonkers,New York,United States,0,2
+322,Bubbletube,Coleman,Rochester,New York,United States,0,2
+323,Photobug,Grasskamp,Jamaica,New York,United States,1,1
+324,Mudo,Starling,Flushing,New York,United States,1,1
+325,Quatz,Valley Edge,Jamaica,New York,United States,1,1
+326,Skyndu,Atwood,New York City,New York,United States,1,1
+327,Tazz,Springs,New York City,New York,United States,0,2
+328,Skinder,Mallard,Syracuse,New York,United States,0,2
+329,Shufflebeat,Myrtle,New York City,New York,United States,1,2
+330,Jayo,Dorton,Brooklyn,New York,United States,0,1
+331,Zoomlounge,Judy,Brooklyn,New York,United States,0,2
+332,Zoombox,Pierstorff,New York City,New York,United States,0,1
+333,Buzzbean,Pepper Wood,Brooklyn,New York,United States,1,2
+334,Kwilith,Delaware,Rochester,New York,United States,0,1
+335,Browseblab,Ridge Oak,Jamaica,New York,United States,1,2
+336,Youtags,Derek,Flushing,New York,United States,0,2
+337,Dynabox,Bluejay,Bronx,New York,United States,0,2
+338,Meejo,Victoria,New York City,New York,United States,1,2
+339,Vitz,Sunnyside,New York City,New York,United States,0,1
+340,Wordpedia,Fuller,Albany,New York,United States,0,2
+341,Mybuzz,Westerfield,Brooklyn,New York,United States,0,1
+342,Innotype,Kipling,Rochester,New York,United States,1,1
+343,Quinu,Starling,New York City,New York,United States,0,1
+344,Jabbersphere,Kenwood,Brooklyn,New York,United States,0,1
+345,Demizz,Loomis,Syracuse,New York,United States,1,2
+346,Kazu,Loftsgordon,New York City,New York,United States,0,2
+347,Feedspan,Montana,Great Neck,New York,United States,0,2
+348,Edgewire,Morrow,New York City,New York,United States,1,2
+349,Skimia,Rutledge,Jamaica,New York,United States,0,1
+350,Trupe,Homewood,New York City,New York,United States,0,1
+351,Devify,Cottonwood,New York City,New York,United States,1,1
+352,Voolia,Russell,Buffalo,New York,United States,0,2
+353,Realcube,American Ash,Albany,New York,United States,0,2
+354,Kwimbee,Express,Rochester,New York,United States,1,1
+355,Mycat,Debra,New York City,New York,United States,1,2
+356,Jabberbean,Warbler,New Hyde Park,New York,United States,1,1
+357,Jetwire,Springs,Jamaica,New York,United States,1,1
+358,Myworks,Granby,New York City,New York,United States,0,1
+359,Thoughtmix,Manufacturers,Great Neck,New York,United States,0,2
+360,Feedspan,Thompson,New York City,New York,United States,0,1
+361,Feednation,Bayside,New York City,New York,United States,0,2
+362,Babblestorm,Clove,Rochester,New York,United States,0,1
+363,Skinder,Wayridge,New York City,New York,United States,0,2
+364,Rhybox,Anzinger,Rochester,New York,United States,1,2
+365,Lazzy,Brickson Park,Bronx,New York,United States,1,2
+366,Wikivu,Loomis,Bronx,New York,United States,1,2
+367,Thoughtmix,Texas,Rochester,New York,United States,0,1
+368,Zooveo,School,Buffalo,New York,United States,1,1
+369,Edgeify,Derek,Port Washington,New York,United States,1,1
+370,Eimbee,Crescent Oaks,Albany,New York,United States,0,1
+371,Centimia,Melvin,New York City,New York,United States,0,2
+372,Yodoo,Beilfuss,New York City,New York,United States,0,2
+373,Riffpath,Schlimgen,Brooklyn,New York,United States,1,1
+374,Trilith,Emmet,Rochester,New York,United States,0,1
+375,Wordware,Portage,Buffalo,New York,United States,1,1
+376,Reallinks,Hansons,Flushing,New York,United States,1,1
+377,Jaloo,Burning Wood,Staten Island,New York,United States,1,1
+378,Flipbug,Armistice,Flushing,New York,United States,1,1
+379,Mynte,Eagan,New York City,New York,United States,0,1
+380,Buzzster,International,Albany,New York,United States,1,1
+381,Kayveo,Nova,Jamaica,New York,United States,0,2
+382,Browsezoom,Old Shore,Jamaica,New York,United States,1,2
+383,Twitterbridge,Hazelcrest,Brooklyn,New York,United States,1,1
+384,Aimbu,Susan,Albany,New York,United States,1,2
+385,Aivee,Ludington,Rochester,New York,United States,0,1
+386,Feedbug,Lerdahl,Jamaica,New York,United States,0,1
+387,Livetube,Shasta,New York City,New York,United States,0,1
+388,Skyvu,Barnett,New York City,New York,United States,0,2
+389,Thoughtbeat,Atwood,New York City,New York,United States,1,2
+390,Linkbuzz,Reinke,Jamaica,New York,United States,1,2
+391,Mybuzz,Everett,Brooklyn,New York,United States,0,2
+392,Rhybox,Caliangt,Jamaica,New York,United States,0,1
+393,Dabvine,Badeau,Brooklyn,New York,United States,1,1
+394,Babbleopia,Doe Crossing,Flushing,New York,United States,0,1
+395,Yakitri,Redwing,New York City,New York,United States,1,2
+396,Jaxbean,Laurel,Brooklyn,New York,United States,1,2
+397,Vidoo,Roth,Buffalo,New York,United States,0,2
+398,Yambee,Weeping Birch,Buffalo,New York,United States,1,1
+399,Youspan,Eagle Crest,New York City,New York,United States,0,1
+400,Bubblemix,Birchwood,Buffalo,New York,United States,1,2
+401,Yozio,John Wall,Jamaica,New York,United States,0,1
+402,Quinu,Ilene,Rochester,New York,United States,1,1
+403,Dynabox,Montana,Bronx,New York,United States,1,2
+404,Twitterbridge,8th,Rochester,New York,United States,1,2
+405,Jabbercube,American,Jamaica,New York,United States,1,1
+406,Mita,Holy Cross,New York City,New York,United States,0,1
+407,Bluejam,Autumn Leaf,New York City,New York,United States,1,2
+408,Skivee,Dovetail,Elmira,New York,United States,1,1
+409,Kwimbee,Tennyson,New York City,New York,United States,1,2
+410,Realpoint,Granby,New York City,New York,United States,0,2
+411,Viva,Butterfield,Rochester,New York,United States,0,1
+412,Yombu,Washington,Staten Island,New York,United States,0,2
+413,Realbridge,Duke,Jamaica,New York,United States,1,2
+414,Oozz,Debs,Great Neck,New York,United States,0,1
+415,Babbleopia,Continental,New York City,New York,United States,1,2
+416,Layo,Hooker,Brooklyn,New York,United States,1,1
+417,Buzzster,Acker,New York City,New York,United States,1,2
+418,Youbridge,Namekagon,Buffalo,New York,United States,1,1
+419,Skinix,Buena Vista,Bronx,New York,United States,1,1
+420,Kwinu,Cherokee,New York City,New York,United States,0,1
+421,Tagfeed,Hovde,Albany,New York,United States,1,1
+422,Feedbug,Corry,New York City,New York,United States,1,1
+423,Pixonyx,5th,Jamaica,New York,United States,1,2
+424,Skimia,Randy,Schenectady,New York,United States,0,2
+425,Lajo,Victoria,Albany,New York,United States,1,2
+426,Kimia,Springs,New Hyde Park,New York,United States,0,2
+427,Eazzy,Havey,Buffalo,New York,United States,0,2
+428,Kare,Prairie Rose,New York City,New York,United States,1,2
+429,Youbridge,Linden,Bronx,New York,United States,1,1
+430,Wordify,6th,New York City,New York,United States,0,2
+431,Roomm,Sachs,Buffalo,New York,United States,1,2
+432,Oyope,Debra,Rochester,New York,United States,1,2
+433,Quimm,Dawn,Buffalo,New York,United States,0,2
+434,Jabbersphere,Victoria,New York City,New York,United States,1,2
+435,Zoomdog,Forster,New York City,New York,United States,0,1
+436,Dablist,Mesta,New York City,New York,United States,0,2
+437,Meezzy,Melody,Staten Island,New York,United States,1,2
+438,Youopia,Sommers,Jamaica,New York,United States,0,1
+439,Linkbuzz,Iowa,New York City,New York,United States,0,2
+440,Babbleset,Marcy,Schenectady,New York,United States,0,2
+441,Quatz,Bultman,Jamaica,New York,United States,0,2
+442,Devify,Oneill,Buffalo,New York,United States,1,2
+443,Jaxnation,Bonner,New York City,New York,United States,1,1
+444,Dabjam,Hudson,Albany,New York,United States,0,1
+445,Blogtags,Buena Vista,New York City,New York,United States,1,2
+446,Avaveo,Ilene,New York City,New York,United States,0,1
+447,Mudo,Saint Paul,Flushing,New York,United States,0,1
+448,Yabox,Lindbergh,Schenectady,New York,United States,1,2
+449,Shuffledrive,International,Brooklyn,New York,United States,0,1
+450,Bubblebox,High Crossing,New York City,New York,United States,1,2
+451,Bluejam,Talisman,Flushing,New York,United States,1,1
+452,Meeveo,Arrowood,Rochester,New York,United States,0,1
+453,Oyoloo,Bonner,Buffalo,New York,United States,1,1
+454,Lajo,Huxley,Port Washington,New York,United States,0,2
+455,Bubblemix,Porter,New York City,New York,United States,1,1
+456,Plambee,Everett,Brooklyn,New York,United States,1,1
+457,Twiyo,Basil,Yonkers,New York,United States,1,2
+458,Tagfeed,Iowa,Rochester,New York,United States,0,1
+459,Lazzy,Ramsey,New York City,New York,United States,1,2
+460,Yakijo,Mayer,New York City,New York,United States,1,2
+461,Yakijo,Norway Maple,New York City,New York,United States,0,2
+462,Feedfire,Rusk,Bronx,New York,United States,1,2
+463,Tavu,Acker,New York City,New York,United States,0,1
+464,Wordify,Sugar,Elmira,New York,United States,0,1
+465,Oozz,Cordelia,Rochester,New York,United States,0,1
+466,Browsebug,Spaight,Brooklyn,New York,United States,0,1
+467,Voonder,Hansons,Brooklyn,New York,United States,0,2
+468,Roomm,Lakewood,Jamaica,New York,United States,1,1
+469,Leenti,Crownhardt,Flushing,New York,United States,1,1
+470,Youspan,Laurel,Brooklyn,New York,United States,1,2
+471,Ntag,Dennis,Rochester,New York,United States,0,2
+472,Centimia,Heffernan,New York City,New York,United States,0,2
+473,Eidel,Declaration,Albany,New York,United States,0,1
+474,Tambee,Village,Brooklyn,New York,United States,0,2
+475,Aibox,Bunting,Rochester,New York,United States,1,1
+476,Podcat,Forest,Brooklyn,New York,United States,1,1
+477,Zoovu,Shasta,Hicksville,New York,United States,1,1
+478,Vitz,Atwood,New York City,New York,United States,1,1
+479,Oyope,Forest,Bronx,New York,United States,1,2
+480,Babbleblab,Northland,New York City,New York,United States,1,2
+481,Avamba,Lakeland,New York City,New York,United States,1,1
+482,Yodo,Walton,Brooklyn,New York,United States,0,1
+483,Feedmix,Blaine,Brooklyn,New York,United States,0,2
+484,Eidel,Sachs,Bronx,New York,United States,1,1
+485,Lazzy,Rigney,New York City,New York,United States,0,1
+486,Fliptune,Roth,New York City,New York,United States,0,2
+487,Demizz,Anzinger,New York City,New York,United States,0,2
+488,Realmix,Pleasure,New York City,New York,United States,0,2
+489,Feedfish,4th,Bronx,New York,United States,1,1
+490,Mudo,Esker,Jamaica,New York,United States,1,1
+491,Yoveo,Portage,Jamaica,New York,United States,1,1
+492,Topdrive,Huxley,Hicksville,New York,United States,0,2
+493,Kazu,Oriole,Bronx,New York,United States,0,1
+494,Tekfly,Barnett,New York City,New York,United States,0,2
+495,Eadel,Quincy,Yonkers,New York,United States,0,2
+496,Realmix,South,Staten Island,New York,United States,0,1
+497,Vidoo,Carey,Rochester,New York,United States,0,2
+498,Thoughtworks,Ridgeview,Rochester,New York,United States,1,2
+499,Oyoyo,Cordelia,New York City,New York,United States,0,1
+500,Skibox,Melvin,Jamaica,New York,United States,1,2
+501,Fanoodle,Roth,Buffalo,New York,United States,0,1
+502,Yoveo,Milwaukee,Albany,New York,United States,1,1
+503,Twitterbeat,Del Mar,New York City,New York,United States,1,1
+504,Gigabox,Old Shore,Yonkers,New York,United States,1,1
+505,Twitterworks,Nobel,Albany,New York,United States,1,1
+506,Yambee,Rowland,New York City,New York,United States,1,2
+507,Devpulse,Elka,New York City,New York,United States,0,1
+508,Eare,Gale,New Hyde Park,New York,United States,0,1
+509,Zooxo,Westerfield,Brooklyn,New York,United States,0,2
+510,Kaymbo,International,Buffalo,New York,United States,1,1
+511,Mydeo,Donald,Port Washington,New York,United States,0,1
+512,Kimia,Emmet,Yonkers,New York,United States,1,1
+513,Centizu,Manley,Albany,New York,United States,1,2
+514,Ooba,Anderson,Rochester,New York,United States,0,2
+515,Wikizz,Lerdahl,New York City,New York,United States,0,2
+516,Oba,Rowland,New York City,New York,United States,0,1
+517,Babbleset,Derek,Rochester,New York,United States,1,1
+518,Yata,Tennessee,Hicksville,New York,United States,0,2
+519,Zazio,Kennedy,New York City,New York,United States,0,1
+520,Realcube,Porter,Jamaica,New York,United States,0,2
+521,Vinte,Shoshone,Brooklyn,New York,United States,0,1
+522,Jabbertype,Melvin,Brooklyn,New York,United States,1,1
+523,Roodel,East,Hicksville,New York,United States,1,2
+524,Twitterworks,Eggendart,Syracuse,New York,United States,1,2
+525,Chatterbridge,Carberry,Jamaica,New York,United States,0,2
+526,Skynoodle,Merrick,New York City,New York,United States,0,1
+527,Meejo,Randy,New York City,New York,United States,1,1
+528,Skajo,Golf,New Hyde Park,New York,United States,1,2
+529,Trunyx,Sachtjen,Rochester,New York,United States,1,1
+530,Tekfly,Scoville,Albany,New York,United States,1,2
+531,Trudeo,Kim,Buffalo,New York,United States,0,2
+532,Feedfire,Scott,New York City,New York,United States,1,1
+533,Abatz,Dixon,Rochester,New York,United States,0,1
+534,Oodoo,Dorton,New York City,New York,United States,0,2
+535,Aimbu,8th,New York City,New York,United States,1,1
+536,Centizu,Crescent Oaks,Jamaica,New York,United States,0,1
+537,Jabberstorm,Schmedeman,New York City,New York,United States,0,2
+538,Roodel,Banding,Staten Island,New York,United States,1,1
+539,Twitternation,Eastlawn,Buffalo,New York,United States,1,1
+540,Livefish,Sutherland,Brooklyn,New York,United States,0,2
+541,Podcat,East,Albany,New York,United States,0,1
+542,Eamia,Debra,New York City,New York,United States,0,2
+543,Photofeed,Talisman,New York City,New York,United States,0,1
+544,Quaxo,Oriole,Jamaica,New York,United States,1,2
+545,Zoonoodle,Golf,Brooklyn,New York,United States,0,2
+546,Fadeo,Butterfield,Staten Island,New York,United States,1,1
+547,Tagopia,Mayer,Brooklyn,New York,United States,1,2
+548,Gabvine,Fisk,Albany,New York,United States,1,2
+549,Thoughtbeat,Upham,Jamaica,New York,United States,0,1
+550,Dabtype,Helena,Brooklyn,New York,United States,0,2
+551,Thoughtstorm,Sommers,New Hyde Park,New York,United States,1,1
+552,Teklist,Chinook,Brooklyn,New York,United States,1,2
+553,Divape,Scott,New York City,New York,United States,1,2
+554,Miboo,Melvin,Jamaica,New York,United States,1,1
+555,Jabbersphere,Village Green,Rochester,New York,United States,1,2
+556,Yabox,Manufacturers,Buffalo,New York,United States,0,1
+557,Voonix,Mandrake,New York City,New York,United States,1,2
+558,Meeveo,Nelson,Rochester,New York,United States,0,1
+559,Gabcube,Anniversary,New York City,New York,United States,1,2
+560,Cogilith,Twin Pines,Flushing,New York,United States,0,1
+561,Edgewire,Stephen,Rochester,New York,United States,1,2
+562,Latz,Birchwood,Brooklyn,New York,United States,0,2
+563,Lajo,Russell,New York City,New York,United States,1,2
+564,Youspan,Merry,New York City,New York,United States,1,2
+565,Topicshots,Columbus,Rochester,New York,United States,0,1
+566,Photobug,Delladonna,Flushing,New York,United States,0,2
+567,Oyonder,Warner,Brooklyn,New York,United States,1,2
+568,Twiyo,Toban,Port Washington,New York,United States,1,1
+569,Avavee,Ryan,Buffalo,New York,United States,0,2
+570,Meedoo,Corscot,Albany,New York,United States,0,1
+571,Pixonyx,Larry,New York City,New York,United States,0,2
+572,Fatz,Springview,Brooklyn,New York,United States,0,2
+573,Rhybox,Blaine,New York City,New York,United States,1,1
+574,Roombo,Killdeer,Staten Island,New York,United States,1,2
+575,Meevee,Roth,New York City,New York,United States,0,2
+576,Thoughtbeat,Kenwood,Jamaica,New York,United States,0,1
+577,Twitternation,Clarendon,New York City,New York,United States,1,1
+578,Snaptags,Del Sol,New York City,New York,United States,1,2
+579,Jabberbean,Schlimgen,Bronx,New York,United States,1,2
+580,Flashdog,Anniversary,New York City,New York,United States,0,2
+581,Einti,Annamark,Buffalo,New York,United States,1,2
+582,Thoughtbridge,Thierer,Jamaica,New York,United States,1,1
+583,Twitterwire,Muir,Buffalo,New York,United States,0,2
+584,Fivebridge,Melrose,Syracuse,New York,United States,1,2
+585,Realmix,Bultman,New York City,New York,United States,1,2
+586,Einti,Glacier Hill,Albany,New York,United States,0,2
+587,Realfire,Warrior,Jamaica,New York,United States,1,1
+588,Voolith,Boyd,Syracuse,New York,United States,0,1
+589,Yotz,Fordem,Rochester,New York,United States,0,1
+590,Skajo,Stone Corner,New York City,New York,United States,0,2
+591,Browsetype,Helena,Buffalo,New York,United States,0,1
+592,Avavee,Vahlen,Albany,New York,United States,0,2
+593,Jabbercube,Arizona,Jamaica,New York,United States,1,2
+594,Demimbu,Mitchell,New York City,New York,United States,0,2
+595,Zoomdog,Carioca,Yonkers,New York,United States,0,1
+596,Bluejam,Bluejay,Albany,New York,United States,1,2
+597,Oyoba,Old Shore,Albany,New York,United States,0,1
+598,Oodoo,Manufacturers,Brooklyn,New York,United States,1,2
+599,Trudoo,Kings,Rochester,New York,United States,1,2
+600,Fadeo,Jay,Bronx,New York,United States,0,1
+601,Wikivu,Becker,Brooklyn,New York,United States,1,2
+602,Skiptube,North,Rochester,New York,United States,0,2
+603,Avamm,Lawn,Hicksville,New York,United States,1,1
+604,Quinu,Morningstar,Bronx,New York,United States,0,1
+605,Nlounge,Cardinal,Bronx,New York,United States,0,2
+606,Skiptube,Esker,Hicksville,New York,United States,1,2
+607,Leenti,Village Green,New York City,New York,United States,1,1
+608,Kwinu,Burning Wood,Hicksville,New York,United States,1,2
+609,Ailane,Burrows,New York City,New York,United States,1,1
+610,Meeveo,Oxford,Albany,New York,United States,0,1
+611,Gabtune,Elmside,Jamaica,New York,United States,0,1
+612,Photofeed,Dakota,Jamaica,New York,United States,1,2
+613,Bluejam,Buhler,Brooklyn,New York,United States,0,1
+614,Zoombox,Northwestern,Bronx,New York,United States,1,1
+615,Skyvu,Kennedy,New Hyde Park,New York,United States,1,1
+616,Realblab,Manley,Buffalo,New York,United States,1,2
+617,Zoombeat,Elgar,Brooklyn,New York,United States,0,1
+618,Layo,6th,Staten Island,New York,United States,1,2
+619,Feedfire,Golf View,Great Neck,New York,United States,0,1
+620,Gigazoom,Mifflin,Jamaica,New York,United States,0,1
+621,Avamm,Main,Brooklyn,New York,United States,0,1
+622,Omba,Fuller,Albany,New York,United States,1,1
+623,Thoughtbeat,Milwaukee,Flushing,New York,United States,0,2
+624,Browsecat,Canary,New Hyde Park,New York,United States,1,2
+625,Kazio,Southridge,New York City,New York,United States,0,1
+626,Shuffledrive,Merry,New York City,New York,United States,0,1
+627,Skilith,Melby,Jamaica,New York,United States,0,2
+628,Devpulse,Hayes,Rochester,New York,United States,1,1
+629,Shuffledrive,Anniversary,New York City,New York,United States,1,2
+630,Dynabox,Milwaukee,New York City,New York,United States,0,2
+631,Photobug,School,Flushing,New York,United States,1,2
+632,Blogtag,Lawn,New York City,New York,United States,1,2
+633,Zooxo,Golf Course,Schenectady,New York,United States,1,1
+634,Dablist,Moulton,Rochester,New York,United States,1,1
+635,Yodoo,Bunker Hill,Bronx,New York,United States,1,2
+636,Thoughtblab,Vermont,Flushing,New York,United States,1,1
+637,Zooxo,Jenna,Staten Island,New York,United States,0,1
+638,Brightdog,Trailsway,Albany,New York,United States,0,1
+639,Trupe,Montana,Albany,New York,United States,0,2
+640,Eidel,Barby,New York City,New York,United States,1,1
+641,Tagpad,Kropf,Staten Island,New York,United States,0,1
+642,Chatterpoint,Golden Leaf,Albany,New York,United States,1,1
+643,Wikizz,Pleasure,Brooklyn,New York,United States,0,2
+644,Rhynyx,Kensington,Rochester,New York,United States,1,1
+645,Lazzy,Mandrake,Brooklyn,New York,United States,0,2
+646,Feedfish,Melby,Port Washington,New York,United States,1,2
+647,JumpXS,Forster,Rochester,New York,United States,1,2
+648,Jaxspan,Farragut,Jamaica,New York,United States,0,2
+649,Photospace,Reinke,Yonkers,New York,United States,0,1
+650,Gabspot,Northwestern,Buffalo,New York,United States,1,2
+651,Kayveo,Oak,New York City,New York,United States,1,2
+652,Jatri,Northview,Rochester,New York,United States,1,1
+653,Mybuzz,Gateway,Albany,New York,United States,1,2
+654,Jabbersphere,Gateway,New York City,New York,United States,0,1
+655,Voonder,Sachtjen,Bronx,New York,United States,1,2
+656,Twimm,Mayer,New York City,New York,United States,1,2
+657,Katz,Bonner,Staten Island,New York,United States,1,1
+658,Livefish,Walton,Jamaica,New York,United States,1,1
+659,Youbridge,Straubel,Staten Island,New York,United States,0,1
+660,Shuffletag,Upham,Rochester,New York,United States,1,2
+661,Yambee,Melrose,Bronx,New York,United States,0,1
+662,Realcube,Pearson,Syracuse,New York,United States,1,1
+663,Yombu,Calypso,Rochester,New York,United States,1,1
+664,Dabtype,Butternut,Brooklyn,New York,United States,0,2
+665,Tagpad,Kropf,New York City,New York,United States,1,2
+666,Oyondu,Hauk,Staten Island,New York,United States,1,1
+667,Jabberstorm,Myrtle,Brooklyn,New York,United States,0,2
+668,Wikivu,Continental,Rochester,New York,United States,0,1
+669,Skibox,Morrow,Jamaica,New York,United States,1,2
+670,Divanoodle,Westend,New York City,New York,United States,0,2
+671,Eidel,Gina,Syracuse,New York,United States,0,1
+672,Feednation,Westerfield,Jamaica,New York,United States,0,1
+673,Quinu,Fulton,Rochester,New York,United States,1,2
+674,Pixope,Sloan,Rochester,New York,United States,0,2
+675,Demizz,Iowa,New York City,New York,United States,1,2
+676,Quinu,Brown,Jamaica,New York,United States,1,1
+677,Topicblab,Declaration,Rochester,New York,United States,1,1
+678,Yozio,Sugar,Rochester,New York,United States,0,1
+679,Quatz,Logan,Brooklyn,New York,United States,1,1
+680,Babbleset,Debs,Brooklyn,New York,United States,0,2
+681,Realcube,Melrose,New York City,New York,United States,1,1
+682,Wordtune,Maywood,New York City,New York,United States,1,2
+683,Photolist,Kings,Staten Island,New York,United States,0,1
+684,Kamba,Burrows,Buffalo,New York,United States,0,1
+685,Skinix,Eliot,Rochester,New York,United States,0,2
+686,Yakidoo,Forest,New York City,New York,United States,1,1
+687,Dynabox,Hintze,New York City,New York,United States,1,1
+688,Wordtune,Arapahoe,Elmira,New York,United States,0,2
+689,Fivespan,Tomscot,Albany,New York,United States,1,2
+690,Quinu,Old Gate,Yonkers,New York,United States,0,1
+691,Blogpad,Rusk,New York City,New York,United States,1,1
+692,Jazzy,Shopko,Flushing,New York,United States,1,2
+693,Gigashots,Rockefeller,Port Washington,New York,United States,0,2
+694,Bluezoom,Transport,New York City,New York,United States,1,2
+695,Quatz,Westridge,Brooklyn,New York,United States,1,1
+696,BlogXS,Granby,Buffalo,New York,United States,1,1
+697,Centidel,Comanche,Bronx,New York,United States,0,1
+698,Rooxo,Summerview,Rochester,New York,United States,0,2
+699,Skilith,Grim,Jamaica,New York,United States,0,2
+700,Quatz,Mitchell,New York City,New York,United States,0,1
+701,Npath,Kipling,Great Neck,New York,United States,1,1
+702,Skaboo,Meadow Ridge,Albany,New York,United States,1,1
+703,Eazzy,Raven,Flushing,New York,United States,1,1
+704,Lajo,Southridge,New York City,New York,United States,0,1
+705,Skiptube,Brickson Park,Bronx,New York,United States,0,2
+706,Dabjam,Claremont,Jamaica,New York,United States,0,1
+707,Skajo,Gulseth,New York City,New York,United States,1,1
+708,Roodel,Tennessee,Jamaica,New York,United States,0,1
+709,Trunyx,Moland,Jamaica,New York,United States,0,2
+710,Cogibox,Kedzie,Rochester,New York,United States,0,2
+711,JumpXS,Westridge,New York City,New York,United States,1,1
+712,Plambee,Sage,New York City,New York,United States,1,1
+713,Yadel,Nova,Schenectady,New York,United States,0,2
+714,Mudo,Anniversary,Albany,New York,United States,1,1
+715,Eimbee,Shoshone,Port Washington,New York,United States,0,2
+716,Dynabox,Goodland,Jamaica,New York,United States,1,2
+717,Digitube,Corry,Brooklyn,New York,United States,1,2
+718,Jatri,Mcbride,New York City,New York,United States,0,1
+719,Skivee,Elmside,Port Washington,New York,United States,1,1
+720,Minyx,Bonner,Brooklyn,New York,United States,0,2
+721,Thoughtbeat,Cascade,Jamaica,New York,United States,1,1
+722,Devbug,Green,New York City,New York,United States,0,1
+723,Zoomzone,Forest Dale,Albany,New York,United States,0,2
+724,Zooxo,Kropf,Jamaica,New York,United States,0,2
+725,Vinte,Gale,Albany,New York,United States,0,1
+726,Edgewire,Walton,New York City,New York,United States,0,1
+727,Rooxo,Utah,Buffalo,New York,United States,1,1
+728,Agivu,Barby,Elmira,New York,United States,1,1
+729,Brainverse,Jay,Staten Island,New York,United States,1,2
+730,Brainlounge,Cambridge,Staten Island,New York,United States,0,1
+731,Tagchat,Hovde,Buffalo,New York,United States,1,2
+732,Zooxo,Golden Leaf,New York City,New York,United States,0,2
+733,Brightdog,Fallview,Albany,New York,United States,0,1
+734,Tagopia,Sullivan,New York City,New York,United States,0,1
+735,Roomm,Stang,New York City,New York,United States,0,2
+736,Agimba,Mayer,New York City,New York,United States,0,1
+737,Kwimbee,Gina,Brooklyn,New York,United States,1,2
+738,Flipstorm,Farwell,Buffalo,New York,United States,0,2
+739,Jetwire,Oak Valley,New York City,New York,United States,1,1
+740,Trudoo,Lukken,Albany,New York,United States,0,1
+741,Topdrive,Dorton,Bronx,New York,United States,0,1
+742,Yamia,Pennsylvania,New York City,New York,United States,1,1
+743,Izio,Sheridan,New York City,New York,United States,1,1
+744,Eimbee,Gulseth,Staten Island,New York,United States,1,2
+745,Twitternation,Barby,New York City,New York,United States,1,2
+746,Dabfeed,Oneill,New York City,New York,United States,0,2
+747,Divape,Beilfuss,Jamaica,New York,United States,0,1
+748,Flipopia,Bartelt,New Hyde Park,New York,United States,0,1
+749,Ooba,Moose,New Hyde Park,New York,United States,0,1
+750,Fliptune,Lawn,New York City,New York,United States,1,1
+751,Devpulse,Dorton,New York City,New York,United States,1,1
+752,Meedoo,Menomonie,New York City,New York,United States,1,1
+753,Mydo,Debra,Brooklyn,New York,United States,1,1
+754,Devpoint,Kenwood,Bronx,New York,United States,1,2
+755,Tazzy,Pennsylvania,Bronx,New York,United States,0,1
+756,Yakijo,Lakewood Gardens,Brooklyn,New York,United States,1,2
+757,Edgeblab,Karstens,Yonkers,New York,United States,0,1
+758,Browseblab,Vermont,New York City,New York,United States,1,1
+759,Photobean,Hudson,Buffalo,New York,United States,0,1
+760,Jaxbean,Charing Cross,Rochester,New York,United States,1,2
+761,Realpoint,Esch,New York City,New York,United States,1,2
+762,Photofeed,Gale,New York City,New York,United States,0,1
+763,Realpoint,Cascade,Hicksville,New York,United States,1,2
+764,Browsebug,Mcguire,New York City,New York,United States,0,1
+765,Latz,Redwing,Bronx,New York,United States,1,2
+766,Topicware,Hazelcrest,Jamaica,New York,United States,1,2
+767,Voonix,Jay,Schenectady,New York,United States,0,2
+768,Tanoodle,Oakridge,Flushing,New York,United States,0,2
+769,Leenti,Twin Pines,New York City,New York,United States,1,1
+770,Realpoint,Muir,New York City,New York,United States,1,2
+771,Skyba,Pawling,Buffalo,New York,United States,1,2
+772,Demivee,Riverside,Rochester,New York,United States,0,1
+773,Dynazzy,Kenwood,Jamaica,New York,United States,1,2
+774,Brainlounge,Novick,Rochester,New York,United States,1,2
+775,Leenti,Talmadge,New York City,New York,United States,1,1
+776,Kimia,Glendale,Rochester,New York,United States,1,1
+777,Eabox,Almo,Jamaica,New York,United States,0,1
+778,Oyonder,Hoard,New York City,New York,United States,1,1
+779,Ntag,Hudson,New York City,New York,United States,1,1
+780,Blogtag,Coolidge,Bronx,New York,United States,0,1
+781,Quinu,Donald,Jamaica,New York,United States,0,2
+782,Bluezoom,Buhler,Yonkers,New York,United States,1,1
+783,Brightbean,Bellgrove,New York City,New York,United States,0,1
+784,Zoomzone,Southridge,Schenectady,New York,United States,1,1
+785,Photolist,Riverside,New York City,New York,United States,0,2
+786,Devify,Eliot,New York City,New York,United States,0,1
+787,Demimbu,Mcguire,New York City,New York,United States,1,2
+788,Tavu,Lighthouse Bay,Brooklyn,New York,United States,1,2
+789,Skipfire,Commercial,New York City,New York,United States,0,1
+790,Avaveo,Independence,Yonkers,New York,United States,0,1
+791,Gevee,Gateway,Rochester,New York,United States,0,1
+792,Rhyloo,Dayton,New York City,New York,United States,0,2
+793,Eayo,Heath,Bronx,New York,United States,0,1
+794,Yoveo,Eliot,Rochester,New York,United States,1,1
+795,Youspan,Lake View,Staten Island,New York,United States,0,2
+796,Quatz,Shelley,Great Neck,New York,United States,0,2
+797,Jabbersphere,Straubel,Rochester,New York,United States,0,1
+798,Yoveo,Bashford,New Hyde Park,New York,United States,1,2
+799,Bluejam,Bashford,Rochester,New York,United States,0,2
+800,Livetube,Oakridge,Buffalo,New York,United States,0,1
+801,Skivee,Schlimgen,Rochester,New York,United States,1,1
+802,Vinte,Rockefeller,New Hyde Park,New York,United States,1,2
+803,Thoughtbridge,Westridge,New York City,New York,United States,0,1
+804,Centimia,Harper,Albany,New York,United States,0,1
+805,Fivebridge,Truax,New York City,New York,United States,0,1
+806,Ailane,Doe Crossing,New Hyde Park,New York,United States,1,1
+807,Zoonoodle,Brickson Park,Brooklyn,New York,United States,1,2
+808,Livetube,Sachs,Jamaica,New York,United States,0,1
+809,Oyondu,Oak,Staten Island,New York,United States,0,2
+810,Realfire,Oriole,Rochester,New York,United States,1,1
+811,Devpoint,Kipling,Bronx,New York,United States,0,1
+812,Livetube,Holmberg,Buffalo,New York,United States,1,1
+813,Centidel,Buena Vista,Bronx,New York,United States,1,2
+814,Demimbu,Clemons,New York City,New York,United States,1,1
+815,Zoonder,Dayton,Buffalo,New York,United States,1,1
+816,Twitterlist,Clemons,Brooklyn,New York,United States,0,2
+817,Thoughtbridge,Clemons,Rochester,New York,United States,1,2
+818,Jaxspan,Pankratz,Port Washington,New York,United States,0,2
+819,Thoughtstorm,Briar Crest,New York City,New York,United States,0,1
+820,Tagtune,Fairfield,Brooklyn,New York,United States,0,2
+821,Kayveo,Thierer,Buffalo,New York,United States,1,1
+822,Ailane,Vera,New York City,New York,United States,0,2
+823,Flipopia,7th,Bronx,New York,United States,0,2
+824,Snaptags,Summerview,New York City,New York,United States,0,2
+825,Skinder,Fieldstone,Buffalo,New York,United States,1,1
+826,Meetz,Thierer,Syracuse,New York,United States,0,1
+827,Wikizz,Thompson,Brooklyn,New York,United States,1,2
+828,Jaxbean,Haas,Rochester,New York,United States,0,2
+829,Yoveo,Clove,Rochester,New York,United States,1,2
+830,Kayveo,Anniversary,New York City,New York,United States,1,2
+831,Kaymbo,Pearson,Rochester,New York,United States,0,2
+832,Browsecat,Brickson Park,Schenectady,New York,United States,0,1
+833,Podcat,Clemons,Syracuse,New York,United States,1,1
+834,Feednation,Maywood,Schenectady,New York,United States,1,2
+835,Wordpedia,Commercial,New Hyde Park,New York,United States,1,2
+836,Yakitri,West,Rochester,New York,United States,0,1
+837,Gigaclub,Sunnyside,Bronx,New York,United States,0,1
+838,Topdrive,Rowland,New York City,New York,United States,1,1
+839,Bluezoom,Hagan,New York City,New York,United States,1,2
+840,Trunyx,Becker,Yonkers,New York,United States,1,1
+841,Brightdog,Northland,New York City,New York,United States,0,1
+842,Jabberbean,Corscot,New York City,New York,United States,1,2
+843,Eabox,Red Cloud,Jamaica,New York,United States,1,2
+844,Zoomzone,Spenser,Port Washington,New York,United States,0,2
+845,Jaxbean,Stuart,Brooklyn,New York,United States,1,1
+846,Centizu,Meadow Vale,New York City,New York,United States,1,1
+847,Dabtype,Village,Brooklyn,New York,United States,1,2
+848,Kazu,Northwestern,Brooklyn,New York,United States,0,1
+849,Jabbercube,Shasta,Schenectady,New York,United States,0,1
+850,Eare,Hermina,New York City,New York,United States,1,1
+851,Meevee,Packers,Jamaica,New York,United States,0,1
+852,Shuffledrive,Hollow Ridge,New York City,New York,United States,0,2
+853,Eayo,Old Shore,Bronx,New York,United States,1,2
+854,Livepath,Truax,New York City,New York,United States,0,1
+855,Babbleset,Oxford,Elmira,New York,United States,1,1
+856,Oozz,Comanche,Schenectady,New York,United States,0,1
+857,Dabtype,Pepper Wood,Elmira,New York,United States,1,1
+858,Gigabox,Riverside,New York City,New York,United States,1,1
+859,Muxo,2nd,Brooklyn,New York,United States,0,2
+860,Wordtune,Di Loreto,Jamaica,New York,United States,0,2
+861,Feedspan,Granby,New York City,New York,United States,0,2
+862,Ainyx,Lukken,New York City,New York,United States,1,1
+863,Izio,Summer Ridge,Port Washington,New York,United States,1,1
+864,Kwilith,Northport,New Hyde Park,New York,United States,1,2
+865,Flashspan,Melby,New York City,New York,United States,0,1
+866,Kwimbee,7th,Brooklyn,New York,United States,1,1
+867,Twitternation,Cardinal,New York City,New York,United States,0,1
+868,Wordtune,Walton,New York City,New York,United States,0,1
+869,Bubblebox,Dawn,Hicksville,New York,United States,1,1
+870,Chatterpoint,Morningstar,New York City,New York,United States,1,2
+871,Brainsphere,Holmberg,Rochester,New York,United States,1,2
+872,Gigabox,Forest Dale,Flushing,New York,United States,1,2
+873,Divape,Park Meadow,Rochester,New York,United States,1,2
+874,Nlounge,Lillian,Buffalo,New York,United States,0,1
+875,Youtags,Lillian,Port Washington,New York,United States,1,2
+876,Blogpad,Lillian,Brooklyn,New York,United States,0,2
+877,Demivee,Ridge Oak,Albany,New York,United States,0,1
+878,Blogtags,North,New York City,New York,United States,0,2
+879,Linklinks,Clemons,Staten Island,New York,United States,0,1
+880,Meembee,Leroy,Albany,New York,United States,0,2
+881,Layo,Mitchell,New York City,New York,United States,1,1
+882,Skivee,Holmberg,New York City,New York,United States,1,2
+883,Twitterbeat,Bultman,Rochester,New York,United States,1,2
+884,Geba,Melby,Bronx,New York,United States,0,1
+885,Gigaclub,Summer Ridge,Jamaica,New York,United States,1,2
+886,Thoughtstorm,Melvin,Jamaica,New York,United States,1,1
+887,Flipstorm,Shoshone,Rochester,New York,United States,0,1
+888,Eadel,Maryland,New York City,New York,United States,1,1
+889,Eidel,Merrick,Bronx,New York,United States,0,1
+890,Devshare,Northridge,Bronx,New York,United States,0,1
+891,Shufflebeat,Goodland,Buffalo,New York,United States,0,1
+892,Gigazoom,Jenifer,Rochester,New York,United States,0,1
+893,Shuffledrive,Judy,New York City,New York,United States,0,2
+894,Pixonyx,Warbler,New York City,New York,United States,1,1
+895,Divanoodle,Graedel,Albany,New York,United States,0,2
+896,Roodel,Melody,New York City,New York,United States,0,2
+897,Skipfire,Melby,New York City,New York,United States,0,1
+898,Meetz,Pennsylvania,New York City,New York,United States,0,2
+899,Gabtype,Moose,New York City,New York,United States,0,1
+900,Skynoodle,Helena,New York City,New York,United States,1,2
+901,Trudoo,Hazelcrest,Brooklyn,New York,United States,1,2
+902,Twinte,Elka,Rochester,New York,United States,1,1
+903,Muxo,Bobwhite,Hicksville,New York,United States,0,2
+904,Thoughtbridge,Calypso,Rochester,New York,United States,0,1
+905,Eimbee,Bonner,Staten Island,New York,United States,0,1
+906,Agimba,Northwestern,Elmira,New York,United States,1,1
+907,Wordpedia,Bowman,New York City,New York,United States,0,2
+908,Lazz,Truax,Bronx,New York,United States,0,1
+909,Jabbersphere,6th,Brooklyn,New York,United States,1,2
+910,Geba,Warner,Brooklyn,New York,United States,1,1
+911,Jabbercube,Del Mar,Bronx,New York,United States,0,1
+912,Photobug,North,Rochester,New York,United States,0,1
+913,Yabox,David,Yonkers,New York,United States,0,1
+914,Dabfeed,Sloan,Buffalo,New York,United States,0,2
+915,Jaxnation,3rd,New York City,New York,United States,1,2
+916,Quimba,Waxwing,Jamaica,New York,United States,0,2
+917,Ozu,Ludington,Great Neck,New York,United States,0,1
+918,Eidel,Banding,Bronx,New York,United States,0,1
+919,Edgewire,Spaight,New York City,New York,United States,1,2
+920,Talane,Nobel,New York City,New York,United States,0,2
+921,Trilia,Maywood,New York City,New York,United States,0,1
+922,Quinu,Stang,Jamaica,New York,United States,1,1
+923,Yabox,Lotheville,Yonkers,New York,United States,0,1
+924,Rooxo,Del Sol,New York City,New York,United States,0,1
+925,Devpoint,Bunting,Jamaica,New York,United States,0,1
+926,Twitterworks,Granby,Brooklyn,New York,United States,1,1
+927,Realblab,Mifflin,Port Washington,New York,United States,1,1
+928,Meetz,Ramsey,Rochester,New York,United States,0,2
+929,Thoughtstorm,Ludington,Brooklyn,New York,United States,0,2
+930,Flipopia,Harbort,New York City,New York,United States,0,1
+931,Wikivu,Buell,Brooklyn,New York,United States,1,2
+932,Feedspan,Morningstar,Bronx,New York,United States,0,2
+933,Fatz,8th,New York City,New York,United States,1,1
+934,Livefish,1st,Rochester,New York,United States,1,2
+935,Brainsphere,Stoughton,Staten Island,New York,United States,1,1
+936,Yodo,Starling,Flushing,New York,United States,1,1
+937,Twimm,Gale,Hicksville,New York,United States,0,2
+938,Mydo,Center,New York City,New York,United States,1,1
+939,Brainverse,Sage,Jamaica,New York,United States,1,2
+940,Youtags,Oxford,Schenectady,New York,United States,1,2
+941,Tambee,Springs,New York City,New York,United States,1,2
+942,Brainbox,Spohn,Staten Island,New York,United States,0,2
+943,Youspan,Debra,New York City,New York,United States,1,1
+944,Yacero,International,New Hyde Park,New York,United States,0,2
+945,Buzzbean,Lakewood Gardens,Buffalo,New York,United States,1,1
+946,Viva,Shelley,Rochester,New York,United States,0,2
+947,Tagcat,Cottonwood,Rochester,New York,United States,1,2
+948,Podcat,Golden Leaf,Jamaica,New York,United States,1,2
+949,Meetz,Haas,Port Washington,New York,United States,1,1
+950,Meedoo,Raven,Syracuse,New York,United States,1,1
+951,Snaptags,2nd,Flushing,New York,United States,1,2
+952,Roodel,Dapin,New York City,New York,United States,0,1
+953,Browsezoom,Melody,Bronx,New York,United States,1,2
+954,Tagpad,Blackbird,Staten Island,New York,United States,0,2
+955,Blogspan,Summit,Bronx,New York,United States,1,1
+956,Minyx,Carberry,Elmira,New York,United States,1,1
+957,Babblestorm,Melody,Schenectady,New York,United States,1,2
+958,Jetwire,Fremont,New York City,New York,United States,0,1
+959,Eadel,Thierer,Brooklyn,New York,United States,0,1
+960,Npath,Schiller,Jamaica,New York,United States,0,2
+961,Meeveo,Becker,New York City,New York,United States,0,2
+962,Gevee,Hallows,New York City,New York,United States,0,2
+963,Wikizz,Arizona,New York City,New York,United States,1,2
+964,Gabvine,Prairie Rose,New York City,New York,United States,0,2
+965,Vipe,American Ash,Bronx,New York,United States,0,1
+966,Oyonder,Acker,Yonkers,New York,United States,1,1
+967,Kare,Old Gate,Rochester,New York,United States,0,1
+968,Chatterpoint,Utah,Rochester,New York,United States,0,1
+969,Eabox,Scofield,Jamaica,New York,United States,1,2
+970,Wikizz,8th,Brooklyn,New York,United States,1,2
+971,Gigazoom,Basil,Great Neck,New York,United States,1,1
+972,Skidoo,Schlimgen,Brooklyn,New York,United States,0,1
+973,Myworks,Knutson,Rochester,New York,United States,0,2
+974,Livetube,Corben,New York City,New York,United States,0,2
+975,Podcat,Bultman,Syracuse,New York,United States,0,2
+976,Browsezoom,Elmside,Brooklyn,New York,United States,0,2
+977,Mynte,Rieder,Albany,New York,United States,1,1
+978,Lajo,Golden Leaf,New York City,New York,United States,0,1
+979,Vinte,Stoughton,Albany,New York,United States,1,2
+980,Layo,Muir,New Hyde Park,New York,United States,0,2
+981,Zoomcast,Lerdahl,Albany,New York,United States,1,1
+982,Camido,Pierstorff,Albany,New York,United States,0,2
+983,Rhybox,Mayfield,Flushing,New York,United States,0,1
+984,Omba,Jay,Rochester,New York,United States,1,1
+985,Tagopia,Carey,Rochester,New York,United States,0,1
+986,Edgeify,Lindbergh,Jamaica,New York,United States,1,1
+987,Voolith,Monterey,Flushing,New York,United States,1,1
+988,Yamia,Magdeline,New York City,New York,United States,0,2
+989,Babbleset,High Crossing,New York City,New York,United States,0,2
+990,Skinder,Oxford,Buffalo,New York,United States,0,2
+991,Gabvine,Cottonwood,Rochester,New York,United States,0,1
+992,Feedspan,Morrow,Rochester,New York,United States,0,2
+993,Photobug,Morning,Albany,New York,United States,1,2
+994,Dablist,Prairie Rose,New York City,New York,United States,1,1
+995,Camido,Packers,Buffalo,New York,United States,0,2
+996,Bubblebox,Lerdahl,Port Washington,New York,United States,1,2
+997,Oyoyo,Heffernan,Rochester,New York,United States,1,1
+998,Yodel,Del Sol,New York City,New York,United States,0,1
+999,Myworks,Claremont,New York City,New York,United States,0,2
+1000,Midel,Dahle,Bronx,New York,United States,1,2
+1001,Canal21,Direccion53,Ciudad72,Distrito0,Departamento69,1,1
+1002,Canal20,Direccion19,Ciudad2,Distrito61,Departamento48,1,5
+1003,Canal20,Direccion50,Ciudad60,Distrito73,Departamento89,1,3
+1004,Canal97,Direccion98,Ciudad18,Distrito33,Departamento87,1,3
+1005,Canal19,Direccion25,Ciudad9,Distrito2,Departamento42,1,3

@@ -11,4 +11,6 @@ public:
 	bool buscar(int id);
 	void actualizarDatos(int id);
 	void menu();
+	void escribirEnArchivo();
+	void cargarClientes();
 };

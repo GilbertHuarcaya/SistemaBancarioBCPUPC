@@ -5,6 +5,7 @@
 #include <ctime>
 #include "ListaDeClientes.h"
 #include "ListaDeCanales.h"
+#include <fstream>
 
 using namespace std;
 
@@ -35,10 +36,10 @@ BBBBBBBBBBBBBBBBBB       CCCCCCCCCCCCC   PPPPPPPPPP
 
 int mostrarMenuPrincipal() {
     int opcion;
-    int idContador = 1;
-
     ListaDeClientes listaClientes;
     ListaDeCanales listaCanales;
+    listaClientes.cargarClientes();
+    listaCanales.cargarCanales();
     mostrarBCP();
 
     system("pause");

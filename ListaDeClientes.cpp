@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "ListaDeClientes.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 void ListaDeClientes::mostrar()
 {
@@ -99,6 +102,7 @@ void ListaDeClientes::menu()
 	do
 	{
 		system("cls");
+		escribirEnArchivo();
 		cout << "1. Agregar cliente" << endl;
 		cout << "2. Mostrar clientes" << endl;
 		cout << "3. Buscar clientes" << endl;
@@ -151,4 +155,74 @@ void ListaDeClientes::menu()
 			break;
 		}
 	} while (opcion != 7);
+}
+
+void ListaDeClientes::escribirEnArchivo()
+{
+	ofstream file("Clientes.csv");
+	if (file.is_open()) {
+		Nodo<Cliente*>* aux = this->obtenerPrimero();
+		file << "Id,Nombre,Apellido,Direccion,Telefono,Email,DNI\n"; // Header
+		while (aux != nullptr)
+		{
+			file << aux->getId() << ","
+				<< aux->getDato()->getNombre() << ","
+				<< aux->getDato()->getApellido() << ","
+				<< aux->getDato()->getDireccion() << ","
+				<< aux->getDato()->getTelefono() << ","
+				<< aux->getDato()->getEmail() << ","
+				<< aux->getDato()->getDNI() << "\n";
+			aux = aux->getSiguiente();
+		}
+		file.close();
+	}
+	else {
+		cout << "Unable to open file.\n";
+	}
+}
+
+void ListaDeClientes::cargarClientes() {
+	ifstream file("Clientes.csv"); // Open file to read
+
+	if (file.is_open()) {
+		string line;
+
+		while (getline(file, line)) {
+			string id, nombre, apellido, direccion, telefono, email, DNI;
+			int pos = 1;
+			// Id,Nombre,Apellido,Direccion,Telefono,Email,DNI 
+			// 1, Nombre, Apellido, Direccion, Telefono, Email, DNI
+			//ignore the first line and ignore the first col of id for each read
+			pos = line.find(",");
+			id = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			nombre = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			apellido = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			direccion = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			telefono = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			email = line.substr(0, pos);
+			line = line.substr(pos + 1);
+			DNI = line;
+			if (id != "Id" && id != "id") {
+				Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
+				agregarAlFinal(nuevoCliente);
+			}
+			
+		}
+
+		file.close(); // Close the file
+	}
+	else {
+		cout << "Unable to open file.\n";
+	}
+
 }

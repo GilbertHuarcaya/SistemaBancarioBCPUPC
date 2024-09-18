@@ -18,6 +18,7 @@ public:
     string getNombre();
     string getApellido();
     string getTelefono();
+    string getDireccion();
     string getDNI();
     void setNombre(string nombre);
     void setApellido(string apellido);
