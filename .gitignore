@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
+*/**/x64/Debug
+*/**/x64/Release
+/x64/Debug/*
+/x64/Release/*
+/x64/Debug/SistemaBancarioBCPUPC.exe
+/x64/Debug/SistemaBancarioBCPUPC.pdb
+/SistemaB.E4E70A11/x64/Debug/SistemaB.E4E70A11.tlog/CL.command.1.tlog
+/SistemaB.E4E70A11/x64/Debug/SistemaB.E4E70A11.tlog/Cl.items.tlog
+/SistemaB.E4E70A11/x64/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
