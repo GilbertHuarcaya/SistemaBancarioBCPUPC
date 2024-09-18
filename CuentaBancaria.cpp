@@ -1,32 +1,23 @@
 #include "pch.h"
 #include "CuentaBancaria.h"
 
-CuentaBancaria::CuentaBancaria(int id, string accountNumber, double initialBalance)
+CuentaBancaria::CuentaBancaria(string id, string Contrasenia, string NombreCliente, string TipoCuenta, string FechaCreacion)
 {
-	this->id = id;
-	this->accountNumber = accountNumber;
-	this->balance = initialBalance;
+	this->id = id; this->Contrasenia = Contrasenia; this->NombreCliente=NombreCliente; this->TipoCuenta = TipoCuenta; this->FechaCreacion = FechaCreacion;
+	this->Operaciones = NULL; this->Tarjetas = NULL;
 }
 
-int CuentaBancaria::getId() { return id; }
-string CuentaBancaria::getAccountNumber() { return accountNumber; }
+string CuentaBancaria::getId(){return id;}
 
-double CuentaBancaria::getBalance()
-{
-	return 0.0;
-}
-
-void CuentaBancaria::addTransaction(Operacion transaction)
-{
-	this->transactions.push_back(&transaction);
-}
+void CuentaBancaria::addTransaction()
+{}
 
 double CuentaBancaria::calculateBalance()
 {
 	return 0.0;
 }
 
-vector<Operacion*> CuentaBancaria::getTransactions()
-{
-	return vector<Operacion*>();
+string CuentaBancaria::descripcion() {
+	return "\nID: " + id + "\nContrasenia: " + Contrasenia + "\nTipo de Cuenta: " + TipoCuenta +
+		"\nFecha de Creacion: " + FechaCreacion + "\nNombre del Cliente: " + NombreCliente;
 }

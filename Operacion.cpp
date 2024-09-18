@@ -1,16 +1,25 @@
 #include "pch.h"
 #include "Operacion.h"
 
-Operacion::Operacion(int id, string type, double amount, string description)
+Operacion::Operacion(    string Tipo,
+    double Cantidad,
+    string Descripcion,
+    string Fecha,
+    int idCuentaOrigen,
+    int idCuentaDestino,
+    string Estado)
 {
-	this->id = id;
-	this->type = type;
-	this->amount = amount;
-	this->description = description;
+	this->id = Tipo;
+	this-Cantidad = Cantidad;
+	this Descripcion = Descripcion;
+	this->Fecha = Fecha;
+	this->idCuentaOrigen = idCuentaOrigen;
+	this->idCuentaDestino = idCuentaDestino;
+	this->Estado = Estado;
 
 }
 int Operacion::getId() { return id; }
-string Operacion::getType() { return type; }
-double Operacion::getAmount() { return amount; }
-string Operacion::getDescription() { return description; }
-string Operacion::getDate() { return date; }
+string Operacion::getTipo() { return Tipo; }
+double Operacion::getCantidad() { return Cantidad; }
+string Operacion::getDescripcion() { return Descripcion; }
+string Operacion::getFecha() { return Fecha; }

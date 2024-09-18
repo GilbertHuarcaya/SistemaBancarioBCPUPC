@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Menu.h"
 #include "ListaDeClientes.h"
+#include "ListaCuentaB.h"
 
 using namespace System;
 using namespace std;

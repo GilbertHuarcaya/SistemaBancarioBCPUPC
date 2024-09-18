@@ -4,7 +4,7 @@
 using namespace std;
 class Tarjeta {
 private:
-    int id;
+    string id;
     bool Activado;
     string Codigo;
     int CVV;
@@ -17,11 +17,12 @@ private:
     string ApellidoCliente;
 
 public:
-	Tarjeta(int id, bool Activado, string Codigo, int CVV, double saldo, string TipoTarjeta, string Divisa, string FechaCreacion, string FechaCaducidad, string NombreCliente, string ApellidoCliente);
+    Tarjeta(string id, string Codigo, int CVV, bool Activado, string TipoTarjeta, string Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
+    string NombreCliente, string ApellidoCliente);
     Tarjeta() {};
 
     // M�todos de acceso
-    int getId();
+    string getId();
     int getCVV();
     string getCodigo();
     string getTipoTarjeta();
@@ -36,6 +37,6 @@ public:
     // M�todos de manipulaci�n
     void updateAmount();
     void validateTarjeta(Tarjeta);
-    void activate();
-    void deactivate();
+    void Activar();
+    void Desactivar();
 };

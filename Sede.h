@@ -4,25 +4,25 @@
 using namespace std;
 class Sede {
 private:
-    int id;
-    string name;
-    string adress;
-    string phone;
-    bool isActive;
+    string id;
+    string Nombre;
+    string Direccion;
+    string Telefono;
+    bool Activado;
 
 public:
-    Sede(int id, string name, string address, string phone);
+    Sede(int id, string Nombre, string Direccion, string Telefono, bool Activado);
 
-    // Métodos de acceso
-    int getId();
-    string getName();
-    string getAdress();
-    string getPhone();
+    // Mï¿½todos de acceso
+    string getId();
+    string getNombre();
+    string getDireccion();
+    string getTelefono();
 
-    // Métodos de manipulación
-    void updateName(string name);
-    void updateAdress(string adress);
-    void updatePhone(string phone);
-    void activate();
-    void deactivate();
+    // Mï¿½todos de manipulaciï¿½n
+    void updateName(string Nombre);
+    void updateAdress(string Direccion);
+    void updatePhone(string Telefono);
+    void Activar();
+    void Desactivar();
 };

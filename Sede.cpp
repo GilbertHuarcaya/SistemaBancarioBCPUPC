@@ -1,29 +1,21 @@
 #include "pch.h"
 #include "Sede.h"
 
-Sede::Sede(int id, string name, string address, string phone)
+Sede(int id, string Nombre, string Direccion, string Telefono, bool Activado);
 {
 	this->id = id;
-	this->name = name;
-	this->adress = address;
-	this->phone = phone;
-	this->isActive = true;
+	this->Nombre = Nombre;
+	this->Direccion = Direccion;
+	this->Telefono = Telefono;
+	this->Activado = true;
 }
 
-int Sede::getId() { return id; }
-string Sede::getName() { return name; }
-string Sede::getAdress() { return adress; }
-string Sede::getPhone() { return phone; }
-void Sede::updateName(string name) { this->name = name; }
-void Sede::updateAdress(string adress) { this->adress = adress; }
-void Sede::updatePhone(string phone) { this->phone = phone; }
-
-void Sede::activate()
-{
-	this->isActive = true;
-}
-
-void Sede::deactivate()
-{
-	this->isActive = false;
-}
+string Sede::getId() { return id; }
+string Sede::getNombre() { return Nombre; }
+string Sede::getDireccion() { return Direccion; }
+string Sede::getTelefono() { return Telefono; }
+void Sede::updateName(string name) { this->Nombre = Nombre; }
+void Sede::updateAdress(string adress) { this->Direccion = Direccion; }
+void Sede::updatePhone(string phone) { this->Telefono = Telefono; }
+void Sede::Activar() { this->Activado = true; }
+void Sede::Desactivar() { this->Activado = false; }

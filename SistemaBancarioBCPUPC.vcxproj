@@ -135,6 +135,7 @@
     <ClInclude Include="ListaDeCanales.h" />
     <ClInclude Include="ListaDeClientes.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="ListaCuentaB.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Operacion.h" />
     <ClInclude Include="pch.h" />

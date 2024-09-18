@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "Operacion.h"
-#include "Cliente.h"
+#include "Lista.h"
 #include "Tarjeta.h"
 #include "Cola.h"
 
@@ -9,23 +9,23 @@ using namespace std;
 
 class CuentaBancaria {
 private:
-    int id;
+    string id;
     string Contrasenia;
-    Cliente* cliente;
+    string NombreCliente;
     string FechaCreacion;
-    string accountNumber;
-    Cola<Operacion*> Operaciones;
+    string TipoCuenta;
+    Cola<Operacion*>* Operaciones;
+    Lista<Tarjeta*> *Tarjetas;
 
 public:
-    CuentaBancaria(int id, string accountNumber, double initialBalance);
-    CuentaBancaria(){}
+    CuentaBancaria(string id, string Contrasenia, string NombreCliente, string TipoCuenta, string FechaCreacion);
 
-    // Métodos de acceso
-    int getId();
-    string getAccountNumber();
-    double getBalance();
+    //Metodos para listar datos
+    string descripcion();
+    // Mï¿½todos de acceso
+    string getId();
 
-    // Métodos de manipulación
+    // Mï¿½todos de manipulaciï¿½n
     void addTransaction();
     double calculateBalance();
 };
