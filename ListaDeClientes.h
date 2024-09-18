@@ -9,6 +9,7 @@ public:
 	void agregarCliente();
 	void agregarClienteRandom();
 	bool buscar(int id);
+	bool buscarPorDNI(string DNI);
 	void actualizarDatos(int id);
 	void menu();
 	void escribirEnArchivo();

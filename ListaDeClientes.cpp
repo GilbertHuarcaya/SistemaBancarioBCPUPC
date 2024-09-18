@@ -76,6 +76,26 @@ bool ListaDeClientes::buscar(int id)
 	return false;
 }
 
+bool ListaDeClientes::buscarPorDNI(string DNI)
+{
+	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	while (aux != nullptr)
+	{
+		if (aux->getDato()->getDNI() == DNI)
+		{
+			cout << endl;
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	cout << "No se encontro el cliente" << endl;
+	return false;
+}
+
 void ListaDeClientes::actualizarDatos(int id)
 {
 	string nombre, direccion, telefono, email, apellido, DNI;
@@ -109,6 +129,7 @@ void ListaDeClientes::menu()
 		cout << "4. Actualizar cliente" << endl;
 		cout << "5. Eliminar cliente" << endl;
 		cout << "6. Agregar cliente random" << endl;
+		cout << "7. Mostrar cuentas bancarias" << endl;
  		cout << "7. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;

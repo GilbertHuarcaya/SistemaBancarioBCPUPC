@@ -134,6 +134,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaDeCanales.h" />
     <ClInclude Include="ListaDeClientes.h" />
+    <ClInclude Include="ListaDeCuentasBancarias.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="ListaCuentaB.h" />
     <ClInclude Include="Nodo.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="ListaDeCanales.cpp" />
     <ClCompile Include="ListaDeClientes.cpp" />
+    <ClCompile Include="ListaDeCuentasBancarias.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Operacion.cpp" />
     <ClCompile Include="pch.cpp">

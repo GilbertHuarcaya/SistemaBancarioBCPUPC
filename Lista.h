@@ -25,7 +25,7 @@ public:
     void agregarAlFinal(T v); // Agrega un elemento al final de la lista
     void eliminar(int id); // Elimina un elemento de la lista por su id
     virtual bool buscar(int id); // Busca un elemento en la lista por su id
-    void ordenar(); // Ordena la lista por el id
+    virtual void ordenar(); // Ordena la lista por el id
     void reemplazar(int id, T newVal); // Reemplaza un valor por otro en la lista por su id
     void actualizar(int id, T newVal); // Actualiza un valor por otro en la lista por su id
     virtual void mostrar(); // Muestra la lista (m�todo virtual)
