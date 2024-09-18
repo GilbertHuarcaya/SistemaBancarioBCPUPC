@@ -20,7 +20,7 @@ string generar_apellido() {
 }
 string generar_telefono() {
 	Random r;
-	long int aux = 901000000 + r.Next(111111,899999) * 100;
+	long int aux = 901000000 + r.Next(111111, 899999) * 100;
 	return to_string(aux);
 }
 string generar_email(string nombre, string apellido) {
