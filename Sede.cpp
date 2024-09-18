@@ -5,42 +5,12 @@ Sede::Sede(int id, string name, string address, string phone)
 {
 }
 
-int Sede::getId()
-{
-	return 0;
-}
-
-string Sede::getName()
-{
-	return string();
-}
-
-string Sede::getAddress()
-{
-	return string();
-}
-
-string Sede::getPhone()
-{
-	return string();
-}
-
-void Sede::updateName()
-{
-}
-
-void Sede::updateAddress(string address)
-{
-}
-
-void Sede::updatePhone(string phone)
-{
-}
-
-void Sede::activate()
-{
-}
-
-void Sede::deactivate()
-{
-}
+string Sede::getId() { return id; }
+string Sede::getNombre() { return Nombre; }
+string Sede::getDireccion() { return Direccion; }
+string Sede::getTelefono() { return Telefono; }
+void Sede::updateName(string name) { this->Nombre = name; }
+void Sede::updateAdress(string adress) { this->Direccion = adress; }
+void Sede::updatePhone(string phone) { this->Telefono = phone; }
+void Sede::Activar() { this->Activado = true; }
+void Sede::Desactivar() { this->Activado = false; }

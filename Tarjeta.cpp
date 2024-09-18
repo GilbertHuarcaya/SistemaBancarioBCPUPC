@@ -1,44 +1,21 @@
 #include "pch.h"
 #include "Tarjeta.h"
 
-Tarjeta::Tarjeta(int id, string TarjetaNumber, int CVV, string type, string currency, time_t expirationDate)
-{
-}
+Tarjeta::Tarjeta(string id, string Codigo, int CVV, bool Activado, string TipoTarjeta, string Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
+string NombreCliente, string ApellidoCliente): id(id),Codigo(Codigo),CVV(CVV),Activado(Activado),TipoTarjeta(TipoTarjeta),Divisa(Divisa),saldo(saldo),
+FechaCreacion(FechaCreacion),FechaCaducidad(FechaCaducidad),NombreCliente(NombreCliente),ApellidoCliente(ApellidoCliente){}
 
-int Tarjeta::getId()
-{
-	return 0;
-}
-
-string Tarjeta::getTarjetaNumber()
-{
-	return string();
-}
-
-string Tarjeta::getType()
-{
-	return string();
-}
-
-double Tarjeta::getAmount()
-{
-	return 0.0;
-}
-
-string Tarjeta::getDescription()
-{
-	return string();
-}
-
-time_t Tarjeta::getExpirationDate()
-{
-	return time_t();
-}
-
-bool Tarjeta::getIsActive()
-{
-	return false;
-}
+string Tarjeta::getId() { return id; }
+int Tarjeta::getCVV() { return CVV; }
+string Tarjeta::getCodigo() { return Codigo; }
+string Tarjeta::getTipoTarjeta() { return TipoTarjeta; }
+double Tarjeta::getSaldo() { return saldo; }
+string Tarjeta::getDivisa() { return Divisa; }
+string Tarjeta::getFechaCreacion() { return FechaCreacion; }
+string Tarjeta::getFechaCaducidad() { return FechaCaducidad; }
+bool Tarjeta::getActivado() { return Activado; }
+string Tarjeta::getNombreCliente() { return NombreCliente; }
+string Tarjeta::getApellidoCliente() { return ApellidoCliente; }
 
 void Tarjeta::updateAmount()
 {
@@ -48,10 +25,6 @@ void Tarjeta::validateTarjeta(Tarjeta)
 {
 }
 
-void Tarjeta::activate()
-{
-}
+void Tarjeta::Activar(){this->Activado = true;}
 
-void Tarjeta::deactivate()
-{
-}
+void Tarjeta::Desactivar(){this->Activado = false;}

@@ -4,7 +4,7 @@
 using namespace std;
 class Tarjeta {
 private:
-    int id;
+    string id;
     bool Activado;
     string Codigo;
     int CVV;
@@ -17,11 +17,12 @@ private:
     string ApellidoCliente;
 
 public:
-    Tarjeta(int id, string TarjetaNumber, int CVV, string type, string currency, time_t expirationDate);
+    Tarjeta(string id, string Codigo, int CVV, bool Activado, string TipoTarjeta, string Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
+    string NombreCliente, string ApellidoCliente);
     Tarjeta() {};
 
     // Métodos de acceso
-    int getId();
+    string getId();
     int getCVV();
     string getCodigo();
     string getTipoTarjeta();
@@ -36,17 +37,6 @@ public:
     // Métodos de manipulación
     void updateAmount();
     void validateTarjeta(Tarjeta);
-    void activate();
-    void deactivate();
+    void Activar();
+    void Desactivar();
 };
-int Tarjeta::getId() { return id;}
-int Tarjeta::getCVV() { return CVV;}
-string Tarjeta::getCodigo() { return Codigo;}
-string Tarjeta::getTipoTarjeta() { return TipoTarjeta;}
-double Tarjeta::getSaldo() { return saldo;}
-string Tarjeta::getDivisa() { return Divisa;}
-string Tarjeta::getFechaCreacion() { return FechaCreacion;}
-string Tarjeta::getFechaCaducidad() { return FechaCaducidad;}
-bool Tarjeta::getActivado() { return Activado;}
-string Tarjeta::getNombreCliente() { return NombreCliente;}
-string Tarjeta::getApellidoCliente() { return ApellidoCliente;}

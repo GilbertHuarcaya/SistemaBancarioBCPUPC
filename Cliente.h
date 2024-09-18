@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
-#include "Lista.h"
 #include "CuentaBancaria.h"
+#include "Lista.h"
 
 using namespace std;
 
@@ -17,17 +17,11 @@ public:
     string getTelefono();
     string getDNI();
 private:
-    string nombre;
-    string apellido;
-    string telefono;
-    string email;
+    string Nombre;
+    string Apellido;
+    string Telefono;
+    string Email;
     string DNI;
     string id;
-    Lista<CuentaBancaria*> CuentasBancarias;
-
+    //Lista<CuentaBancaria*> *CuentasBancarias;
 };
-string Cliente::getID(){return id;}
-string Cliente::getEmail() {return email;}
-string Cliente::getNombre() {return nombre;}
-string Cliente::getTelefono() { return telefono;}
-string Cliente::getDNI() { return DNI;}

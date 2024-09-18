@@ -6,13 +6,14 @@
 #include "Cliente.h"
 #include <string>
 #include <algorithm>
+#include "ListaCuentaB.h"
 
 using namespace System;
 using namespace std;
 
 void registrar_cliente(Lista<Cliente*>& l, int i) {
     string num(1, i + '0');
-    l.push_back(new Cliente("nombre " + num, "dir " + num, "telefono " + num, num));
+    //l.push_back(new Cliente("nombre " + num, "dir " + num, "telefono " + num, num));
 }
 
 void mostrar_clientes(Lista<Cliente*> l) {
@@ -28,12 +29,14 @@ void mostrar_clientes(Lista<Cliente*> l) {
 
 int main()
 {
-    srand(time(0));
+    /*srand(time(0));
     Lista<Cliente*> l;
     for (int i = 0; i < 11; i++) {
         registrar_cliente(l, i + 1);
     }
-    mostrar_clientes(l);
-    system("pause");
+    //mostrar_clientes(l);
+    system("pause");*/
+    test();
+    _getch();
     return 0;
 }

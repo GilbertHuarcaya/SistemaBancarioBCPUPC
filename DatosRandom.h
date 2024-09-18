@@ -30,9 +30,8 @@ string generar_email(string nombre, string apellido) {
 	return nombre + "_" + apellido + mails[r.Next(0, 4)];
 }
 string generar_fecha() {
-	time_t tiempo_actual;
-	time(&tiempo_actual);
-	string fecha(ctime(&tiempo_actual));
+	string fecha = "Hoy";
+	//No esta bien implementado
 	return fecha;
 }
 string generar_fecha_expiracion_tarjeta() {
@@ -47,4 +46,22 @@ string generar_DNI() {
 		aux.append(to_string(r.Next(0, 9)));
 	}
 	return aux;
+}
+string generar_CodigoTarjeta() {
+	Random r;
+	string aux;
+	for (int i = 0; i < 16; i++) {
+		aux.append(to_string(r.Next(0, 9)));
+	}
+	return aux;
+}
+string generar_CVV() {
+	Random r;
+	string aux=to_string(r.Next(111,999));
+	return aux;
+}
+string generar_TipoCuenta() {
+	Random r;
+	string aux[2] = { "Soles","Dolares" };
+	return aux[r.Next(0, 2)];
 }
