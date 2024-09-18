@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include "pch.h"
 #include <iostream>
 #include <string>
@@ -34,8 +35,16 @@ string generar_fecha() {
 	string fecha(ctime(&tiempo_actual));
 	return fecha;
 }
-string generar_fecha_expiracion() {
+string generar_fecha_expiracion_tarjeta() {
 	Random r;
 	string aux = to_string(r.Next(1, 12)) + "/" + to_string(r.Next(28, 32));
+	return aux;
+}
+string generar_DNI() {
+	Random r;
+	string aux;
+	for (int i = 0; i < 8; i++) {
+		aux.append(to_string(r.Next(0, 9)));
+	}
 	return aux;
 }

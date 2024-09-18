@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "Lista.h"
+#include "CuentaBancaria.h"
 
 using namespace std;
 

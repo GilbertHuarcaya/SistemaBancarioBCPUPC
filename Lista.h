@@ -21,14 +21,14 @@ public:
         this->fin = nullptr;
         this->actual = nullptr;
     }
-    bool esVacia(); // Comprueba si la lista está vacía
+    bool esVacia(); // Comprueba si la lista estï¿½ vacï¿½a
     void agregarAlFinal(T v); // Agrega un elemento al final de la lista
     void eliminar(int id); // Elimina un elemento de la lista por su id
     virtual bool buscar(int id); // Busca un elemento en la lista por su id
     void ordenar(); // Ordena la lista por el id
     void reemplazar(int id, T newVal); // Reemplaza un valor por otro en la lista por su id
     void actualizar(int id, T newVal); // Actualiza un valor por otro en la lista por su id
-    virtual void mostrar(); // Muestra la lista (método virtual)
+    virtual void mostrar(); // Muestra la lista (mï¿½todo virtual)
     Nodo<T>* obtenerPrimero(); // Obtiene el primer nodo de la lista
     Nodo<T>* obtenerSiguiente(); // Obtiene el siguiente nodo de la lista
 

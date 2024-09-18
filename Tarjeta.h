@@ -5,29 +5,35 @@ using namespace std;
 class Tarjeta {
 private:
     int id;
-    bool isActive;
-    string code;
+    bool Activado;
+    string Codigo;
     int CVV;
-    double amount;
-    string type;
-    string currency;
-    string Creationdate;
-    string expirationDate;
+    double saldo;
+    string TipoTarjeta;
+    string Divisa;
+    string FechaCreacion;
+    string FechaCaducidad;
+    string NombreCliente;
+    string ApellidoCliente;
 
 public:
-    Tarjeta(int id, string TarjetaNumber, int CVV, string type, string currency, time_t expirationDate);
+	Tarjeta(int id, bool Activado, string Codigo, int CVV, double saldo, string TipoTarjeta, string Divisa, string FechaCreacion, string FechaCaducidad, string NombreCliente, string ApellidoCliente);
+    Tarjeta() {};
 
-    // Métodos de acceso
+    // Mï¿½todos de acceso
     int getId();
-    string getTarjetaNumber();
-    string getType();
-    double getAmount();
-    string getCurrency();
-    string getCreationdate();
-    string getExpirationDate();
-    bool getIsActive();
+    int getCVV();
+    string getCodigo();
+    string getTipoTarjeta();
+    double getSaldo();
+    string getDivisa();
+    string getFechaCreacion();
+    string getFechaCaducidad();
+    bool getActivado();
+    string getNombreCliente();
+    string getApellidoCliente();
 
-    // Métodos de manipulación
+    // Mï¿½todos de manipulaciï¿½n
     void updateAmount();
     void validateTarjeta(Tarjeta);
     void activate();

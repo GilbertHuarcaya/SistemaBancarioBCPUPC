@@ -49,8 +49,14 @@
     </ClInclude>
     <ClInclude Include="Sede.h">
       <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    </ClInclude>    
     <ClInclude Include="Menu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="DatosRandom.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Pila.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

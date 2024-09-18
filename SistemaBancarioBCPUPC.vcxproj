@@ -138,6 +138,7 @@
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Operacion.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Pila.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sede.h" />
     <ClInclude Include="Tarjeta.h" />
