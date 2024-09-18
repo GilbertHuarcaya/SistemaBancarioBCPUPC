@@ -1,19 +1,24 @@
 #pragma once
 #include <string>
 #include "Operacion.h"
-#include "vector"
+#include "Cliente.h"
+#include "Tarjeta.h"
+#include "Cola.h"
 
 using namespace std;
 
 class CuentaBancaria {
 private:
     int id;
+    string Contrasenia;
+    Cliente* cliente;
+    string FechaCreacion;
     string accountNumber;
-    double balance;//No creo que las cuentas bancarias tengan dinero, no serian solo las tarjetas?
-    vector<Operacion*> transactions;
+    Cola<Operacion*> Operaciones;
 
 public:
     CuentaBancaria(int id, string accountNumber, double initialBalance);
+    CuentaBancaria(){}
 
     // Métodos de acceso
     int getId();
@@ -21,9 +26,8 @@ public:
     double getBalance();
 
     // Métodos de manipulación
-    void addTransaction(Operacion transaction);
+    void addTransaction();
     double calculateBalance();
-    vector<Operacion*> getTransactions();
 };
 int CuentaBancaria::getId() { return id;}
 string CuentaBancaria::getAccountNumber() { return accountNumber;}

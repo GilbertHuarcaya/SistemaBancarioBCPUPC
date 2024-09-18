@@ -11,11 +11,13 @@ class Lista
 private:
 	Nodo<T>* inicio;
 	Nodo<T>* fin;
+	int n;
 public:
 	Lista()
 	{
 		this->inicio = NULL;
 		this->fin = NULL;
+		this->n = 0;
 	}
 	bool esVacia();
 	void push_back(T v);
@@ -27,7 +29,7 @@ public:
 template<class T>
 bool Lista<T>::esVacia()
 {
-	return (inicio == NULL);
+	return (n == 0);
 }
 
 template<class T>
@@ -44,6 +46,7 @@ void Lista<T>::push_back(T v)
 		fin->siguiente = nodo;
 		fin = nodo;
 	}
+	n++;
 	nodo = NULL;
 }
 
@@ -61,6 +64,7 @@ T Lista<T>::next()
 	{
 		inicio = inicio->siguiente;
 	}
+	n--;
 	return dato;
 }
 
