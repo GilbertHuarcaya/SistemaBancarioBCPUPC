@@ -1,10 +1,9 @@
 #include "pch.h"
 #include "Canal.h"
 
-Canal::Canal(string nombre, string descripcion, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, ETipoDeCanal tipoDeCanal)
+Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, ETipoDeCanal tipoDeCanal)
 {
 	this->nombre = nombre;
-	this->descripcion = descripcion;
 	this->direccion = direccion;
 	this->ciudad = ciudad;
 	this->distrito = distrito;
@@ -15,10 +14,44 @@ Canal::Canal(string nombre, string descripcion, string direccion, string ciudad,
 	this->tipoDeCanal = tipoDeCanal;
 }
 
+Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, string fechaCreacion, string fechaModificacion, bool activo, int tipoDeCanal)
+{
+	this->nombre = nombre;
+	this->direccion = direccion;
+	this->ciudad = ciudad;
+	this->distrito = distrito;
+	this->departamento = departamento;
+	this->fechaCreacion = fechaCreacion;
+	this->fechaModificacion = fechaModificacion;
+	this->activo = activo;
+	ETipoDeCanal tipoDeCanalConEnum;
+	switch (tipoDeCanal)
+	{
+	case 1:
+		tipoDeCanalConEnum = WEB;
+		break;
+	case 2:
+		tipoDeCanalConEnum = APP;
+		break;
+	case 3:
+		tipoDeCanalConEnum = VENTANILLA;
+		break;
+	case 4:
+		tipoDeCanalConEnum = AGENTE;
+		break;
+	case 5:
+		tipoDeCanalConEnum = YAPE;
+		break;
+	default:
+		tipoDeCanalConEnum = OTRO;
+		break;
+	}
+	this->tipoDeCanal = tipoDeCanalConEnum;
+}
+
 Canal::Canal(ETipoDeCanal tipoDeCanal)
 {
 	this->nombre = "";
-	this->descripcion = "";
 	this->direccion = "";
 	this->ciudad = "";
 	this->distrito = "";
@@ -38,9 +71,39 @@ string Canal::getNombre()
 	return nombre;
 }
 
-string Canal::getDescripcion()
+string Canal::descripcion()
 {
-	return descripcion;
+	string tipoDeCanal;
+	switch (this->tipoDeCanal)
+	{
+	case WEB:
+		tipoDeCanal = "WEB";
+		break;
+	case APP:
+		tipoDeCanal = "APP";
+
+		break;
+	case VENTANILLA:
+		tipoDeCanal = "VENTANILLA";
+
+		break;
+	case AGENTE:
+		tipoDeCanal = "AGENTE";
+
+		break;
+	case YAPE:
+		tipoDeCanal = "YAPE";
+
+		break;
+	case OTRO:
+		tipoDeCanal = "OTRO";
+
+		break;
+	}
+
+	return "Nombre: " + nombre + "\nDireccion: " +
+		direccion + "\nCiudad: " + ciudad + "\nDistrito: " + distrito + "\nDepartamento: " + departamento +
+		"\nFecha de creacion: " + fechaCreacion + "\nFecha de modificacion: " + fechaModificacion + "\nActivo: " + to_string(activo) + "\nTipo de canal: " + tipoDeCanal;
 }
 
 string Canal::getDireccion()
@@ -86,11 +149,6 @@ bool Canal::getActivo()
 void Canal::setNombre(string nombre)
 {
 	this->nombre = nombre;
-}
-
-void Canal::setDescripcion(string descripcion)
-{
-	this->descripcion = descripcion;
 }
 
 void Canal::setDireccion(string direccion)

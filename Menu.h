@@ -38,7 +38,7 @@ int mostrarMenuPrincipal() {
     int idContador = 1;
 
     ListaDeClientes listaClientes;
-
+    ListaDeCanales listaCanales;
     mostrarBCP();
 
     system("pause");
@@ -60,7 +60,7 @@ int mostrarMenuPrincipal() {
             break;
         }
         case 2: {
-
+            listaCanales.menu();
             system("pause");
             break;
         }

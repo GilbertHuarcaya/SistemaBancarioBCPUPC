@@ -60,7 +60,11 @@ bool ListaDeClientes::buscar(int id)
 	{
 		if (aux->getId() == id)
 		{
-			aux->getDato()->descripcion();
+			cout << endl;
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
 			return true;
 		}
 		aux = aux->getSiguiente();
@@ -117,19 +121,19 @@ void ListaDeClientes::menu()
 			system("pause");
 			break;
 		case 3:
-			cout << "Ingrese id a buscar";
+			cout << "Ingrese id a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
 			system("pause");
 			break;
 		case 4:
-			cout << "Ingrese id a reemplazar";
+			cout << "Ingrese id a reemplazar: ";
 			cin >> id;
 			actualizarDatos(id);
 			system("pause");
 			break;
 		case 5:
-			cout << "Ingrese id a eliminar";
+			cout << "Ingrese id a eliminar: ";
 			cin >> id;
 			this->eliminar(id);
 			system("pause");
