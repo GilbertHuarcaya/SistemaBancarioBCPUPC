@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include <time.h>
 using namespace std;
 class Operacion {
 private:
@@ -8,7 +8,7 @@ private:
     string type; // "Depósito", "Retiro", "Transferencia", etc.
     double amount;
     string description;
-    time_t date;
+    string date;
 
 public:
     Operacion(int id, string type, double amount, string description);
@@ -20,5 +20,8 @@ public:
     string getDescription();
     string getDate();
 };
-
-
+int Operacion::getId() { return id;}
+string Operacion::getType() { return type;}
+double Operacion::getAmount() { return amount;}
+string Operacion::getDescription() { return description;}
+string Operacion::getDate() { return date;}

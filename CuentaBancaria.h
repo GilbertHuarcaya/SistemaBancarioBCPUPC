@@ -9,7 +9,7 @@ class CuentaBancaria {
 private:
     int id;
     string accountNumber;
-    double balance;
+    double balance;//No creo que las cuentas bancarias tengan dinero, no serian solo las tarjetas?
     vector<Operacion*> transactions;
 
 public:
@@ -25,3 +25,5 @@ public:
     double calculateBalance();
     vector<Operacion*> getTransactions();
 };
+int CuentaBancaria::getId() { return id;}
+string CuentaBancaria::getAccountNumber() { return accountNumber;}
