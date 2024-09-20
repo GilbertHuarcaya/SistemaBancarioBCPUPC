@@ -38,7 +38,7 @@ T Pila<T>::pop()
 	else 
 	{
 		T elemento = (tope->dato);
-		tope = tope->siguiente;
+		tope = tope->getSiguiente();
 		return elemento;
 	}
 }

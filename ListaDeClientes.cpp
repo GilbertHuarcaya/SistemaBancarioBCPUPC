@@ -21,6 +21,8 @@ void ListaDeClientes::mostrar()
 		cout << endl;
 		aux = aux->getSiguiente();
 	}
+	system("pause");
+	system("cls");
 }
 
 void ListaDeClientes::agregarCliente()
@@ -40,6 +42,10 @@ void ListaDeClientes::agregarCliente()
 	cin >> DNI;
 	Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
 	this->agregarAlFinal(nuevoCliente);
+	escribirEnArchivo();
+	cout << "Cliente agregado" << endl;
+	system("pause");
+	system("cls");
 }
 
 void ListaDeClientes::agregarClienteRandom()
@@ -54,9 +60,13 @@ void ListaDeClientes::agregarClienteRandom()
     DNI = to_string(randomDNI);
     Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
     this->agregarAlFinal(nuevoCliente);
+	escribirEnArchivo();
+	cout << "Cliente agregado" << endl;
+	system("pause");
+	system("cls");
 }
 
-bool ListaDeClientes::buscar(int id)
+int ListaDeClientes::buscar(int id)
 {
 	Nodo<Cliente*>* aux = this->obtenerPrimero();
 	while (aux != nullptr)
@@ -68,15 +78,19 @@ bool ListaDeClientes::buscar(int id)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			return true;
+			system("pause");
+			system("cls");
+			return aux->getId();
 		}
 		aux = aux->getSiguiente();
 	}
 	cout << "No se encontro el cliente" << endl;
-	return false;
+	system("pause");
+	system("cls");
+	return 0;
 }
 
-bool ListaDeClientes::buscarPorDNI(string DNI)
+int ListaDeClientes::buscarPorDNI(string DNI)
 {
 	Nodo<Cliente*>* aux = this->obtenerPrimero();
 	while (aux != nullptr)
@@ -88,12 +102,16 @@ bool ListaDeClientes::buscarPorDNI(string DNI)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			return true;
+			system("pause");
+			system("cls");
+			return aux->getId();
 		}
 		aux = aux->getSiguiente();
 	}
 	cout << "No se encontro el cliente" << endl;
-	return false;
+	system("pause");
+	system("cls");
+	return 0;
 }
 
 void ListaDeClientes::actualizarDatos(int id)
@@ -113,6 +131,10 @@ void ListaDeClientes::actualizarDatos(int id)
 	cin >> DNI;
 	Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
 	this->reemplazar(id, nuevoCliente);
+	escribirEnArchivo();
+	cout << "Cliente actualizado" << endl;
+	system("pause");
+	system("cls");
 }
 
 void ListaDeClientes::menu()
@@ -122,14 +144,12 @@ void ListaDeClientes::menu()
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Agregar cliente" << endl;
 		cout << "2. Mostrar clientes" << endl;
 		cout << "3. Buscar clientes" << endl;
 		cout << "4. Actualizar cliente" << endl;
 		cout << "5. Eliminar cliente" << endl;
 		cout << "6. Agregar cliente random" << endl;
-		cout << "7. Mostrar cuentas bancarias" << endl;
  		cout << "7. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -139,34 +159,28 @@ void ListaDeClientes::menu()
 		case 1:
 			agregarCliente();
 			cout << "Cliente agregado" << endl;
-			system("pause");
 			break;
 		case 2:
 			mostrar();
-			system("pause");
 			break;
 		case 3:
 			cout << "Ingrese id a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
-			system("pause");
 			break;
 		case 4:
 			cout << "Ingrese id a reemplazar: ";
 			cin >> id;
 			actualizarDatos(id);
-			system("pause");
 			break;
 		case 5:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
 			this->eliminar(id);
-			system("pause");
 			break;
 		case 6:
 			agregarClienteRandom();
 			cout << "Cliente agregado" << endl;
-			system("pause");
 			break;
 		case 7:
 			cout << "Saliendo del menu de clientes" << endl;
@@ -176,6 +190,52 @@ void ListaDeClientes::menu()
 			break;
 		}
 	} while (opcion != 7);
+}
+
+
+void ListaDeClientes::menuCliente()
+{
+	ListaDeCuentasBancarias* listaCuentasBancarias = new ListaDeCuentasBancarias();
+	listaCuentasBancarias->cargarCuentasBancarias();
+	int opcion;
+	int idCliente;
+	string DNI;
+	Nodo<Cliente*>* clienteActual;
+	do
+	{
+		system("cls");
+		cout << "1. Identificarme por mi DNI" << endl;
+		cout << "2. Salir" << endl;
+		cout << "Ingrese una opcion: ";
+		cin >> opcion;
+		system("cls");
+		switch (opcion)
+		{
+		case 1:
+			cout << "Ingrese su DNI: ";
+			cin >> DNI;
+			idCliente = buscarPorDNI(DNI);
+			if (idCliente != 0)
+			{
+				clienteActual = obtenerNodoPorId(idCliente);
+				if (clienteActual->getId() != 0) {
+					cout << "Cliente identificado" << endl;
+					listaCuentasBancarias->menuCuentasBancariasPorCliente(clienteActual);
+				}
+			}
+			else
+			{
+				cout << "Cliente no encontrado" << endl;
+			}
+			break;
+		case 2:
+			cout << "Saliendo del menu de cliente" << endl;
+			break;
+		default:
+			cout << "Opcion invalida" << endl;
+			break;
+		}
+	} while (opcion != 2);
 }
 
 void ListaDeClientes::escribirEnArchivo()
@@ -198,7 +258,7 @@ void ListaDeClientes::escribirEnArchivo()
 		file.close();
 	}
 	else {
-		cout << "Unable to open file.\n";
+		cout << "No se pudo abrir el archivo.\n";
 	}
 }
 
@@ -233,7 +293,7 @@ void ListaDeClientes::cargarClientes() {
 			email = line.substr(0, pos);
 			line = line.substr(pos + 1);
 			DNI = line;
-			if (id != "Id" && id != "id") {
+			if (id != "Id" && id != "id" && id != "ID") {
 				Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
 				agregarAlFinal(nuevoCliente);
 			}
@@ -243,7 +303,7 @@ void ListaDeClientes::cargarClientes() {
 		file.close(); // Close the file
 	}
 	else {
-		cout << "Unable to open file.\n";
+		cout << "No se pudo abrir el archivo.\n";
 	}
 
 }

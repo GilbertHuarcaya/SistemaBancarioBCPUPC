@@ -14,7 +14,6 @@ enum ETipoTarjeta {
 using namespace std;
 class Tarjeta {
 private:
-    string id;
     bool Activado;
     string Codigo;
     int CVV;
@@ -29,13 +28,18 @@ private:
     int idCliente;
 
 public:
-    Tarjeta(string id, string Codigo, int CVV, bool Activado, ETipoTarjeta TipoTarjeta, EDivisa Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
+	Tarjeta();
+    Tarjeta(string Codigo, int CVV, bool Activado, ETipoTarjeta TipoTarjeta, EDivisa Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
     string NombreCliente, string ApellidoCliente, int idCuentaBancaria,
     int idCliente);
-    Tarjeta() {};
+    Tarjeta(string Codigo, int CVV, bool Activado, int TipoTarjeta, int Divisa, double saldo,
+        string FechaCreacion, string FechaCaducidad, string NombreCliente, string ApellidoCliente, 
+        int idCuentaBancaria, int idCliente);
+
+    //Metodos para listar datos
+    string descripcion();
 
     // M�todos de acceso
-    string getId();
     int getCVV();
     string getCodigo();
     ETipoTarjeta getTipoTarjeta();
@@ -46,8 +50,12 @@ public:
     bool getActivado();
     string getNombreCliente();
     string getApellidoCliente();
+    string getActivado_str();
+    string getTipoTarjeta_str();
+    string getDivisa_str();
     int getIdCliente();
     int getIdCuentaBancaria();
+    int getActivado_int();
 
     // M�todos de manipulaci�n
     void updateAmount();
