@@ -1,4 +1,4 @@
-ID,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal
+Id,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal
 1,YAPE,- -,-, -,-,1,5
 2,APP,- -,-, -,-,1,4
 3,WEB,- -,-, -,-,1,3

@@ -1,6 +1,17 @@
 #include "pch.h"
 #include "Canal.h"
 
+Canal::Canal()
+{
+	nombre = "";
+	direccion = "";
+	ciudad = "";
+	distrito = "";
+	departamento = "";
+	activo = false;
+	tipoDeCanal = OTROCANAL;
+}
+
 Canal::Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, ETipoDeCanal tipoDeCanal)
 {
 	this->nombre = nombre;
@@ -39,7 +50,7 @@ Canal::Canal(string nombre, string direccion, string ciudad, string distrito, st
 		tipoDeCanalConEnum = YAPE;
 		break;
 	default:
-		tipoDeCanalConEnum = OTRO;
+		tipoDeCanalConEnum = OTROCANAL;
 		break;
 	}
 	this->tipoDeCanal = tipoDeCanalConEnum;
@@ -89,8 +100,8 @@ string Canal::descripcion()
 		tipoDeCanal = "YAPE";
 
 		break;
-	case OTRO:
-		tipoDeCanal = "OTRO";
+	case OTROCANAL:
+		tipoDeCanal = "OTROCANAL";
 
 		break;
 	}

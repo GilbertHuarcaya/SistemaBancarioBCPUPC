@@ -1,6 +1,16 @@
 #include "pch.h"
 #include "Cliente.h"
 
+Cliente::Cliente()
+{
+	nombre = "";
+	apellido = "";
+	direccion = "";
+	telefono = "";
+	email = "";
+	DNI = "";
+}
+
 Cliente::Cliente( string nombre,  string apellido,  string direccion,  string telefono,  string email,  string DNI)
 {
 	this->nombre = nombre;

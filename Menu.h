@@ -5,6 +5,8 @@
 #include <ctime>
 #include "ListaDeClientes.h"
 #include "ListaDeCanales.h"
+#include "ListaDeCuentasBancarias.h"
+#include "ListaDeTarjetas.h"
 #include <fstream>
 
 using namespace std;
@@ -36,10 +38,10 @@ BBBBBBBBBBBBBBBBBB       CCCCCCCCCCCCC   PPPPPPPPPP
 
 int mostrarMenuPrincipal() {
     int opcion;
-    ListaDeClientes listaClientes;
-    ListaDeCanales listaCanales;
-    listaClientes.cargarClientes();
-    listaCanales.cargarCanales();
+    ListaDeClientes* listaClientes = new ListaDeClientes();
+    ListaDeCanales* listaCanales = new ListaDeCanales();
+    listaClientes->cargarClientes();
+    listaCanales->cargarCanales();
     mostrarBCP();
 
     system("pause");
@@ -49,23 +51,24 @@ int mostrarMenuPrincipal() {
         cout << "Menu:\n";
         cout << "1. Menu de clientes\n";
         cout << "2. Menu de canales\n";
-        cout << "3. Otro Menu\n";
+        cout << "3. Menu de cliente\n";
         cout << "4. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         system("cls");
         switch (opcion) {
         case 1: {
-            listaClientes.menu();
+            listaClientes->menu();
             system("pause");
             break;
         }
         case 2: {
-            listaCanales.menu();
+            listaCanales->menu();
             system("pause");
             break;
         }
         case 3: {
+            listaClientes->menuCliente();
             system("pause");
             break;
         }

@@ -1,31 +1,51 @@
 #pragma once
 #include <string>
 #include "Operacion.h"
-#include "Cliente.h"
+#include "Lista.h"
 #include "Tarjeta.h"
 #include "Cola.h"
 
 using namespace std;
 
+enum ETipoCuenta {
+    DEBITO = 1,
+    CREDITO,
+    OTRACUENTA
+};
+
 class CuentaBancaria {
 private:
-    int id;
     string Contrasenia;
-    Cliente* cliente;
     string FechaCreacion;
-    string accountNumber;
-    Cola<Operacion*> Operaciones;
+    ETipoCuenta TipoCuenta;
+    int idCliente;
+    string NombreCliente;
+	string ApellidoCliente;
+	int idTarjeta;
+    //Cola<Operacion*>* Operaciones;
+    //Lista<Tarjeta*> *Tarjetas;
 
 public:
-    CuentaBancaria(int id, string accountNumber, double initialBalance);
-    CuentaBancaria(){}
+    CuentaBancaria();
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, ETipoCuenta TipoCuenta, string FechaCreacion, int idCliente);
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente);
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente, int idTarjeta);
 
-    // Métodos de acceso
-    int getId();
-    string getAccountNumber();
-    double getBalance();
-
-    // Métodos de manipulación
+    //Metodos para listar datos
+    string descripcion();
+    // Mï¿½todos de acceso
+    string getContrasenia();
+    string getNombreCliente();
+	string getApellidoCliente();
+    string getFechaCreacion();
+    ETipoCuenta getTipoCuenta();
+    string getTipoCuenta_str();
+    int getIdCliente();
+	int getIdTarjeta();
+    // Mï¿½todos de manipulaciï¿½n
     void addTransaction();
     double calculateBalance();
+    bool validateContrasenia(string Contrasenia);
+	void setIdTarjeta(int idTarjeta);
+	void removeTarjeta(int idTarjeta);
 };

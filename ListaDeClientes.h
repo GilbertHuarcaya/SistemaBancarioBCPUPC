@@ -1,6 +1,7 @@
 #pragma once
 #include "Lista.h"
 #include "Cliente.h"
+#include "ListaDeCuentasBancarias.h"
 
 class ListaDeClientes :public Lista<Cliente*>
 {
@@ -8,9 +9,11 @@ public:
 	void mostrar();
 	void agregarCliente();
 	void agregarClienteRandom();
-	bool buscar(int id);
+	int buscar(int id);
+	int buscarPorDNI(string DNI);
 	void actualizarDatos(int id);
 	void menu();
+	void menuCliente();
 	void escribirEnArchivo();
 	void cargarClientes();
 };

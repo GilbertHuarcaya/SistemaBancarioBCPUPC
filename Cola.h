@@ -40,7 +40,7 @@ void Cola<T>::enqueue(T v)
 	}
 	else
 	{
-		fin->siguiente = nodo;
+		fin->getSiguiente() = nodo;
 		fin = nodo;
 	}
 	nodo = nullptr;
@@ -58,7 +58,7 @@ T Cola<T>::dequeue()
 	}
 	else
 	{
-		inicio = inicio->siguiente;
+		inicio = inicio->getSiguiente();
 	}
 	return dato;
 }

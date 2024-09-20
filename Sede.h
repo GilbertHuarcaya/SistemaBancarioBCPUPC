@@ -1,28 +1,25 @@
 #pragma once
 #include <string>
 
-using namespace std;
 class Sede {
 private:
-    int id;
-    string name;
-    string adress;
-    string phone;
-    bool isActive;
+    std::string Nombre;
+    std::string Direccion;
+    std::string Telefono;
+    bool Activado;
 
 public:
-    Sede(int id, string name, string address, string phone);
+    Sede(std::string Nombre, std::string Direccion, std::string Telefono, bool Activado);
 
-    // Métodos de acceso
-    int getId();
-    string getName();
-    string getAdress();
-    string getPhone();
+    // Mï¿½todos de acceso
+    std::string getNombre();
+    std::string getDireccion();
+    std::string getTelefono();
 
-    // Métodos de manipulación
-    void updateName(string name);
-    void updateAdress(string adress);
-    void updatePhone(string phone);
-    void activate();
-    void deactivate();
+    // Mï¿½todos de manipulaciï¿½n
+    void updateName(std::string Nombre);
+    void updateAdress(std::string Direccion);
+    void updatePhone(std::string Telefono);
+    void Activar();
+    void Desactivar();
 };

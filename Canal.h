@@ -9,7 +9,7 @@ enum ETipoDeCanal {
 	WEB,
 	APP,
 	YAPE,
-	OTRO
+	OTROCANAL
 };
 
 class Canal
@@ -23,6 +23,7 @@ private:
 	bool activo;
 	ETipoDeCanal tipoDeCanal;
 public:
+	Canal();
 	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, ETipoDeCanal tipoDeCanal);
 	Canal(string nombre, string direccion, string ciudad, string distrito, string departamento, bool activo, int tipoDeCanal);
 	Canal(ETipoDeCanal tipoDeCanal);

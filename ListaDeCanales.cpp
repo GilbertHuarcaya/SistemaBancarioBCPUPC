@@ -19,6 +19,8 @@ void ListaDeCanales::mostrar()
 		cout << endl;
 		aux = aux->getSiguiente();
 	}
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCanales::agregarCanal()
@@ -48,6 +50,10 @@ void ListaDeCanales::agregarCanal()
 
 	Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, true, opcion);
 	this->agregarAlFinal(nuevoCanal);
+	escribirEnArchivo();
+	cout << "Canal agregado" << endl;
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCanales::agregarCanalRandom()
@@ -63,9 +69,13 @@ void ListaDeCanales::agregarCanalRandom()
 	int randomTipoDeCanal = rand() % 5 + 1;
 	Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, true, randomTipoDeCanal);
 	this->agregarAlFinal(nuevoCanal);
+	escribirEnArchivo();
+	cout << "Canal agregado" << endl;
+	system("pause");
+	system("cls");
 }
 
-bool ListaDeCanales::buscar(int id)
+int ListaDeCanales::buscar(int id)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
 	while (aux != nullptr)
@@ -77,18 +87,22 @@ bool ListaDeCanales::buscar(int id)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			return true;
+			system("pause");
+			system("cls");
+			return aux->getId();
 		}
 		aux = aux->getSiguiente();
 	}
 	cout << "No se encontro el canal" << endl;
-	return false;
+	system("pause");
+	system("cls");
+	return 0;
 }
 
-bool ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
+int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getTipoDeCanal() == tipoDeCanal)
@@ -98,21 +112,21 @@ bool ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
-		cout << "No se encontro ningun canal con ese tipo" << endl;
+		cout << "No se encontro ningun canal en ese tipo" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
-bool ListaDeCanales::buscarPorNombre(string nombre)
+int ListaDeCanales::buscarPorNombre(string nombre)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getNombre() == nombre)
@@ -122,21 +136,21 @@ bool ListaDeCanales::buscarPorNombre(string nombre)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
-		cout << "No se encontro ningun canal con ese nombre" << endl;
+		cout << "No se encontro ningun canal en ese nombre" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
-bool ListaDeCanales::buscarPorDistrito(string distrito)
+int ListaDeCanales::buscarPorDistrito(string distrito)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDistrito() == distrito)
@@ -146,21 +160,21 @@ bool ListaDeCanales::buscarPorDistrito(string distrito)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
 		cout << "No se encontro ningun canal en ese distrito" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
-bool ListaDeCanales::buscarPorDepartamento(string departamento)
+int ListaDeCanales::buscarPorDepartamento(string departamento)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDepartamento() == departamento)
@@ -170,21 +184,21 @@ bool ListaDeCanales::buscarPorDepartamento(string departamento)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
-		cout << "No se encontro ningun canal en ese departamento" << endl;
+		cout << "No se encontro ningun canal en ese Departamento" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
-bool ListaDeCanales::buscarPorCiudad(string ciudad)
+int ListaDeCanales::buscarPorCiudad(string ciudad)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getCiudad() == ciudad)
@@ -194,21 +208,21 @@ bool ListaDeCanales::buscarPorCiudad(string ciudad)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
-		cout << "No se encontro ningun canal en esa ciudad" << endl;
+		cout << "No se encontro ningun canal en esa Ciudad" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
-bool ListaDeCanales::buscarPorActivo(bool activo)
+int ListaDeCanales::buscarPorActivo(bool activo)
 {
 	Nodo<Canal*>* aux = this->obtenerPrimero();
-	bool encontrado = false;
+	int encontrados = 0;
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getActivo() == activo)
@@ -218,15 +232,15 @@ bool ListaDeCanales::buscarPorActivo(bool activo)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			encontrado = true;
+			encontrados++;
 		}
 		aux = aux->getSiguiente();
 	}
-	if (!encontrado)
+	if (encontrados == 0)
 	{
 		cout << "No se encontro ningun canal con ese estado" << endl;
 	}
-	return encontrado;
+	return encontrados;
 }
 
 void ListaDeCanales::actualizarDatos(int id)
@@ -270,11 +284,15 @@ void ListaDeCanales::actualizarDatos(int id)
 		tipoDeCanal = YAPE;
 		break;
 	default:
-		tipoDeCanal = OTRO;
+		tipoDeCanal = OTROCANAL;
 		break;
 	}
 	Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, true, tipoDeCanal);
 	this->reemplazar(id, nuevoCanal);
+	escribirEnArchivo();
+	cout << "Canal actualizado" << endl;
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCanales::menu()
@@ -284,7 +302,6 @@ void ListaDeCanales::menu()
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Agregar canal" << endl;
 		cout << "2. Mostrar canales" << endl;
 		cout << "3. Buscar canal" << endl;
@@ -302,42 +319,34 @@ void ListaDeCanales::menu()
 		case 1:
 			agregarCanal();
 			cout << "Canal agregado" << endl;
-			system("pause");
 			break;
 		case 2:
 			mostrar();
-			system("pause");
 			break;
 		case 3:
 			cout << "Ingrese id a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
-			system("pause");
 			break;
 		case 4:
 			cout << "Ingrese id a reemplazar: ";
 			cin >> id;
 			actualizarDatos(id);
-			system("pause");
 			break;
 		case 5:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
 			this->eliminar(id);
-			system("pause");
 			break;
 		case 6:
 			agregarCanalRandom();
 			cout << "Canal agregado" << endl;
-			system("pause");
 			break;
 		case 7:
 			buscarPorTipo(VENTANILLA);
-			system("pause");
 			break;
 		case 8:
 			buscarPorTipo(AGENTE);
-			system("pause");
 			break;
 
 		case 9:
@@ -373,7 +382,7 @@ void ListaDeCanales::escribirEnArchivo()
 		file.close();
 	}
 	else {
-		cout << "Unable to open file.\n";
+		cout << "No se pudo abrir el archivo.\n";
 	}
 }
 
@@ -428,13 +437,13 @@ void ListaDeCanales::cargarCanales() {
 				tipoDeCanalInt = YAPE;
 			}
 			else {
-				tipoDeCanalInt = OTRO;
+				tipoDeCanalInt = OTROCANAL;
 			}
 
 			//convertir string a bool
 			bool activoBool = activo == "1" ? true : false;
 
-			if (id != "Id" && id != "id") {
+			if (id != "Id" && id != "id" && id != "ID") {
 				Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, activoBool, tipoDeCanalInt);
 				agregarAlFinal(nuevoCanal);
 			}
@@ -443,7 +452,7 @@ void ListaDeCanales::cargarCanales() {
 		file.close(); // Close the file
 	}
 	else {
-		cout << "Unable to open file.\n";
+		cout << "No se pudo abrir el archivo.\n";
 	}
 
 }
