@@ -86,13 +86,15 @@ void Lista<T>::agregarAlFinal(T v)
         fin = nodo;
     }
     nodo = nullptr;
-}
+}   
 
 template<class T>
 void Lista<T>::eliminar(int id)
 {
     if (esVacia())
     {
+        cout << "No hay ningun cliente en la lista";
+        system("pause");
         return;
     }
     Nodo<T>* temp = inicio;
@@ -109,16 +111,25 @@ void Lista<T>::eliminar(int id)
     if (temp == inicio)
     {
         inicio = inicio->getSiguiente();
+        temp = temp->getSiguiente();
+        ultimoId--;
     }
     else
     {
         prev->setSiguiente(temp->getSiguiente());
+        temp = temp->getSiguiente();
+        ultimoId--;
     }
     if (temp == fin)
     {
         fin = prev;
+        delete temp;
+        ultimoId--;
     }
-    delete temp;
+    while (temp != nullptr) {
+        temp->setId(temp->getId() - 1);
+        temp = temp->getSiguiente();
+    }
 }
 
 template<class T>

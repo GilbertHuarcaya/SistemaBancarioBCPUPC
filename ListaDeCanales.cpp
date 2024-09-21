@@ -120,6 +120,7 @@ int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 	{
 		cout << "No se encontro ningun canal en ese tipo" << endl;
 	}
+	system("pause");
 	return encontrados;
 }
 
