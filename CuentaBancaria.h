@@ -16,7 +16,10 @@ enum ETipoCuenta {
 class CuentaBancaria {
 private:
     string Contrasenia;
-    string FechaCreacion;
+    tm* FechaCreacion;
+    int FechaCreacion_dia;
+    int FechaCreacion_mes;
+    int FechaCreacion_anio;
     ETipoCuenta TipoCuenta;
     int idCliente;
     string NombreCliente;
@@ -27,17 +30,22 @@ private:
 
 public:
     CuentaBancaria();
-    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, ETipoCuenta TipoCuenta, string FechaCreacion, int idCliente);
-    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente);
-    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente, int idTarjeta);
-
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, ETipoCuenta TipoCuenta, tm* FechaCreacion, int idCliente);
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion,
+    int FechaCreacion_dia, int FechaCreacion_mes, int FechaCreacion_anio, int idCliente);
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion, int idCliente, int idTarjeta);
+    CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion,
+    int FechaCreacion_dia, int FechaCreacion_mes, int FechaCreacion_anio, int idCliente, int idTarjeta);
     //Metodos para listar datos
     string descripcion();
     // M�todos de acceso
     string getContrasenia();
     string getNombreCliente();
 	string getApellidoCliente();
-    string getFechaCreacion();
+    tm* getFechaCreacion();
+    int getFechaCreacion_dia();
+    int getFechaCreacion_mes();
+    int getFechaCreacion_anio();
     ETipoCuenta getTipoCuenta();
     string getTipoCuenta_str();
     int getIdCliente();

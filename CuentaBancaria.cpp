@@ -1,14 +1,16 @@
 #include "pch.h"
 #include "CuentaBancaria.h"
+#include "DatosRandom.h"
 
 CuentaBancaria::CuentaBancaria()
 {
 	Contrasenia = ""; NombreCliente = ""; ApellidoCliente = "";
-	TipoCuenta = OTRACUENTA; FechaCreacion = "";
+	TipoCuenta = OTRACUENTA; FechaCreacion = NULL;
+	FechaCreacion_dia = 0; FechaCreacion_mes = 0; FechaCreacion_anio = 0;
 	idCliente = 0; idTarjeta = 0;
 }
 
-CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, ETipoCuenta TipoCuenta, string FechaCreacion, int idCliente)
+CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, ETipoCuenta TipoCuenta, tm* FechaCreacion, int idCliente)
 {
 	this->Contrasenia = Contrasenia; this->NombreCliente = NombreCliente;
 	this->ApellidoCliente = ApellidoCliente;
@@ -17,11 +19,15 @@ CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string 
 	this->idTarjeta = 0;
 }
 
-CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente)
+CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion, int idCliente,
+	int FechaCreacion_dia, int FechaCreacion_mes, int FechaCreacion_anio)
 {
 	this->Contrasenia = Contrasenia; this->NombreCliente = NombreCliente;
 	this->ApellidoCliente = ApellidoCliente;
 	this->FechaCreacion = FechaCreacion;
+	this->FechaCreacion_dia = FechaCreacion_dia;
+	this->FechaCreacion_mes = FechaCreacion_mes;
+	this->FechaCreacion_anio = FechaCreacion_anio;
 	this->idCliente = idCliente;
 	ETipoCuenta TipoCuentaConEnum;
 	switch (TipoCuenta)
@@ -40,7 +46,7 @@ CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string 
 	this->idTarjeta = 0;
 }
 
-CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, string FechaCreacion, int idCliente, int idTarjeta)
+CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion, int idCliente, int idTarjeta)
 {
 	this->Contrasenia = Contrasenia; this->NombreCliente = NombreCliente;
 	this->ApellidoCliente = ApellidoCliente;
@@ -63,6 +69,32 @@ CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string 
 	this->idTarjeta = idTarjeta;
 }
 
+CuentaBancaria::CuentaBancaria(string Contrasenia, string NombreCliente, string ApellidoCliente, int TipoCuenta, tm* FechaCreacion,
+	int FechaCreacion_dia, int FechaCreacion_mes, int FechaCreacion_anio, int idCliente, int idTarjeta)
+{
+	this->Contrasenia = Contrasenia; this->NombreCliente = NombreCliente;
+	this->ApellidoCliente = ApellidoCliente;
+	this->FechaCreacion = FechaCreacion;
+	this->FechaCreacion_dia = FechaCreacion_dia;
+	this->FechaCreacion_mes = FechaCreacion_mes;
+	this->FechaCreacion_anio = FechaCreacion_anio;
+	this->idCliente = idCliente;
+	ETipoCuenta TipoCuentaConEnum;
+	switch (TipoCuenta)
+	{
+	case 1:
+		TipoCuentaConEnum = DEBITO;
+		break;
+	case 2:
+		TipoCuentaConEnum = CREDITO;
+		break;
+	default:
+		TipoCuentaConEnum = OTRACUENTA;
+		break;
+	}
+	this->TipoCuenta = TipoCuentaConEnum;
+	this->idTarjeta = idTarjeta;
+}
 void CuentaBancaria::addTransaction()
 {}
 
@@ -88,7 +120,7 @@ void CuentaBancaria::removeTarjeta(int idTarjeta)
 
 string CuentaBancaria::descripcion() {
 	return "Contrasenia: " + Contrasenia + "\nTipo de Cuenta: " + getTipoCuenta_str() +
-		"\nFecha de Creacion: " + FechaCreacion + "\nNombre del Cliente: " + NombreCliente + "\nApellido del Cliente: " + ApellidoCliente +
+		"\nFecha de Creacion: " + fecha_str_CB(FechaCreacion) + "\nNombre del Cliente: " + NombreCliente + "\nApellido del Cliente: " + ApellidoCliente +
 		"\nId del Cliente: " + to_string(idCliente) + "\nId de la Tarjeta: " + to_string(idTarjeta);
 }
 
@@ -102,9 +134,24 @@ string CuentaBancaria::getApellidoCliente()
 	return ApellidoCliente;
 }
 
-string CuentaBancaria::getFechaCreacion()
+tm* CuentaBancaria::getFechaCreacion()
 {
 	return FechaCreacion;
+}
+
+int CuentaBancaria::getFechaCreacion_dia()
+{
+	return FechaCreacion_dia;
+}
+
+int CuentaBancaria::getFechaCreacion_mes() 
+{
+	return FechaCreacion_mes;
+}
+
+int CuentaBancaria::getFechaCreacion_anio() 
+{
+	return FechaCreacion_anio;
 }
 
 ETipoCuenta CuentaBancaria::getTipoCuenta()

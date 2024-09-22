@@ -1,2 +1,2 @@
-Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion,
-1,Gilbert,Huarcaya,1003,1,1,969611500,09/24
+Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_Anio
+1,pepe,oscategui,1004,1,2,964094100,22,8,124

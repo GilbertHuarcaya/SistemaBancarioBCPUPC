@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "DatosRandom.h"
 
 void ListaDeClientes::mostrar()
 {
@@ -51,13 +52,12 @@ void ListaDeClientes::agregarCliente()
 void ListaDeClientes::agregarClienteRandom()
 {
     string nombre, direccion, telefono, email, apellido, DNI;
-    nombre = "nombre";
-    direccion = "direccion";
-    telefono = "telefono";
-    email = "email";
-    apellido = "apellido";
-    int randomDNI = rand() % 90000000 + 10000000; // Generate random 8-digit DNI
-    DNI = to_string(randomDNI);
+	nombre = generar_nombre();
+	apellido = generar_apellido();
+	email = generar_email(nombre, apellido);
+	direccion = "Jiron Tupac";
+	telefono = generar_telefono();
+	DNI = generar_DNI();
     Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
     this->agregarAlFinal(nuevoCliente);
 	escribirEnArchivo();
@@ -127,8 +127,6 @@ int ListaDeClientes::buscarPorTelefono(string tlf)
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
-			system("pause");
-			system("cls");
 			encontrado++;
 		}
 		aux = aux->getSiguiente();
@@ -179,7 +177,7 @@ void ListaDeClientes::menu()
 		cout << "4. Consultar cliente por telefono"<<endl;
 		cout << "5. Editar datos del cliente" << endl;
 		cout << "6. Eliminar cliente" << endl;
-		cout << "7. Agregar cliente random" << endl;
+		cout << "7. Registrar cliente random" << endl;
  		cout << "8. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -188,8 +186,6 @@ void ListaDeClientes::menu()
 		{
 		case 1:
 			agregarCliente();
-			cout << "Cliente agregado" << endl;
-			system("pause");
 			break;
 		case 2:
 			mostrar();
