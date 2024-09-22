@@ -150,7 +150,6 @@ void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*
 	system("cls");
 }
 
-
 int ListaDeTarjetas::buscar(int id)
 {
 	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
@@ -206,6 +205,7 @@ bool ListaDeTarjetas::buscarPorIdDeCliente(int idCliente)
 
 int ListaDeTarjetas::obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancaria)
 {
+	int contador = 0;
 	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
 	while (aux != nullptr)
 	{
@@ -216,11 +216,17 @@ int ListaDeTarjetas::obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancari
 			cout << aux->getDato()->descripcion() << endl << endl;
 			cout << "----------------------" << endl;
 			cout << endl;
+			contador++;
+			system("pause");
 			return aux->getId();
 		}
 		aux = aux->getSiguiente();
 	}
-	cout << "No se encontro la Cuenta Bancaria" << endl;
+	if(contador==0)
+	{
+		cout << "No se encontro la Cuenta Bancaria" << endl;
+	}
+	system("pause");
 	return 0;
 }
 
@@ -264,6 +270,26 @@ void ListaDeTarjetas::actualizarDatos(int id)
 	system("cls");
 }
 
+void ListaDeTarjetas::activarPorId(int id) 
+{
+
+}
+
+void ListaDeTarjetas::desactivarPorId(int id) 
+{
+
+}
+
+void ListaDeTarjetas::listarTarjetasActivadas() 
+{
+
+}
+
+void ListaDeTarjetas::listarTarjetasDesactivadas() 
+{
+
+}
+
 void ListaDeTarjetas::menu()
 {
 	int opcion;
@@ -272,13 +298,13 @@ void ListaDeTarjetas::menu()
 	{
 		system("cls");
 		escribirEnArchivo();
-		cout << "1. Agregar Tarjeta" << endl;
-		cout << "2. Mostrar Tarjetas" << endl;
-		cout << "3. Buscar Tarjetas" << endl;
-		cout << "4. Actualizar Tarjeta" << endl;
-		cout << "5. Eliminar Tarjeta" << endl;
-		cout << "6. Agregar Tarjeta Random" << endl;
-		cout << "7. Cargar Tarjetas anteriores" << endl;
+		cout << "1. Listar Tarjetas" << endl;
+		cout << "2. Consultar Tarjeta" << endl;
+		cout << "3. Activar Tarjeta" << endl;
+		cout << "4. Desactivar Tarjeta" << endl;
+		cout << "5. Listar Tarjetas Activas" << endl;
+		cout << "6. Listar Tarjetas Desactivadas" << endl;
+		cout << "7. Eliminar Tarjeta" << endl;
 		cout << "8. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -286,31 +312,33 @@ void ListaDeTarjetas::menu()
 		switch (opcion)
 		{
 		case 1:
-			agregarTarjeta();
-			break;
-		case 2:
 			mostrar();
 			break;
-		case 3:
-			cout << "Ingrese id a buscar: ";
+		case 2:
+			cout << "Ingrese id de la tarjeta a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
 			break;
-		case 4:
-			cout << "Ingrese id a reemplazar: ";
+		case 3:
+			cout << "Ingrese id de la tarjeta a activar: ";
 			cin >> id;
-			actualizarDatos(id);
+			activarPorId(id);
+			break;
+		case 4:
+			cout << "Ingrese id de la tarjeta a desactivar: ";
+			cin >> id;
+			desactivarPorId(id);
 			break;
 		case 5:
+			listarTarjetasActivadas();
+			break;
+		case 6:
+			listarTarjetasDesactivadas();
+			break;
+		case 7:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
 			this->eliminar(id);
-			break;
-		case 6:
-			agregarTarjetaRandom();
-			break;
-		case 7:
-			cargarTarjetas();
 			break;
 		case 8:
 			cout << "Saliendo del menu de cuentasbancarias" << endl;
@@ -329,8 +357,8 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
 	do
 	{
 		system("cls");
-		cout << "1. Ver datos de mi tarjeta" << endl;
-		cout << "2. Validar si mi tarjeta esta vigente" << endl;
+		cout << "1. Ver datos de la Tarjeta de la Cuenta Bancaria" << endl;
+		cout << "2. Validar si la tarjeta esta Vigente" << endl;
 		cout << "3. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -340,12 +368,10 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
 		case 1:
 			cout << tarjetaActual->getDato()->descripcion() << endl;
 			system("pause");
-			system("cls");
 			break;
 		case 2:
 			cout << (tarjetaActual->getDato()->validateFechaCaducidad() ? "Vigente" : "Vencido") << endl;
 			system("pause");
-			system("cls");
 			break;
 		case 3:
 			cout << "Saliendo del menu de tarjeta" << endl;

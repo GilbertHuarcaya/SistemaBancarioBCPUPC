@@ -170,3 +170,8 @@ void Canal::setTipoDeCanal(ETipoDeCanal tipoDeCanal)
 {
 	this->tipoDeCanal = tipoDeCanal;
 }
+
+void Canal::setActivo(bool activo)
+{
+	this->activo = activo;
+}

@@ -114,6 +114,34 @@ int ListaDeClientes::buscarPorDNI(string DNI)
 	return 0;
 }
 
+int ListaDeClientes::buscarPorTelefono(string tlf) 
+{
+	int encontrado = 0;
+	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	while (aux != nullptr)
+	{
+		if (aux->getDato()->getTelefono() == tlf)
+		{
+			cout << endl;
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			system("pause");
+			system("cls");
+			encontrado++;
+		}
+		aux = aux->getSiguiente();
+	}
+	if(encontrado==0)
+	{
+		cout << "No se encontro el cliente" << endl;
+	}
+	system("pause");
+	system("cls");
+	return 0;
+}
+
 void ListaDeClientes::actualizarDatos(int id)
 {
 	string nombre, direccion, telefono, email, apellido, DNI;
@@ -140,17 +168,19 @@ void ListaDeClientes::actualizarDatos(int id)
 void ListaDeClientes::menu()
 {
 	int opcion;
+	string tlf;
 	int id;
 	do
 	{
 		system("cls");
-		cout << "1. Agregar cliente" << endl;
-		cout << "2. Mostrar clientes" << endl;
-		cout << "3. Buscar clientes" << endl;
-		cout << "4. Actualizar cliente" << endl;
-		cout << "5. Eliminar cliente" << endl;
-		cout << "6. Agregar cliente random" << endl;
- 		cout << "7. Salir" << endl;
+		cout << "1. Registrar cliente" << endl;
+		cout << "2. Listar clientes" << endl;
+		cout << "3. Consultar cliente por id" << endl;
+		cout << "4. Consultar cliente por telefono"<<endl;
+		cout << "5. Editar datos del cliente" << endl;
+		cout << "6. Eliminar cliente" << endl;
+		cout << "7. Agregar cliente random" << endl;
+ 		cout << "8. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -159,39 +189,44 @@ void ListaDeClientes::menu()
 		case 1:
 			agregarCliente();
 			cout << "Cliente agregado" << endl;
+			system("pause");
 			break;
 		case 2:
 			mostrar();
 			break;
 		case 3:
-			cout << "Ingrese id a buscar: ";
+			cout << "Ingrese id del cliente a consultar: ";
 			cin >> id;
 			cout << this->buscar(id);
 			break;
 		case 4:
-			cout << "Ingrese id a reemplazar: ";
+			cout << "Ingrese el telefono del cliente a consultar: ";
+			cin >> tlf;
+			buscarPorTelefono(tlf);
+			break;
+		case 5:
+			cout << "Ingrese id del cliente para actualizar sus datos: ";
 			cin >> id;
 			actualizarDatos(id);
 			break;
-		case 5:
-			cout << "Ingrese id a eliminar: ";
+		case 6:
+			cout << "Ingrese id del cliente para eliminar: ";
 			cin >> id;
 			this->eliminar(id);
 			break;
-		case 6:
+		case 7:
 			agregarClienteRandom();
 			cout << "Cliente agregado" << endl;
 			break;
-		case 7:
+		case 8:
 			cout << "Saliendo del menu de clientes" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 7);
+	} while (opcion != 8);
 }
-
 
 void ListaDeClientes::menuCliente()
 {
@@ -204,7 +239,7 @@ void ListaDeClientes::menuCliente()
 	do
 	{
 		system("cls");
-		cout << "1. Identificarme por mi DNI" << endl;
+		cout << "1. Identificar al cliente por el DNI" << endl;
 		cout << "2. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -220,19 +255,23 @@ void ListaDeClientes::menuCliente()
 				clienteActual = obtenerNodoPorId(idCliente);
 				if (clienteActual->getId() != 0) {
 					cout << "Cliente identificado" << endl;
+					system("pause");
 					listaCuentasBancarias->menuCuentasBancariasPorCliente(clienteActual);
 				}
 			}
 			else
 			{
 				cout << "Cliente no encontrado" << endl;
+				system("pause");
 			}
 			break;
 		case 2:
 			cout << "Saliendo del menu de cliente" << endl;
+			system("pause");
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
+			system("pause");
 			break;
 		}
 	} while (opcion != 2);

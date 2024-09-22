@@ -9,6 +9,7 @@ enum ETipoDeCanal {
 	WEB,
 	APP,
 	YAPE,
+	CAJERO,
 	OTROCANAL
 };
 
@@ -42,6 +43,7 @@ public:
 	void setDistrito(string distrito);
 	void setDepartamento(string departamento);
 	void setTipoDeCanal(ETipoDeCanal tipoDeCanal);
+	void setActivo(bool activo);
 
 };
 
