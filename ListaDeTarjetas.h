@@ -19,7 +19,7 @@ public:
 	int obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancaria);
 	void actualizarDatos(int id);
 	void menu();
-	void menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual);
+	void menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual);
 	void escribirEnArchivo();
 	void cargarTarjetas();
 };

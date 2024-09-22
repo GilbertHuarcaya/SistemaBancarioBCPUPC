@@ -3,6 +3,7 @@
 #include <fstream>
 #include "CuentaBancaria.h"
 
+
 void ListaDeCanales::mostrar()
 {
 	if (this->esVacia())
@@ -10,7 +11,7 @@ void ListaDeCanales::mostrar()
 		cout << "No hay canales registrados" << endl;
 		return;
 	}
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		cout << endl;
@@ -22,6 +23,7 @@ void ListaDeCanales::mostrar()
 	}
 	system("pause");
 }
+
 
 void ListaDeCanales::agregarCanal()
 {
@@ -47,6 +49,7 @@ void ListaDeCanales::agregarCanal()
 	system("cls");
 }
 
+
 void ListaDeCanales::agregarCanalRandom()
 {
 	string nombre, direccion, ciudad, distrito, departamento;
@@ -65,6 +68,7 @@ void ListaDeCanales::agregarCanalRandom()
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCanales::agregarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 {
@@ -86,6 +90,7 @@ void ListaDeCanales::agregarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCanales::agregarCanalPorNombre(string nombre)
 {
@@ -109,6 +114,7 @@ void ListaDeCanales::agregarCanalPorNombre(string nombre)
 	system("cls");
 }
 
+
 void ListaDeCanales::agregarCanalPorDistrito(string distrito)
 {
 	string nombre, direccion, ciudad, departamento;
@@ -130,6 +136,7 @@ void ListaDeCanales::agregarCanalPorDistrito(string distrito)
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCanales::agregarCanalPorDepartamento(string departamento)
 {
@@ -154,6 +161,7 @@ void ListaDeCanales::agregarCanalPorDepartamento(string departamento)
 	system("cls");
 }
 
+
 void ListaDeCanales::agregarCanalPorCiudad(string ciudad)
 {
 	string nombre, direccion, distrito, departamento;
@@ -177,9 +185,10 @@ void ListaDeCanales::agregarCanalPorCiudad(string ciudad)
 
 }
 
+
 int ListaDeCanales::buscar(int id)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -199,9 +208,10 @@ int ListaDeCanales::buscar(int id)
 	return 0;
 }
 
+
 int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -224,9 +234,10 @@ int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 	return encontrados;
 }
 
+
 int ListaDeCanales::buscarPorNombre(string nombre)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -249,9 +260,10 @@ int ListaDeCanales::buscarPorNombre(string nombre)
 	return encontrados;
 }
 
+
 int ListaDeCanales::buscarPorDistrito(string distrito)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -274,9 +286,10 @@ int ListaDeCanales::buscarPorDistrito(string distrito)
 	return encontrados;
 }
 
+
 int ListaDeCanales::buscarPorDepartamento(string departamento)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -299,9 +312,10 @@ int ListaDeCanales::buscarPorDepartamento(string departamento)
 	return encontrados;
 }
 
+
 int ListaDeCanales::buscarPorCiudad(string ciudad)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -324,9 +338,10 @@ int ListaDeCanales::buscarPorCiudad(string ciudad)
 	return encontrados;
 }
 
+
 int ListaDeCanales::buscarPorActivo(bool activo)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -349,6 +364,7 @@ int ListaDeCanales::buscarPorActivo(bool activo)
 	return encontrados;
 }
 
+
 void ListaDeCanales::actualizarDatos(int id)
 {
 	string nombre, direccion, ciudad, distrito, departamento;
@@ -365,12 +381,13 @@ void ListaDeCanales::actualizarDatos(int id)
 	cin >> departamento;
 	tipoDeCanal = menuParaObtenerTipoDeCanal();
 	Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, true, tipoDeCanal);
-	this->reemplazar(id, nuevoCanal);
+	this->modificarPorId(nuevoCanal, id);
 	escribirEnArchivo();
 	cout << "Canal actualizado" << endl;
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCanales::menu()
 {
@@ -413,7 +430,7 @@ void ListaDeCanales::menu()
 		case 5:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
-			this->eliminar(id);
+			this->eliminarPorId(id);
 			break;
 		case 6:
 			agregarCanalRandom();
@@ -436,6 +453,7 @@ void ListaDeCanales::menu()
 	} while (opcion != 9);
 }
 
+
 ETipoDeCanal ListaDeCanales::menuParaObtenerTipoDeCanal()
 {
 	int opcion;
@@ -451,6 +469,7 @@ ETipoDeCanal ListaDeCanales::menuParaObtenerTipoDeCanal()
 	} while (opcion < 1 || opcion > 6);
 	return (ETipoDeCanal)opcion;
 }
+
 
 void ListaDeCanales::menuParaActualizarCanal(Nodo<Canal*>* canal)
 {
@@ -486,9 +505,10 @@ void ListaDeCanales::menuParaActualizarCanal(Nodo<Canal*>* canal)
 	} while (opcion != 3);
 }
 
+
 void ListaDeCanales::activarCanal(int id)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -504,9 +524,10 @@ void ListaDeCanales::activarCanal(int id)
 	system("cls");
 }
 
+
 void ListaDeCanales::desactivarCanal(int id)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -522,11 +543,12 @@ void ListaDeCanales::desactivarCanal(int id)
 	system("cls");
 }
 
+
 void ListaDeCanales::escribirEnArchivo()
 {
 	ofstream file("Canales.csv");
 	if (file.is_open()) {
-		Nodo<Canal*>* aux = this->obtenerPrimero();
+		Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 		file << "Id,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal\n";
 
 		while (aux != nullptr)
@@ -548,6 +570,7 @@ void ListaDeCanales::escribirEnArchivo()
 		cout << "No se pudo abrir el archivo.\n";
 	}
 }
+
 
 void ListaDeCanales::cargarCanales() {
 	ifstream file("Canales.csv"); // Open file to read
@@ -623,8 +646,9 @@ void ListaDeCanales::cargarCanales() {
 
 }
 
+
 void ListaDeCanales::menuDeGestion() {
-	Nodo<Canal*>* canal;
+	Nodo<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		system("cls");
@@ -682,9 +706,10 @@ void ListaDeCanales::menuDeGestion() {
 	} while (opcion != 8);
 }
 
+
 void ListaDeCanales::menuDeAcceso()
 {
-	Nodo<Canal*>* canal;
+	Nodo<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		cout << "# Canales de Atencion\n";
@@ -725,9 +750,10 @@ void ListaDeCanales::menuDeAcceso()
 	} while (opcion != 7);
 }
 
-void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria)
+
+void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>*cuentaBancaria)
 {
-	Nodo<Canal*>* canal;
+	Nodo<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		system("cls");
@@ -771,10 +797,10 @@ void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancari
 	} while (opcion != 7);
 }
 
-template<typename T>
-void ListaDeCanales::filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave)
+
+void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave)
 {
-	Nodo<Canal*>* canal;
+	Nodo<Canal*, nullptr>* canal;
 	int id;
 	buscarPorTipo(tipoDeCanal);
 	cout << "Ingrese el ID del canal: ";
@@ -804,10 +830,10 @@ void ListaDeCanales::filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave)
 	}
 }
 
-template<typename T>
-void ListaDeCanales::filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave, Nodo<CuentaBancaria*>* cuentaBancaria)
+
+void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave, Nodo<CuentaBancaria*>*cuentaBancaria)
 {
-	Nodo<Canal*>* canal;
+	Nodo<Canal*, nullptr>* canal;
 	int id;
 	buscarPorTipo(tipoDeCanal);
 	cout << "Ingrese el ID del canal: ";
@@ -836,6 +862,112 @@ void ListaDeCanales::filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave, No
 	}
 }
 
+
+void ListaDeCanales::gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llave)
+{
+	Nodo<Canal*, nullptr>* canal;
+	int opcion;
+	int id;
+	do {
+		system("cls");
+		cout << "1. Mostrar " << llave << "\n";
+		cout << "2. Añadir " << llave << "\n";
+		cout << "3. Editar " << llave << "\n";
+		cout << "4. Eliminar " << llave << "\n";
+		cout << "5. Salir" << endl;
+		cout << "Seleccione una opcion: ";
+		cin >> opcion;
+		system("cls");
+		switch (opcion) {
+		case 1:
+			buscarPorTipo(tipoDeCanal);
+			break;
+		case 2:
+			agregarCanalPorTipo(tipoDeCanal);
+			break;
+		case 3:
+			buscarPorTipo(tipoDeCanal);
+
+			cout << "Ingrese el ID del canal: ";
+			cin >> id;
+			canal = obtenerNodoPorId(id);
+			if (canal->getId() != 0) {
+				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
+					menuParaActualizarCanal(canal);
+				}
+				else {
+					cout << "El canal seleccionado no es de tipo " << llave << ".\n";
+					system("pause");
+					system("cls");
+				}
+			}
+			else {
+				cout << "El canal seleccionado no existe. \n";
+				system("pause");
+				system("cls");
+			}
+			break;
+		case 4:
+			eliminarCanalPorTipo(tipoDeCanal);
+			break;
+		case 5:
+			break;
+		default:
+			cout << "Opcion no válida. Intente de nuevo.\n";
+		}
+	} while (opcion != 5);
+}
+
+
+void ListaDeCanales::gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string llave)
+{
+	Nodo<Canal*, nullptr>* canal;
+	int opcion;
+	int id;
+	do {
+		system("cls");
+		cout << "1. Ver Estado de " << llave << "\n";
+		cout << "2. Editar Configuracion de " << llave << "\n";
+		cout << "3. Salir\n";
+		cout << "Seleccione una opcion: ";
+		cin >> opcion;
+		system("cls");
+
+		switch (opcion) {
+		case 1:
+			buscarPorTipo(tipoDeCanal);
+			break;
+		case 2:
+			buscarPorTipo(tipoDeCanal);
+
+			cout << "Ingrese el ID del canal: ";
+			cin >> id;
+			canal = obtenerNodoPorId(id);
+			if (canal->getId() != 0) {
+				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
+					menuParaActualizarCanal(canal);
+				}
+				else {
+					cout << "El canal seleccionado no es de tipo " << llave << "\n";
+					system("pause");
+					system("cls");
+				}
+			}
+			else {
+				cout << "El canal seleccionado no existe. \n";
+				system("pause");
+				system("cls");
+			}
+			break;
+		case 3:
+			break;
+		default:
+			cout << "Opcion no válida. Intente de nuevo.\n";
+		}
+	} while (opcion != 3);
+}
+
+
 void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
 {
 	int opcion;
@@ -858,6 +990,7 @@ void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
 		}
 	} while (opcion != 2);
 }
+
 
 void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, Nodo<Canal*>* canal)
 {
@@ -882,10 +1015,11 @@ void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*
 	} while (opcion != 2);
 }
 
+
 Nodo<Canal*>* ListaDeCanales::obtenerCanal()
 {
 	int opcion;
-	Nodo<Canal*>* canal;	
+	Nodo<Canal*, nullptr>* canal;
 	string Nombre, Ciudad, Distrito, Departamento;
 	ETipoDeCanal tipoDeCanal;
 	do {
@@ -952,128 +1086,25 @@ Nodo<Canal*>* ListaDeCanales::obtenerCanal()
 	return canal;
 }
 
-template<typename T>
-void ListaDeCanales::gestionarPorTipoLista(T tipoDeCanal, string llave)
-{
-    Nodo<Canal*>* canal;
-    int opcion;
-	int id;
-    do {
-        system("cls");
-        cout << "1. Mostrar " << llave << "\n";
-        cout << "2. Añadir " << llave << "\n";
-        cout << "3. Editar " << llave << "\n";
-        cout << "4. Eliminar " << llave << "\n";
-        cout << "5. Salir" << endl;
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
-        system("cls");
-        switch (opcion) {
-        case 1:
-            buscarPorTipo(tipoDeCanal);
-            break;
-        case 2:
-            agregarCanalPorTipo(tipoDeCanal);
-            break;
-        case 3:
-			buscarPorTipo(tipoDeCanal);
-
-			cout << "Ingrese el ID del canal: ";
-			cin >> id;
-            canal = obtenerNodoPorId(id);
-			if (canal->getId() != 0) {
-				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
-					menuParaActualizarCanal(canal);
-				}
-				else {
-					cout << "El canal seleccionado no es de tipo " << llave << ".\n";
-					system("pause");
-					system("cls");
-				}
-			}
-			else {
-				cout << "El canal seleccionado no existe. \n";
-				system("pause");
-				system("cls");
-			}
-            break;
-        case 4:
-            eliminarCanalPorTipo(tipoDeCanal);
-            break;
-        case 5:
-            break;
-        default:
-            cout << "Opcion no válida. Intente de nuevo.\n";
-        }
-    } while (opcion != 5);
-}
-
-template<typename T>
-void ListaDeCanales::gestionarPorTipoIndividual(T tipoDeCanal, string llave)
-{
-	Nodo<Canal*>* canal;
-	int opcion;
-	int id;
-	do {
-		system("cls");
-		cout << "1. Ver Estado de " << llave << "\n";
-		cout << "2. Editar Configuracion de " << llave << "\n";
-		cout << "3. Salir\n";
-		cout << "Seleccione una opcion: ";
-		cin >> opcion;
-		system("cls");
-
-		switch (opcion) {
-		case 1:
-			buscarPorTipo(tipoDeCanal);
-			break;
-		case 2:
-			buscarPorTipo(tipoDeCanal);
-
-			cout << "Ingrese el ID del canal: ";
-			cin >> id;
-			canal = obtenerNodoPorId(id);
-			if (canal->getId() != 0) {
-				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
-					menuParaActualizarCanal(canal);
-				}
-				else {
-					cout << "El canal seleccionado no es de tipo " << llave << "\n";
-					system("pause");
-					system("cls");
-				}
-			}
-			else {
-				cout << "El canal seleccionado no existe. \n";
-				system("pause");
-				system("cls");
-			}
-			break;
-		case 3:
-			break;
-		default:
-			cout << "Opcion no válida. Intente de nuevo.\n";
-		}
-	} while (opcion != 3);
-}
 
 void ListaDeCanales::eliminarCanal(int id)
 {
-	this->eliminar(id);
+	this->eliminarPorId(id);
 	escribirEnArchivo();
 	cout << "Canal eliminado" << endl;
 	system("pause");
 	system("cls");
 }
 
+
 void ListaDeCanales::eliminarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getTipoDeCanal() == tipoDeCanal)
 		{
-			this->eliminar(aux->getId());
+			this->eliminarPorId(aux->getId());
 		}
 		aux = aux->getSiguiente();
 	}
@@ -1083,14 +1114,15 @@ void ListaDeCanales::eliminarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 	system("cls");
 }
 
+
 void ListaDeCanales::eliminarCanalPorNombre(string nombre)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getNombre() == nombre)
 		{
-			this->eliminar(aux->getId());
+			this->eliminarPorId(aux->getId());
 		}
 		aux = aux->getSiguiente();
 	}
@@ -1100,14 +1132,15 @@ void ListaDeCanales::eliminarCanalPorNombre(string nombre)
 	system("cls");
 }
 
+
 void ListaDeCanales::eliminarCanalPorDistrito(string distrito)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDistrito() == distrito)
 		{
-			this->eliminar(aux->getId());
+			this->eliminarPorId(aux->getId());
 		}
 		aux = aux->getSiguiente();
 	}
@@ -1117,14 +1150,15 @@ void ListaDeCanales::eliminarCanalPorDistrito(string distrito)
 	system("cls");
 }
 
+
 void ListaDeCanales::eliminarCanalPorDepartamento(string departamento)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDepartamento() == departamento)
 		{
-			this->eliminar(aux->getId());
+			this->eliminarPorId(aux->getId());
 		}
 		aux = aux->getSiguiente();
 	}
@@ -1134,14 +1168,15 @@ void ListaDeCanales::eliminarCanalPorDepartamento(string departamento)
 	system("cls");
 }
 
+
 void ListaDeCanales::eliminarCanalPorCiudad(string ciudad)
 {
-	Nodo<Canal*>* aux = this->obtenerPrimero();
+	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getCiudad() == ciudad)
 		{
-			this->eliminar(aux->getId());
+			this->eliminarPorId(aux->getId());
 		}
 		aux = aux->getSiguiente();
 	}

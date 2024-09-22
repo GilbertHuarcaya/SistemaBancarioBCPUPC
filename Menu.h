@@ -7,6 +7,12 @@
 #include "ListaDeCanales.h"
 #include "ListaDeCuentasBancarias.h"
 #include "ListaDeTarjetas.h"
+#include "Cliente.h"
+#include "Canal.h"
+#include "CuentaBancaria.h"
+#include "Tarjeta.h"
+#include "Operacion.h"
+
 #include <fstream>
 
 using namespace std;

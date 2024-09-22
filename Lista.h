@@ -2,140 +2,161 @@
 #define __Lista_H__
 #include "Nodo.h"
 #include <iostream>
+#include <functional>
+
 using namespace System;
 using namespace std;
+typedef unsigned int uint;
 
-template<class T>
+template<class T, T NADA = nullptr>
 class Lista
 {
+typedef function<int(T, T)> Comp;
 private:
-    int ultimoId;
-    Nodo<T>* inicio;
-    Nodo<T>* fin;
-    Nodo<T>* actual; // Nuevo miembro para mantener el nodo actual
+	int idUltimoAgregado = 0;
+    uint lon;
+    Nodo<T, NADA>* ini;
+    Nodo<T, NADA>* fin;
+    Nodo<T, NADA>* actual; // Nuevo miembro para mantener el nodo actual
+    Comp comparar; // lambda de criterio de comparación
 public:
-    Lista()
-    {
-        this->ultimoId = 0;//Empieza con 0 elementos
-        this->inicio = nullptr;
-        this->fin = nullptr;
-        this->actual = nullptr;
-    }
+    Lista(): fin(nullptr), actual(nullptr), ini(nullptr), lon(0), idUltimoAgregado(0), comparar([](T a, T b) {return a - b; }) {}
+    //Operaciones auxiliares
     virtual ~Lista();
     bool esVacia(); // Comprueba si la lista est� vac�a
-    void agregarAlInicio(T v); // Agrega al inicio un elem
+    uint longitud();
+    virtual void mostrar(); // Muestra la lista (metodo virtual)
+
+	// AGREGAR
+    void agregarAlini(T v); // Agrega al ini un elem
+	void agregaPos(T elem, uint pos); // Agrega un elemento en una posición
     void agregarAlFinal(T v); // Agrega un elemento al final de la lista
-    void agregarPos(T v, int pos); //Agrega en una posicion especifica de la lista
-    void eliminar(int id); // Elimina un elemento de la lista por su id
-    virtual int buscar(int id); // Busca un elemento en la lista por su id
-    Nodo<T>* obtenerNodoPorId(int id);
+
+	// MODIFICAR
     virtual void ordenar(); // Ordena la lista por el id
-    void reemplazar(int id, T newVal); // Reemplaza un valor por otro en la lista por su id
-    virtual void mostrar(); // Muestra la lista (m�todo virtual)
-    Nodo<T>* obtenerPrimero(); // Obtiene el primer nodo de la lista
-    Nodo<T>* obtenerSiguiente(); // Obtiene el siguiente nodo de la lista
+
+	void modificarInicial(T elem);  // Modifica el primer elemento de la lista
+	void modificarPos(T elem, uint pos); // Modifica un elemento de la lista por su posición
+	void modificarPorId(T elem, int id); // Modifica un elemento de la lista por su id
+	void modificarFinal(T elem); // Modifica el último elemento de la lista
+
+	// ELIMINAR
+    void eliminarPorId(int id); // Elimina un elemento de la lista por su id
+	void eliminaInicial(); // Elimina el primer elemento de la lista
+	void eliminaPos(uint pos); // Elimina un elemento de la lista por su posición
+	void eliminaFinal(); // Elimina el último elemento de la lista
+
+	// BUSCAR
+	Nodo<T, NADA>* obtenerNodoPorId(int id); // Obtiene un nodo por su id
+	Nodo<T, NADA>* obtenerInicial(); // Obtiene el primer nodo de la lista
+    Nodo<T, NADA>* obtenerSiguiente(); // Obtiene el siguiente nodo de la lista
+	Nodo<T, NADA>* obtenerPos(uint pos); // Obtiene un nodo por su posición
+	Nodo<T, NADA>* obtenerFinal(); // Obtiene el último nodo de la lista
+
+	Nodo<T, NADA>* buscar(T elem); // Busca un nodo por su valor
+    virtual int buscarId(int id); // Busca un elemento en la lista por su id
 
 };
 
-template<class T>
-Lista<T>::~Lista()
+template <typename T, T NADA>
+Lista<T, NADA>::~Lista()
 {
     while (!esVacia())
     {
-        Nodo<T>* temp = inicio;
-        inicio = inicio->getSiguiente();
+        Nodo<T, NADA>* temp = ini;
+        ini = ini->getSiguiente();
         delete temp;
     }
 }
 
-template<class T>
-bool Lista<T>::esVacia()
-{
-    return (inicio == nullptr);
+template <typename T, T NADA>
+uint Lista<T, NADA>::longitud() {
+    return lon;
 }
 
-template<class T>
-void Lista<T>::agregarAlInicio(T v) 
-{
-    Nodo<T>* aux = new Nodo<T>(v,1);
-    Nodo<T>* aux2 = nullptr;
-    aux->setSiguiente(inicio);
-    aux2 = aux->getSiguiente();
-    while (aux2!=nullptr) {
-        aux2->setId(aux2->getId() + 1);
-        aux2 = aux2->getSiguiente();
-    }
-    inicio = aux;
-    ultimoId++;
+template <typename T, T NADA>
+bool Lista<T, NADA>::esVacia() {
+    return lon == 0;
 }
 
-template<class T>
-void Lista<T>::agregarAlFinal(T v)
+template <typename T, T NADA>
+void Lista<T, NADA>::agregarAlini(T v) 
 {
-	ultimoId = ultimoId + 1;
-    int nuevoId = ultimoId;
-    Nodo<T>* nodo = new Nodo<T>(v, nuevoId);
-    if (esVacia())
-    {
-        inicio = nodo;
-        fin = inicio;
+    Nodo<T, NADA>* aux = new Nodo<T, NADA>(v, idUltimoAgregado + 1);
+    if (aux != nullptr) {
+        ini = aux;
+        lon++;
+		idUltimoAgregado++;
     }
-    else
-    {
-        fin->setSiguiente(nodo);
-        fin = nodo;
-    }
-    nodo = nullptr;
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::agregarAlFinal(T v)
+{
+    this->agregaPos(v, lon);
 }   
 
-template<class T>
-void Lista<T>::eliminar(int id)
+template <typename T, T NADA>
+void Lista<T, NADA>::eliminarPorId(int id)
 {
-    if (esVacia())
-    {
-        cout << "No hay ningun cliente en la lista";
-        system("pause");
-        return;
-    }
-    Nodo<T>* temp = inicio;
-    Nodo<T>* prev = nullptr;
-    while (temp != nullptr && temp->getId() != id)
-    {
-        prev = temp;
-        temp = temp->getSiguiente();
-    }
-    if (temp == nullptr)
-    {
-        return;
-    }
-    if (temp == inicio)
-    {
-        inicio = inicio->getSiguiente();
-        temp = temp->getSiguiente();
-        ultimoId--;
-    }
-    else
-    {
-        prev->setSiguiente(temp->getSiguiente());
-        temp = temp->getSiguiente();
-        ultimoId--;
-    }
-    if (temp == fin)
-    {
-        fin = prev;
-        delete temp;
-        ultimoId--;
-    }
-    while (temp != nullptr) {
-        temp->setId(temp->getId() - 1);
-        temp = temp->getSiguiente();
-    }
+	if (lon == 0) return;
+	if (ini->getId() == id) {
+		eliminaInicial();
+	}
+	else {
+		Nodo<T, NADA>* aux = ini;
+		while (aux->getSiguiente() != nullptr) {
+			if (aux->getSiguiente()->getId() == id) {
+				Nodo<T, NADA>* temp = aux->getSiguiente();
+				aux->setSiguiente(temp->getSiguiente());
+				delete temp;
+				lon--;
+				return;
+			}
+			aux = aux->getSiguiente();
+		}
+	}
 }
 
-template<class T>
-int Lista<T>::buscar(int id)
+template<typename T, T NADA>
+inline void Lista<T, NADA>::eliminaInicial()
 {
-    Nodo<T>* temp = inicio;
+	if (lon == 0) return;
+	Nodo<T, NADA>* temp = ini;
+	ini = ini->getSiguiente();
+	delete temp;
+	lon--;
+}
+
+template<typename T, T NADA>
+inline void Lista<T, NADA>::eliminaPos(uint pos)
+{
+	if (pos >= lon) return;
+	if (pos == 0) {
+		eliminaInicial();
+	}
+	else {
+		Nodo<T, NADA>* aux = ini;
+		for (int i = 1; i < pos; i++) {
+			aux = aux->getSiguiente();
+		}
+		Nodo<T, NADA>* temp = aux->getSiguiente();
+		aux->setSiguiente(temp->getSiguiente());
+		delete temp;
+		lon--;
+	}
+}
+
+template<typename T, T NADA>
+inline void Lista<T, NADA>::eliminaFinal()
+{
+	eliminaPos(lon - 1);
+}
+
+template <typename T, T NADA>
+int Lista<T, NADA>::buscarId(int id)
+{
+    Nodo<T, NADA>* temp = ini;
     while (temp != nullptr)
     {
         if (temp->getId() == id)
@@ -147,35 +168,35 @@ int Lista<T>::buscar(int id)
     return 0;
 }
 
-template<class T>
-Nodo<T>* Lista<T>::obtenerNodoPorId(int id)
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::obtenerNodoPorId(int id)
 {
-    Nodo<T>* temp = inicio;
-    while (temp != nullptr)
-    {
-        if (temp->getId() == id)
-        {
-            return temp;
-        }
-        temp = temp->getSiguiente();
-    }
-    return new Nodo<T>();
+	Nodo<T, NADA>* temp = ini;
+	while (temp != nullptr)
+	{
+		if (temp->getId() == id)
+		{
+			return temp;
+		}
+		temp = temp->getSiguiente();
+	}
+	return new Nodo<T, NADA>();
 }
 
-template<class T>
-void Lista<T>::ordenar()
+template <typename T, T NADA>
+void Lista<T, NADA>::ordenar()
 {
     if (esVacia())
     {
         return;
     }
     bool swapped;
-    Nodo<T>* ptr1;
-    Nodo<T>* lptr = nullptr;
+    Nodo<T, NADA>* ptr1;
+    Nodo<T, NADA>* lptr = nullptr;
     do
     {
         swapped = false;
-        ptr1 = inicio;
+        ptr1 = ini;
         while (ptr1->getSiguiente() != lptr)
         {
             if (ptr1->getId() > ptr1->getSiguiente()->getId())
@@ -194,34 +215,20 @@ void Lista<T>::ordenar()
     } while (swapped);
 }
 
-template<class T>
-void Lista<T>::reemplazar(int id, T newVal)
+template <typename T, T NADA>
+inline void Lista<T, NADA>::mostrar()
 {
-    Nodo<T>* temp = inicio;
-    while (temp != nullptr)
-    {
-        if (temp->getId() == id)
-        {
-            temp->setDato(newVal);
-        }
-        temp = temp->getSiguiente();
-    }
+	Nodo<T, NADA>* temp = ini;
+	while (temp != nullptr)
+	{
+		cout << temp->getDato() << endl;
+		temp = temp->getSiguiente();
+	}
+	cout << endl;
 }
 
-template<class T>
-inline void Lista<T>::mostrar()
-{
-}
-
-template<class T>
-Nodo<T>* Lista<T>::obtenerPrimero()
-{
-    actual = inicio;
-    return actual;
-}
-
-template<class T>
-Nodo<T>* Lista<T>::obtenerSiguiente()
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::obtenerSiguiente()
 {
     if (actual != nullptr)
     {
@@ -230,19 +237,95 @@ Nodo<T>* Lista<T>::obtenerSiguiente()
     return actual;
 }
 
-template<class T>
-void Lista<T >::agregarPos(T v, int pos) 
-{
-    /*Nodo<T>* nodo = new Nodo<T>(v, pos);
-    Nodo<T>* aux = inicio;
-    Nodo<T>* aux2 = nullptr;
-    for (int i = 0; i < pos; i++) {
-        aux2 = aux;
+template <typename T, T NADA>
+void Lista<T, NADA>::agregaPos(T elem, uint pos) {
+    if (pos > lon) return;
+    if (pos == 0) {
+        agregarAlini(elem);
+    }
+    else {
+        Nodo<T, NADA>* aux = ini;
+        for (int i = 1; i < pos; i++) {
+            aux = aux->getSiguiente();
+        }
+        Nodo<T, NADA>* nuevo = new Nodo<T, NADA>(elem, idUltimoAgregado + 1, aux->getSiguiente());
+        if (nuevo != nullptr) {
+            aux->setSiguiente(nuevo);
+            lon++;
+            idUltimoAgregado++;
+        }
+    }
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::modificarInicial(T elem) {
+    if (lon > 0) {
+        ini->setDato(elem);
+    }
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::modificarPos(T elem, uint pos) {
+    if (pos >= 0 && pos < lon) {
+        Nodo<T, NADA>* aux = ini;
+        for (int i = 0; i < pos; i++) {
+            aux = aux->getSiguiente();
+        }
+        aux->setDato(elem);
+    }
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::modificarPorId(T elem, int id) {
+	Nodo<T, NADA>* temp = ini;
+	while (temp != nullptr) {
+		if (temp->getId() == id) {
+			temp->setDato(elem);
+			return;
+		}
+		temp = temp->getSiguiente();
+	}
+	return;
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::modificarFinal(T elem) {
+    modificarPos(elem, long - 1)
+}
+
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::obtenerInicial() {
+    return obtenerPos(0);
+}
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::obtenerPos(uint pos) {
+    if (pos >= 0 && pos < lon) {
+        Nodo<T, NADA>* aux = ini;
+        for (int i = 0; i < pos; i++) {
+            aux = aux->getSiguiente();
+        }
+        return aux;
+    }
+    else {
+        return new Nodo<T, NADA>();
+    }
+}
+
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::obtenerFinal() {
+    return obtenerPos(lon - 1);
+}
+
+template <typename T, T NADA>
+Nodo<T, NADA>* Lista<T, NADA>::buscar(T elem) {
+    Nodo<T, NADA>* aux = ini;
+    while (aux != nullptr) {
+        if (comparar(aux->getDato(), elem) == 0) {
+            return aux;
+        }
         aux = aux->getSiguiente();
     }
-    aux2->setSiguiente(nodo);
-    nodo->setSiguiente(aux);
-    */
+    return new Nodo<T, NADA>();
 }
 
 #endif

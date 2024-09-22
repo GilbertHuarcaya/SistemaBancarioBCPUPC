@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Lista.h"
 
 void ListaDeClientes::mostrar()
 {
@@ -11,7 +12,7 @@ void ListaDeClientes::mostrar()
 		cout << "No hay clientes registrados" << endl;
 		return;
 	}
-	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	Nodo<Cliente*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		cout << endl;
@@ -24,6 +25,7 @@ void ListaDeClientes::mostrar()
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeClientes::agregarCliente()
 {
@@ -48,6 +50,7 @@ void ListaDeClientes::agregarCliente()
 	system("cls");
 }
 
+
 void ListaDeClientes::agregarClienteRandom()
 {
     string nombre, direccion, telefono, email, apellido, DNI;
@@ -66,9 +69,10 @@ void ListaDeClientes::agregarClienteRandom()
 	system("cls");
 }
 
+
 int ListaDeClientes::buscar(int id)
 {
-	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	Nodo<Cliente*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -90,9 +94,10 @@ int ListaDeClientes::buscar(int id)
 	return 0;
 }
 
+
 int ListaDeClientes::buscarPorDNI(string DNI)
 {
-	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	Nodo<Cliente*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDNI() == DNI)
@@ -114,10 +119,11 @@ int ListaDeClientes::buscarPorDNI(string DNI)
 	return 0;
 }
 
+
 int ListaDeClientes::buscarPorTelefono(string tlf) 
 {
 	int encontrado = 0;
-	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	Nodo<Cliente*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getTelefono() == tlf)
@@ -142,6 +148,7 @@ int ListaDeClientes::buscarPorTelefono(string tlf)
 	return 0;
 }
 
+
 void ListaDeClientes::actualizarDatos(int id)
 {
 	string nombre, direccion, telefono, email, apellido, DNI;
@@ -158,12 +165,13 @@ void ListaDeClientes::actualizarDatos(int id)
 	cout << "Ingrese el DNI del cliente: ";
 	cin >> DNI;
 	Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
-	this->reemplazar(id, nuevoCliente);
+	this->modificarPorId(nuevoCliente, id);
 	escribirEnArchivo();
 	cout << "Cliente actualizado" << endl;
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeClientes::menu()
 {
@@ -212,7 +220,7 @@ void ListaDeClientes::menu()
 		case 6:
 			cout << "Ingrese id del cliente para eliminar: ";
 			cin >> id;
-			this->eliminar(id);
+			this->eliminarPorId(id);
 			break;
 		case 7:
 			agregarClienteRandom();
@@ -227,6 +235,7 @@ void ListaDeClientes::menu()
 		}
 	} while (opcion != 8);
 }
+
 
 void ListaDeClientes::menuCliente()
 {
@@ -252,7 +261,7 @@ void ListaDeClientes::menuCliente()
 			idCliente = buscarPorDNI(DNI);
 			if (idCliente != 0)
 			{
-				clienteActual = obtenerNodoPorId(idCliente);
+                clienteActual = obtenerNodoPorId(idCliente);
 				if (clienteActual->getId() != 0) {
 					cout << "Cliente identificado" << endl;
 					system("pause");
@@ -277,11 +286,12 @@ void ListaDeClientes::menuCliente()
 	} while (opcion != 2);
 }
 
+
 void ListaDeClientes::escribirEnArchivo()
 {
 	ofstream file("Clientes.csv");
 	if (file.is_open()) {
-		Nodo<Cliente*>* aux = this->obtenerPrimero();
+		Nodo<Cliente*, nullptr>* aux = this->obtenerInicial();
 		file << "Id,Nombre,Apellido,Direccion,Telefono,Email,DNI\n"; // Header
 		while (aux != nullptr)
 		{
@@ -300,6 +310,7 @@ void ListaDeClientes::escribirEnArchivo()
 		cout << "No se pudo abrir el archivo.\n";
 	}
 }
+
 
 void ListaDeClientes::cargarClientes() {
 	ifstream file("Clientes.csv"); // Open file to read

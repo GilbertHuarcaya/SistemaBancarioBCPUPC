@@ -3,7 +3,7 @@
 #include "Canal.h"
 #include "CuentaBancaria.h"
 
-class ListaDeCanales : public Lista<Canal*> 
+class ListaDeCanales : public Lista<Canal*>
 {
 public:
 	void mostrar();
@@ -64,16 +64,12 @@ public:
 	Nodo<Canal*>* obtenerCanal();
 
 	// Templates de menus
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave);
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave, Nodo<CuentaBancaria*>* cuentaBancaria);
-	template<typename T>
-	void gestionarPorTipoLista(T tipoDeCanal, string llave);
-	template<typename T>
-	void gestionarPorTipoIndividual(T tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave, Nodo<CuentaBancaria*>*cuentaBancaria);
+	void gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llave);
+	void gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string llave);
 
 
 	//Menu para cliente
-	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria);
+	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>*cuentaBancaria);
 };
