@@ -15,6 +15,5 @@ using namespace std;
 int main()
 {
     mostrarMenuPrincipal();
-    system("pause");
     return 0;
 }

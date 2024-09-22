@@ -272,34 +272,30 @@ void ListaDeTarjetas::menu()
 	{
 		system("cls");
 		escribirEnArchivo();
-		cout << "1. Agregar Tarjeta" << endl;
-		cout << "2. Mostrar Tarjetas" << endl;
-		cout << "3. Buscar Tarjetas" << endl;
-		cout << "4. Actualizar Tarjeta" << endl;
+		cout << "1. Listar Tarjetas" << endl;
+		cout << "2. Consultar Tarjeta" << endl;
+		cout << "3. Bloquear Tarjeta" << endl;
+		cout << "4. Listar Tarjetas Activas" << endl;
 		cout << "5. Eliminar Tarjeta" << endl;
-		cout << "6. Agregar Tarjeta Random" << endl;
-		cout << "7. Cargar Tarjetas anteriores" << endl;
-		cout << "8. Salir" << endl;
+		cout << "6. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion)
 		{
 		case 1:
-			agregarTarjeta();
-			break;
-		case 2:
 			mostrar();
 			break;
-		case 3:
-			cout << "Ingrese id a buscar: ";
+		case 2:
+			cout << "Ingrese id de la tarjeta a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
 			break;
+		case 3:
+			//TODO
+			break;
 		case 4:
-			cout << "Ingrese id a reemplazar: ";
-			cin >> id;
-			actualizarDatos(id);
+			//TODO
 			break;
 		case 5:
 			cout << "Ingrese id a eliminar: ";
@@ -307,19 +303,13 @@ void ListaDeTarjetas::menu()
 			this->eliminar(id);
 			break;
 		case 6:
-			agregarTarjetaRandom();
-			break;
-		case 7:
-			cargarTarjetas();
-			break;
-		case 8:
 			cout << "Saliendo del menu de cuentasbancarias" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 8);
+	} while (opcion != 6);
 }
 
 void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
@@ -329,8 +319,8 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
 	do
 	{
 		system("cls");
-		cout << "1. Ver datos de mi tarjeta" << endl;
-		cout << "2. Validar si mi tarjeta esta vigente" << endl;
+		cout << "1. Ver datos de la Tarjeta de la Cuenta Bancaria" << endl;
+		cout << "2. Validar si la tarjeta esta Vigente" << endl;
 		cout << "3. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -340,12 +330,10 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
 		case 1:
 			cout << tarjetaActual->getDato()->descripcion() << endl;
 			system("pause");
-			system("cls");
 			break;
 		case 2:
 			cout << (tarjetaActual->getDato()->validateFechaCaducidad() ? "Vigente" : "Vencido") << endl;
 			system("pause");
-			system("cls");
 			break;
 		case 3:
 			cout << "Saliendo del menu de tarjeta" << endl;

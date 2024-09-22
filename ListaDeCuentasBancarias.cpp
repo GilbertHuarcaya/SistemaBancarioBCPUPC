@@ -205,10 +205,9 @@ int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
 
 void ListaDeCuentasBancarias::actualizarDatos(int id)
 {
+	Nodo<CuentaBancaria*> aux;
 	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
 	int idCliente, TipoCuenta;
-	cout << "Ingrese el Id de la Cuenta Bancaria: ";
-	cin >> idCliente;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
 	cin >> Contrasenia;
 	cout << "Ingrese el Nombre del cliente: ";
@@ -237,56 +236,36 @@ void ListaDeCuentasBancarias::menu()
 	{
 		system("cls");
 		escribirEnArchivo();
-		cout << "1. Agregar Cuenta Bancaria" << endl;
-		cout << "2. Mostrar Cuentas Bancarias" << endl;
-		cout << "3. Buscar Cuentas Bancarias" << endl;
-		cout << "4. Actualizar Cuenta Bancaria" << endl;
-		cout << "5. Eliminar Cuenta Bancaria" << endl;
-		cout << "6. Agregar Cuenta Bancaria Random" << endl;
-		cout << "7. Cargar cuentas bancarias anteriores" << endl;
-		cout << "8. Buscar Cuenta por Id Cliente" << endl;
-		cout << "9. Buscar Cuenta por tipo de Cuenta:" << endl;
-		cout << "10. Salir" << endl;
+		cout << "1. Listar Cuentas Bancarias" << endl;
+		cout << "2. Consultar Cuenta Bancaria" << endl;
+		cout << "3. Eliminar Cuenta Bancaria" << endl;
+		cout << "4. Listar Cuentas Bancarias por Id del Cliente" << endl;
+		cout << "5. Listar Cuentas Bancarias por Tipo de Cuenta:" << endl;
+		cout << "6. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion)
 		{
 		case 1:
-			agregarCuentaBancaria();
-			cout << "CuentaBancaria agregado" << endl;
-			break;
-		case 2:
 			mostrar();
 			break;
-		case 3:
-			cout << "Ingrese id a buscar: ";
+		case 2:
+			cout << "Ingrese id de la Cuenta Bancaria a buscar: ";
 			cin >> id;
 			cout << this->buscar(id);
 			break;
-		case 4:
-			cout << "Ingrese id a reemplazar: ";
-			cin >> id;
-			actualizarDatos(id);
-			break;
-		case 5:
-			cout << "Ingrese id a eliminar: ";
+		case 3:
+			cout << "Ingrese id de la Cuenta Bancaria a eliminar: ";
 			cin >> id;
 			this->eliminar(id);
 			break;
-		case 6:
-			agregarCuentaBancariaRandom();
-			cout << "CuentaBancaria agregado" << endl;
-			break;
-		case 7:
-			cout << "Saliendo del menu de cuentasbancarias" << endl;
-			break;
-		case 8:
+		case 4:
 			cout << "Ingrese el id del cliente: ";
 			cin >> id;
 			listarPorIdDeCliente(id);
 			break;
-		case 9:
+		case 5:
 		{
 			ETipoCuenta TipoCuentaEnum;
 			cout << "Ingrese el tipo de cuenta que desea buscar: \n";
@@ -306,11 +285,14 @@ void ListaDeCuentasBancarias::menu()
 			buscarPorTipoCuenta(TipoCuentaEnum);
 			break;
 		}
+		case 6:
+			cout << "Saliendo del menu de cuentas bancarias" << endl;
+			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 10);
+	} while (opcion != 6);
 }
 
 void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* clienteActual)
@@ -323,11 +305,11 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 	{
 		system("cls");
 		escribirEnArchivo();
-		cout << "1. Agregar Cuenta Bancaria" << endl;
-		cout << "2. Mostrar Mis Cuentas Bancarias" << endl;
-		cout << "3. Acceder a Mi Cuenta Bancaria" << endl;
-		cout << "4. Eliminar Mi Cuenta Bancaria" << endl;
-		cout << "5. Agregar Cuenta Bancaria Random" << endl;
+		cout << "1. Agregar una Cuenta Bancaria al Cliente" << endl;
+		cout << "2. Mostrar las Cuentas Bancarias del Cliente" << endl;
+		cout << "3. Acceder a la Cuenta Bancaria del Cliente" << endl;
+		cout << "4. Eliminar una Cuenta Bancaria del Cliente" << endl;
+		cout << "5. Agregar Cuenta Bancaria Random al Cliente" << endl;
 		cout << "6. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
@@ -337,6 +319,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 		case 1:
 			agregarCuentaBancariaPorCliente(clienteActual);
 			cout << "CuentaBancaria agregado" << endl;
+			system("pause");
 			break;
 		case 2:
 			listarPorIdDeCliente(clienteActual->getId());
@@ -354,12 +337,10 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 				else {
 					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
 					system("pause");
-					system("cls");
 				}
 			} else {
 				cout << "No existe esta cuenta" << endl;
 				system("pause");
-				system("cls");
 			}
 			break;
 		case 4:
@@ -373,10 +354,12 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 				}
 				else {
 					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
+					system("pause");
 				}
 			}
 			else {
 				cout << "No existe esta cuenta" << endl;
+				system("pause");
 			}
 			system("pause");
 			system("cls");
@@ -456,14 +439,14 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 				cout << "Opcion invalida" << endl;
 				break;
 			}
-		} while (opcion != 4);
+		} while (opcion != 5);
 	}
 	else {
 		do
 		{
 			system("cls");
-			cout << "1. Agregar Tarjeta" << endl;
-			cout << "2. Agregar Tarjeta Random" << endl;
+			cout << "1. Agregar una Tarjeta" << endl;
+			cout << "2. Agregar una Tarjeta Random" << endl;
 			cout << "3. Salir" << endl;
 			cout << "Ingrese una opcion: ";
 			cin >> opcion;
