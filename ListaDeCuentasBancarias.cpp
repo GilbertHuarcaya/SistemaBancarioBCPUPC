@@ -5,6 +5,7 @@
 #include <string>
 #include "DatosRandom.h"
 #include "ListaDeTarjetas.h"
+#include "ListaDeCanales.h"
 
 void ListaDeCuentasBancarias::mostrar()
 {
@@ -66,9 +67,13 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorIdDelCliente(int idCliente
 	cin >> TipoCuenta;
 	cout << "Ingrese la Fecha de creacion de la Cuenta Bancaria: ";
 	cin >> FechaCreacion;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
+	CuentaBancaria* nuevoCuentaBancaria = 
+new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
 	agregarAlFinal(nuevoCuentaBancaria);
+	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* clienteActual)
@@ -84,7 +89,10 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* cl
 	cin >> FechaCreacion;
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, clienteActual->getDato()->getNombre(), clienteActual->getDato()->getApellido(), TipoCuenta, FechaCreacion, clienteActual->getId());
 	agregarAlFinal(nuevoCuentaBancaria);
+	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
@@ -100,7 +108,10 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
 	TipoCuenta = 1;
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
 	agregarAlFinal(nuevoCuentaBancaria);
+	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorIdDeCliente(int idCliente)
@@ -115,7 +126,10 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorIdDeCliente(int idCl
 	TipoCuenta = 1;
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
 	this->agregarAlFinal(nuevoCuentaBancaria);
+	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
+	system("pause");
+	system("cls");
 }
 
 int ListaDeCuentasBancarias::buscar(int id)
@@ -137,6 +151,8 @@ int ListaDeCuentasBancarias::buscar(int id)
 		aux = aux->getSiguiente();
 	}
 	cout << "No se encontro la Cuenta Bancaria" << endl;
+	system("pause");
+	system("cls");
 	return 0;
 }
 
@@ -160,6 +176,7 @@ void ListaDeCuentasBancarias::listarPorIdDeCliente(int idCliente)
 	if (encontrados == 0) {
 		cout << "No se encontro la Cuenta Bancaria" << endl;
 	}
+	system("pause");
 }
 
 int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
@@ -181,6 +198,8 @@ int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
 		aux = aux->getSiguiente();
 	}
 	cout << "No se encontro la Cuenta Bancaria" << endl;
+	system("pause");
+	system("cls");
 	return 0;
 }
 
@@ -203,7 +222,10 @@ void ListaDeCuentasBancarias::actualizarDatos(int id)
 	cin >> FechaCreacion;
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,  NombreCliente, ApellidoCliente,  TipoCuenta,  FechaCreacion,  idCliente);
 	reemplazar(id, nuevoCuentaBancaria);
+	escribirEnArchivo();
 	cout << "Se reemplazo correctamente los datos.\n";
+	system("pause");
+	system("cls");
 }
 
 void ListaDeCuentasBancarias::menu()
@@ -320,6 +342,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 			listarPorIdDeCliente(clienteActual->getId());
 			break;
 		case 3:
+			listarPorIdDeCliente(clienteActual->getId());
 			cout << "Ingrese id de su cuenta bancaria: ";
 			cin >> idCuentaBancaria;
 			cuentaBancariaActual = obtenerNodoPorId(idCuentaBancaria);
@@ -330,9 +353,13 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 				}
 				else {
 					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
+					system("pause");
+					system("cls");
 				}
 			} else {
 				cout << "No existe esta cuenta" << endl;
+				system("pause");
+				system("cls");
 			}
 			break;
 		case 4:
@@ -351,6 +378,8 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 			else {
 				cout << "No existe esta cuenta" << endl;
 			}
+			system("pause");
+			system("cls");
 			break;
 		case 5:
 			agregarCuentaBancariaRandomPorIdDeCliente(clienteActual->getId());
@@ -369,6 +398,8 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 {
 	ListaDeTarjetas* listaTarjetas = new ListaDeTarjetas();
 	listaTarjetas->cargarTarjetas();
+	ListaDeCanales* listaCanales = new ListaDeCanales();
+	listaCanales->cargarCanales();
 	int opcion;
 	int idCuentaBancaria;
 	int idTarjeta;
@@ -380,7 +411,8 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 			cout << "1. Acceder a Mi Tarjeta" << endl;
 			cout << "2. Eliminar Mi Tarjeta" << endl;
 			cout << "3. Renovar Mi Tarjeta" << endl;
-			cout << "4. Salir" << endl;
+			cout << "4. Acceder a un Canal" << endl;
+			cout << "5. Salir" << endl;
 			cout << "Ingrese una opcion: ";
 			cin >> opcion;
 			system("cls");
@@ -402,9 +434,22 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 				return;
 				break;
 			case 3:
-				//TODO
+				if (cuentaBancariaActual->getDato()->getIdTarjeta() != 0) {
+					listaTarjetas->agregarTarjetaPorCuentaBancaria(cuentaBancariaActual);
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
+					escribirEnArchivo();
+					cout << "Tarjeta renovada" << endl;
+				}
+				else {
+					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+				}
 				break;
 			case 4:
+				listaCanales->menuDeAccesoPorCuentaBancaria(cuentaBancariaActual);
+				return;
+				break;
+			case 5:
 				cout << "Saliendo del menu de Cuentas Bancarias" << endl;
 				break;
 			default:
