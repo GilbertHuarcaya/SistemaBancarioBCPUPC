@@ -76,8 +76,6 @@ int mostrarMenuPrincipal() {
             break;
         }
         case 4: {
-            listaClientes->menuCliente();
-            system("pause");
             break;
         }
         case 5:
@@ -85,6 +83,8 @@ int mostrarMenuPrincipal() {
         case 6:
             break;
         case 7:
+            listaClientes->menuCliente();
+            system("pause");
             break;
         case 8:
             break;

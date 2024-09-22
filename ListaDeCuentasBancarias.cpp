@@ -332,7 +332,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 
 			if (cuentaBancariaActual->getId() != 0) {
 				if (cuentaBancariaActual->getDato()->getIdCliente() == clienteActual->getId()) {
-					menuCuentaBancariaIndividual(cuentaBancariaActual);
+					menuCuentaBancariaParaCliente(cuentaBancariaActual);
 				}
 				else {
 					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
@@ -391,10 +391,10 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 		do
 		{
 			system("cls");
-			cout << "1. Acceder a Mi Tarjeta" << endl;
-			cout << "2. Eliminar Mi Tarjeta" << endl;
-			cout << "3. Renovar Mi Tarjeta" << endl;
-			cout << "4. Acceder a un Canal" << endl;
+			cout << "1. Acceder a una Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "2. Mostrar la Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "3. Eliminar una Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "4. Renovar una Tarjeta de la Cuenta Bancaria" << endl;
 			cout << "5. Salir" << endl;
 			cout << "Ingrese una opcion: ";
 			cin >> opcion;
@@ -402,6 +402,126 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 			switch (opcion)
 			{
 			case 1:			
+				tarjetaActual = listaTarjetas->obtenerNodoPorId(cuentaBancariaActual->getDato()->getIdTarjeta());
+				if (tarjetaActual->getId() != 0) {
+					listaTarjetas->menuTarjetaIndividual(tarjetaActual);
+				}
+				else {
+					cout << "No se encontro la tarjeta" << endl;
+				}
+				break;
+			case 2:
+				listaTarjetas->buscarPorIdDeCliente(cuentaBancariaActual->getDato()->getIdCliente());
+				system("pause");
+				system("cls");
+				return;
+				break;
+			case 3:
+				cuentaBancariaActual->getDato()->setIdTarjeta(0);
+				system("pause");
+				system("cls");
+				return;
+				break;
+			case 4:
+				if (cuentaBancariaActual->getDato()->getIdTarjeta() != 0) {
+					listaTarjetas->agregarTarjetaPorCuentaBancaria(cuentaBancariaActual);
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
+					escribirEnArchivo();
+					cout << "Tarjeta renovada" << endl;
+				}
+				else {
+					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+				}
+				break;
+			case 5:
+				cout << "Saliendo del menu de Cuentas Bancarias" << endl;
+				break;
+			default:
+				cout << "Opcion invalida" << endl;
+				break;
+			}
+		} while (opcion != 5);
+	}
+	else {
+		do
+		{
+			system("cls");
+			cout << "1. Agregar una Tarjeta" << endl;
+			cout << "2. Agregar una Tarjeta Random" << endl;
+			cout << "3. Salir" << endl;
+			cout << "Ingrese una opcion: ";
+			cin >> opcion;
+			system("cls");
+			switch (opcion)
+			{
+			case 1:
+				if (cuentaBancariaActual->getDato()->getIdTarjeta() == 0) {
+					listaTarjetas->agregarTarjetaPorCuentaBancaria(cuentaBancariaActual);
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
+					escribirEnArchivo();
+					cout << "Tarjeta agregada" << endl;
+				}
+				else {
+					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+				}
+				system("pause");
+				system("cls");
+				return;
+				break;
+			case 2:
+				if (cuentaBancariaActual->getDato()->getIdTarjeta() == 0) {
+					listaTarjetas->agregarTarjetaRandomPorCuentaBancaria(cuentaBancariaActual);
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
+					escribirEnArchivo();
+					cout << "Tarjeta agregada" << endl;
+				}
+				else {
+					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+				}
+				system("pause");
+				system("cls");
+				return;
+				break;
+			case 3:
+				cout << "Saliendo del menu de cuenta bancaria" << endl;
+				break;
+			default:
+				cout << "Opcion invalida" << endl;
+				break;
+			}
+		} while (opcion != 3);
+	}
+
+}
+
+void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancariaActual)
+{
+	ListaDeTarjetas* listaTarjetas = new ListaDeTarjetas();
+	listaTarjetas->cargarTarjetas();
+	ListaDeCanales* listaCanales = new ListaDeCanales();
+	listaCanales->cargarCanales();
+	int opcion;
+	int idCuentaBancaria;
+	int idTarjeta;
+	Nodo<Tarjeta*>* tarjetaActual;
+	if (cuentaBancariaActual->getDato()->getIdTarjeta() != 0) {
+		do
+		{
+			system("cls");
+			cout << "1. Acceder a Mi Tarjeta" << endl;
+			cout << "2. Eliminar Mi Tarjeta" << endl;
+			cout << "3. Renovar Mi Tarjeta" << endl;
+			cout << "4. Acceder a un Canal Para iniciar una Operacion" << endl;
+			cout << "5. Salir" << endl;
+			cout << "Ingrese una opcion: ";
+			cin >> opcion;
+			system("cls");
+			switch (opcion)
+			{
+			case 1:
 				tarjetaActual = listaTarjetas->obtenerNodoPorId(cuentaBancariaActual->getDato()->getIdTarjeta());
 				if (tarjetaActual->getId() != 0) {
 					listaTarjetas->menuTarjetaIndividual(tarjetaActual);
@@ -429,7 +549,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 				}
 				break;
 			case 4:
-				listaCanales->menuDeAccesoPorCuentaBancaria(cuentaBancariaActual);
+				listaCanales->menuDeAccesoPorCuentaBancariaParaCliente(cuentaBancariaActual);
 				return;
 				break;
 			case 5:

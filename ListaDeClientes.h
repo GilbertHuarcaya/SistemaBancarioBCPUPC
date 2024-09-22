@@ -13,7 +13,9 @@ public:
 	int buscarPorDNI(string DNI);
 	void actualizarDatos(int id);
 	void menu();
-	void menuCliente();
 	void escribirEnArchivo();
 	void cargarClientes();
+
+	//Menu para cliente
+	void menuCliente();
 };

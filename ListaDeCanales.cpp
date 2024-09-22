@@ -628,16 +628,16 @@ void ListaDeCanales::menuDeGestion() {
 	int opcion;
 	do {
 		system("cls");
-		cout << "# Canales de Atención\n";
+		cout << "# Canales de Atencion\n";
 		cout << "1. Gestionar Cajeros Automáticos\n";
 		cout << "2. Gestionar Ventanillas\n";
 		cout << "3. Gestionar Agentes\n";
 		cout << "4. Gestionar Yape\n";
-		cout << "5. Gestión de Plataforma Web\n";
-		cout << "6. Gestión de Plataforma APP\n";
+		cout << "5. Gestion de Plataforma Web\n";
+		cout << "6. Gestion de Plataforma APP\n";
 		cout << "7. Buscar y Gestionar canal\n";
 		cout << "8. Volver\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion) {
@@ -677,9 +677,9 @@ void ListaDeCanales::menuDeGestion() {
 		case 8:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
-	} while (opcion != 6);
+	} while (opcion != 8);
 }
 
 void ListaDeCanales::menuDeAcceso()
@@ -687,7 +687,7 @@ void ListaDeCanales::menuDeAcceso()
 	Nodo<Canal*>* canal;
 	int opcion;
 	do {
-		cout << "# Canales de Atención\n";
+		cout << "# Canales de Atencion\n";
 		cout << "1. Acceder a Cajeros Automáticos\n";
 		cout << "2. Acceder a Ventanillas\n";
 		cout << "3. Acceder a Agentes\n";
@@ -695,7 +695,7 @@ void ListaDeCanales::menuDeAcceso()
 		cout << "5. Acceder a Plataforma Web\n";
 		cout << "6. Acceder a Plataforma APP\n";
 		cout << "7. Volver\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 
 		switch (opcion) {
@@ -720,18 +720,18 @@ void ListaDeCanales::menuDeAcceso()
 		case 7:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
-	} while (opcion != 6);
+	} while (opcion != 7);
 }
 
-void ListaDeCanales::menuDeAccesoPorCuentaBancaria(Nodo<CuentaBancaria*>* cuentaBancaria)
+void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria)
 {
 	Nodo<Canal*>* canal;
 	int opcion;
 	do {
 		system("cls");
-		cout << "# Canales de Atención\n";
+		cout << "# Canales de Atencion\n";
 		cout << "1. Acceder a Cajeros Automáticos\n";
 		cout << "2. Acceder a Ventanillas\n";
 		cout << "3. Acceder a Agentes\n";
@@ -739,7 +739,7 @@ void ListaDeCanales::menuDeAccesoPorCuentaBancaria(Nodo<CuentaBancaria*>* cuenta
 		cout << "5. Acceder a Plataforma Web\n";
 		cout << "6. Acceder a Plataforma APP\n";
 		cout << "7. Volver\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion) {
@@ -766,7 +766,7 @@ void ListaDeCanales::menuDeAccesoPorCuentaBancaria(Nodo<CuentaBancaria*>* cuenta
 		case 7:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 7);
 }
@@ -844,7 +844,7 @@ void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
 		cout << "# OPERACIONES\n";
 		cout << "1. Hacer una operacion\n";
 		cout << "2. Volver\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion) {
@@ -854,7 +854,7 @@ void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
 		case 2:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 2);
 }
@@ -867,7 +867,7 @@ void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*
 		cout << "# OPERACIONES\n";
 		cout << "1. Hacer una operacion\n";
 		cout << "2. Volver\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion) {
@@ -877,7 +877,7 @@ void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*
 		case 2:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 2);
 }
@@ -898,7 +898,7 @@ Nodo<Canal*>* ListaDeCanales::obtenerCanal()
 		cout << "5. Buscar Por Tipo \n";
 		cout << "6. Buscar canales Activos \n";
 		cout << "7. Seleccione esta opcion si ya sabe cual es el id del canal que desea seleccionar\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 		switch (opcion) {
@@ -937,7 +937,7 @@ Nodo<Canal*>* ListaDeCanales::obtenerCanal()
 		case 7: 
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 7);
 
@@ -965,7 +965,7 @@ void ListaDeCanales::gestionarPorTipoLista(T tipoDeCanal, string llave)
         cout << "3. Editar " << llave << "\n";
         cout << "4. Eliminar " << llave << "\n";
         cout << "5. Salir" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
         system("cls");
         switch (opcion) {
@@ -1003,7 +1003,7 @@ void ListaDeCanales::gestionarPorTipoLista(T tipoDeCanal, string llave)
         case 5:
             break;
         default:
-            cout << "Opción no válida. Intente de nuevo.\n";
+            cout << "Opcion no válida. Intente de nuevo.\n";
         }
     } while (opcion != 5);
 }
@@ -1017,9 +1017,9 @@ void ListaDeCanales::gestionarPorTipoIndividual(T tipoDeCanal, string llave)
 	do {
 		system("cls");
 		cout << "1. Ver Estado de " << llave << "\n";
-		cout << "2. Editar Configuración de " << llave << "\n";
+		cout << "2. Editar Configuracion de " << llave << "\n";
 		cout << "3. Salir\n";
-		cout << "Seleccione una opción: ";
+		cout << "Seleccione una opcion: ";
 		cin >> opcion;
 		system("cls");
 
@@ -1052,7 +1052,7 @@ void ListaDeCanales::gestionarPorTipoIndividual(T tipoDeCanal, string llave)
 		case 3:
 			break;
 		default:
-			cout << "Opción no válida. Intente de nuevo.\n";
+			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 3);
 }

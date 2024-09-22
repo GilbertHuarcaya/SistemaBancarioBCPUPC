@@ -22,4 +22,7 @@ public:
 	void escribirEnArchivo();
 	void cargarCuentasBancarias();
 	void buscarPorTipoCuenta(ETipoCuenta tipoDeCuenta);
+
+	//Menu para cliente
+	void menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancariaActual);
 };

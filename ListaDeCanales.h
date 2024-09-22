@@ -11,7 +11,6 @@ public:
 	void menu();
 	void menuDeGestion();
 	void menuDeAcceso();
-	void menuDeAccesoPorCuentaBancaria(Nodo<CuentaBancaria*>* cuentaBancaria);
 	void menuDeOperacionPorCanal(Nodo<Canal*>* canal);
 	void menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, Nodo<Canal*>* canal);
 	ETipoDeCanal menuParaObtenerTipoDeCanal();
@@ -73,4 +72,8 @@ public:
 	void gestionarPorTipoLista(T tipoDeCanal, string llave);
 	template<typename T>
 	void gestionarPorTipoIndividual(T tipoDeCanal, string llave);
+
+
+	//Menu para cliente
+	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria);
 };
