@@ -11,6 +11,7 @@ public:
 	void agregarClienteRandom();
 	int buscar(int id);
 	int buscarPorDNI(string DNI);
+	int buscarPorTelefono(string tlf);
 	void actualizarDatos(int id);
 	void menu();
 	void menuCliente();

@@ -114,6 +114,34 @@ int ListaDeClientes::buscarPorDNI(string DNI)
 	return 0;
 }
 
+int ListaDeClientes::buscarPorTelefono(string tlf) 
+{
+	int encontrado = 0;
+	Nodo<Cliente*>* aux = this->obtenerPrimero();
+	while (aux != nullptr)
+	{
+		if (aux->getDato()->getTelefono() == tlf)
+		{
+			cout << endl;
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			system("pause");
+			system("cls");
+			encontrado++;
+		}
+		aux = aux->getSiguiente();
+	}
+	if(encontrado==0)
+	{
+		cout << "No se encontro el cliente" << endl;
+	}
+	system("pause");
+	system("cls");
+	return 0;
+}
+
 void ListaDeClientes::actualizarDatos(int id)
 {
 	string nombre, direccion, telefono, email, apellido, DNI;
@@ -147,7 +175,7 @@ void ListaDeClientes::menu()
 		system("cls");
 		cout << "1. Registrar cliente" << endl;
 		cout << "2. Listar clientes" << endl;
-		cout << "3. Consultar cliente" << endl;
+		cout << "3. Consultar cliente por id" << endl;
 		cout << "4. Consultar cliente por telefono"<<endl;
 		cout << "5. Editar datos del cliente" << endl;
 		cout << "6. Eliminar cliente" << endl;
@@ -174,7 +202,7 @@ void ListaDeClientes::menu()
 		case 4:
 			cout << "Ingrese el telefono del cliente a consultar: ";
 			cin >> tlf;
-			//TODO
+			buscarPorTelefono(tlf);
 			break;
 		case 5:
 			cout << "Ingrese id del cliente para actualizar sus datos: ";

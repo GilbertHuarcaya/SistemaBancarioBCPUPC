@@ -189,7 +189,7 @@ void ListaDeCuentasBancarias::actualizarDatos(int id)
 {
 	Nodo<CuentaBancaria*> aux;
 	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
-	int idCliente, TipoCuenta;
+	int idCliente=0, TipoCuenta;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
 	cin >> Contrasenia;
 	cout << "Ingrese el Nombre del cliente: ";
@@ -297,7 +297,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 		{
 		case 1:
 			agregarCuentaBancariaPorCliente(clienteActual);
-			cout << "CuentaBancaria agregado" << endl;
+			cout << "Cuenta Bancaria agregada" << endl;
 			system("pause");
 			break;
 		case 2:
@@ -365,10 +365,10 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 		do
 		{
 			system("cls");
-			cout << "1. Acceder a una Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "1. Acceder a la Tarjeta de la Cuenta Bancaria" << endl;
 			cout << "2. Mostrar la Tarjeta de la Cuenta Bancaria" << endl;
-			cout << "3. Eliminar una Tarjeta de la Cuenta Bancaria" << endl;
-			cout << "4. Renovar una Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "3. Eliminar la Tarjeta de la Cuenta Bancaria" << endl;
+			cout << "4. Renovar la Tarjeta de la Cuenta Bancaria" << endl;
 			cout << "5. Salir" << endl;
 			cout << "Ingrese una opcion: ";
 			cin >> opcion;
@@ -385,7 +385,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 				}
 				break;
 			case 2:
-				//listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+				listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
 				break;
 			case 3:
 				cuentaBancariaActual->getDato()->setIdTarjeta(0);

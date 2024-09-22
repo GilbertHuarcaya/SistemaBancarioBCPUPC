@@ -12,6 +12,10 @@ public:
 	void agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*>* cuentaBancariaActual);
 	int buscar(int id);
 	bool buscarPorIdDeCliente(int idCliente);
+	void desactivarPorId(int id);
+	void activarPorId(int id);
+	void listarTarjetasActivadas();
+	void listarTarjetasDesactivadas();
 	int obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancaria);
 	void actualizarDatos(int id);
 	void menu();

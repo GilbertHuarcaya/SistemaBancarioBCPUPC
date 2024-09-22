@@ -41,8 +41,10 @@ int mostrarMenuPrincipal() {
     ListaDeClientes* listaClientes = new ListaDeClientes();
     ListaDeCanales* listaCanales = new ListaDeCanales();
     ListaDeCuentasBancarias* listaCuentasB = new ListaDeCuentasBancarias();
+    ListaDeTarjetas* listaTarjetas = new ListaDeTarjetas();
     listaClientes->cargarClientes();
     listaCanales->cargarCanales();
+    listaCuentasB->cargarCuentasBancarias();
 
     do {
         system("cls");
@@ -76,8 +78,7 @@ int mostrarMenuPrincipal() {
             break;
         }
         case 4: {
-            listaClientes->menuCliente();
-            system("pause");
+            listaTarjetas->menu();
             break;
         }
         case 5:
@@ -85,6 +86,8 @@ int mostrarMenuPrincipal() {
         case 6:
             break;
         case 7:
+            listaClientes->menuCliente();
+            system("pause");
             break;
         case 8:
             break;
