@@ -127,6 +127,6 @@ void Tarjeta::Desactivar(){this->Activado = false;}
 string Tarjeta::descripcion() {
 	return "\nCodigo: " + Codigo + " CVV: " + to_string(CVV) + " Activado: " + getActivado_str() +
 		"\nSaldo: " + to_string(saldo) + " Tipo de Tarjeta: " + getTipoTarjeta_str() + " Divisa: " + getDivisa_str() +
-		"\nFecha de Creacion: " + fecha_str(FechaCreacion) + " Fecha de Caducidad: " + fecha_str(FechaCaducidad) +
+		"\nFecha de Creacion: " + to_string(FechaCreacion_mes)+"/"+to_string(FechaCreacion_anio+1900) + " Fecha de Caducidad: " + fecha_str(FechaCaducidad) +
 		"\nNombre del Cliente: " + NombreCliente + " Apellido del Cliente: " + ApellidoCliente + " Id Cuenta Bancaria: " + to_string(idCuentaBancaria);
 }

@@ -116,3 +116,33 @@ inline int random(int a, int b) {
 	Random r;
 	return r.Next(a, b);
 }
+
+inline string generar_Direccion(int fase = 1,string total="") {
+	if (fase == 0)
+	{
+		Random r;
+		string aux[4] = { "Jiron","Manzana","Calle","Avenida" };
+		fase++;
+		total += aux[r.Next(0, 4)]+" ";
+		return generar_Direccion(fase, total);
+	}
+	else if(fase<10)
+	{
+		Random r;
+		string vocales[5] = { "a","e","i","o","u" };
+		string consonantes[10] = { "b","m","n","r","s","t","h","g","l","t" };
+		if (fase % 2 == 0)
+		{
+			total += vocales[r.Next(0, 5)];
+		}
+		else
+		{
+			total += consonantes[r.Next(0, 10)];
+		}
+		fase++;
+		return generar_Direccion(fase,total);
+	}
+	else {
+		return total;
+	}
+}
