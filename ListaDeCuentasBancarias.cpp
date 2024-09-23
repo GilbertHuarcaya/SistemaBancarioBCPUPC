@@ -361,7 +361,6 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Agregar una Cuenta Bancaria al Cliente" << endl;
 		cout << "2. Agregar Cuenta Bancaria Random al Cliente" << endl;
 		cout << "3. Mostrar las Cuentas Bancarias del Cliente" << endl;
@@ -395,7 +394,8 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 				else {
 					cout << "Esta cuenta no pertenece al cliente actual" << endl;
 				}
-			} else {
+			} 
+			else {
 				cout << "No existe esta cuenta" << endl;
 			}
 			system("pause");

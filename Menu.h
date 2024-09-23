@@ -45,7 +45,7 @@ int mostrarMenuPrincipal() {
     listaClientes->cargarClientes();
     listaCanales->cargarCanales();
     listaCuentasB->cargarCuentasBancarias();
-
+    listaTarjetas->cargarTarjetas();
     do {
         system("cls");
         mostrarBCP();
@@ -65,12 +65,10 @@ int mostrarMenuPrincipal() {
         switch (opcion) {
         case 1: {
             listaClientes->menu();
-            system("pause");
             break;
         }
         case 2: {
             listaCanales->menu();
-            system("pause");
             break;
         }
         case 3: {

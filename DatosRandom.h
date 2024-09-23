@@ -65,7 +65,7 @@ inline string fecha_str_CB(tm* tiempo_actual)
 
 inline tm* generar_fecha_expiracion_tarjeta() 
 {
-	_sleep(100);
+	_sleep(1000);
 	Random r;
 	time_t tiempo;
 	tm* tiempo_actual;

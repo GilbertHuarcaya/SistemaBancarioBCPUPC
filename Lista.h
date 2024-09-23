@@ -22,6 +22,7 @@ public:
         this->actual = nullptr;
     }
     virtual ~Lista();
+    int getUltimoid();
     bool esVacia(); // Comprueba si la lista est� vac�a
     void agregarAlInicio(T v); // Agrega al inicio un elem
     void agregarAlFinal(T v); // Agrega un elemento al final de la lista
@@ -46,6 +47,12 @@ Lista<T>::~Lista()
         inicio = inicio->getSiguiente();
         delete temp;
     }
+}
+
+template<class T>
+int Lista<T>::getUltimoid()
+{
+    return ultimoId;
 }
 
 template<class T>

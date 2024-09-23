@@ -332,9 +332,7 @@ void ListaDeClientes::cargarClientes() {
 				Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
 				agregarAlFinal(nuevoCliente);
 			}
-			
 		}
-
 		file.close(); // Close the file
 	}
 	else {
