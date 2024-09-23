@@ -19,7 +19,8 @@ public:
 	void menuParaActualizarCanal(Nodo<Canal*>* canal);
 	void activarCanal(int id);
 	void desactivarCanal(int id);
-
+	//Metodo recursivo para actualizar todos los canales a activo
+	void activarTodosLosCanales(Nodo<Canal*>* canal);
 
 	//Metodos para cargar y escribir en archivo
 	void escribirEnArchivo();

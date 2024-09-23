@@ -359,7 +359,6 @@ int ListaDeCanales::buscarPorActivo(bool activo)
 	return encontrados;
 }
 
-
 void ListaDeCanales::ordenarPorNombre()
 {
     if (this->esVacia())
@@ -440,7 +439,8 @@ void ListaDeCanales::menu()
 		cout << "7. Gestionar Por tipo" << endl;
 		cout << "8. Ordenar Canales por Nombre\n";
 		cout << "9. Ordenar Canales por Id\n";
-		cout << "10. Salir" << endl;
+		cout << "10. Activar todos los Canales\n";
+		cout << "11. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -485,12 +485,19 @@ void ListaDeCanales::menu()
 			system("pause");
 			break;
 		case 10: 
+			activarTodosLosCanales(this->obtenerInicial());
+			escribirEnArchivo();
+			cout << "Canales activados" << endl;
+			system("pause");
+			break;
+		case 11:
+			cout << "Saliendo del menu de canales" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 10);
+	} while (opcion != 11);
 }
 
 
@@ -581,6 +588,16 @@ void ListaDeCanales::desactivarCanal(int id)
 	cout << "Canal desactivado" << endl;
 	system("pause");
 	system("cls");
+}
+
+void ListaDeCanales::activarTodosLosCanales(Nodo<Canal*>* canal)
+{
+    if (canal == nullptr)
+    {
+        return;
+    }
+    canal->getDato()->setActivo(true);
+    activarTodosLosCanales(canal->getSiguiente());
 }
 
 
