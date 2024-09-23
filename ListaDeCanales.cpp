@@ -10,7 +10,7 @@ void ListaDeCanales::mostrar()
 		cout << "No hay canales registrados" << endl;
 		return;
 	}
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		cout << endl;
@@ -187,7 +187,7 @@ void ListaDeCanales::agregarCanalPorCiudad(string ciudad)
 
 int ListaDeCanales::buscar(int id)
 {
-	Nodo<Canal*, nullptr>* canal = obtenerNodoPorId(id);
+	NodoDobleEnlazado<Canal*, nullptr>* canal = obtenerNodoDobleEnlazadoPorId(id);
 	if (canal->getId() != 0)
 	{
 		cout << endl;
@@ -206,7 +206,7 @@ int ListaDeCanales::buscar(int id)
 
 int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -232,7 +232,7 @@ int ListaDeCanales::buscarPorTipo(ETipoDeCanal tipoDeCanal)
 
 int ListaDeCanales::buscarPorNombre(string nombre)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -258,7 +258,7 @@ int ListaDeCanales::buscarPorNombre(string nombre)
 
 int ListaDeCanales::buscarPorDistrito(string distrito)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -284,7 +284,7 @@ int ListaDeCanales::buscarPorDistrito(string distrito)
 
 int ListaDeCanales::buscarPorDepartamento(string departamento)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -310,7 +310,7 @@ int ListaDeCanales::buscarPorDepartamento(string departamento)
 
 int ListaDeCanales::buscarPorCiudad(string ciudad)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -336,7 +336,7 @@ int ListaDeCanales::buscarPorCiudad(string ciudad)
 
 int ListaDeCanales::buscarPorActivo(bool activo)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	int encontrados = 0;
 	while (aux != nullptr)
 	{
@@ -368,8 +368,8 @@ void ListaDeCanales::ordenarPorNombre()
     }
 
     bool intercambio = true;
-    Nodo<Canal*, nullptr>* actual;
-    Nodo<Canal*, nullptr>* siguiente = nullptr;
+    NodoDobleEnlazado<Canal*, nullptr>* actual;
+    NodoDobleEnlazado<Canal*, nullptr>* siguiente = nullptr;
 
     while (intercambio)
     {
@@ -518,7 +518,7 @@ ETipoDeCanal ListaDeCanales::menuParaObtenerTipoDeCanal()
 }
 
 
-void ListaDeCanales::menuParaActualizarCanal(Nodo<Canal*>* canal)
+void ListaDeCanales::menuParaActualizarCanal(NodoDobleEnlazado<Canal*>* canal)
 {
 	int opcion;
 	do
@@ -555,7 +555,7 @@ void ListaDeCanales::menuParaActualizarCanal(Nodo<Canal*>* canal)
 
 void ListaDeCanales::activarCanal(int id)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -574,7 +574,7 @@ void ListaDeCanales::activarCanal(int id)
 
 void ListaDeCanales::desactivarCanal(int id)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -590,7 +590,7 @@ void ListaDeCanales::desactivarCanal(int id)
 	system("cls");
 }
 
-void ListaDeCanales::activarTodosLosCanales(Nodo<Canal*>* canal)
+void ListaDeCanales::activarTodosLosCanales(NodoDobleEnlazado<Canal*>* canal)
 {
     if (canal == nullptr)
     {
@@ -605,7 +605,7 @@ void ListaDeCanales::escribirEnArchivo()
 {
 	ofstream file("Canales.csv");
 	if (file.is_open()) {
-		Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+		NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 		file << "Id,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal\n";
 
 		while (aux != nullptr)
@@ -706,7 +706,7 @@ void ListaDeCanales::cargarCanales() {
 
 
 void ListaDeCanales::menuDeGestion() {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		system("cls");
@@ -768,7 +768,7 @@ void ListaDeCanales::menuDeGestion() {
 
 void ListaDeCanales::menuDeAcceso()
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		cout << "# Canales de Atencion\n";
@@ -812,7 +812,7 @@ void ListaDeCanales::menuDeAcceso()
 
 void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>*cuentaBancaria)
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int opcion;
 	do {
 		system("cls");
@@ -859,12 +859,12 @@ void ListaDeCanales::menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancari
 
 void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave)
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int id;
 	buscarPorTipo(tipoDeCanal);
 	cout << "Ingrese el ID del canal: ";
 	cin >> id;
-	canal = obtenerNodoPorId(id);
+	canal = obtenerNodoDobleEnlazadoPorId(id);
 	if (canal->getId() != 0) {
 
 		if (canal->getDato()->getActivo() == false) {
@@ -892,12 +892,12 @@ void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, strin
 
 void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave, Nodo<CuentaBancaria*>*cuentaBancaria)
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int id;
 	buscarPorTipo(tipoDeCanal);
 	cout << "Ingrese el ID del canal: ";
 	cin >> id;
-	canal = obtenerNodoPorId(id);
+	canal = obtenerNodoDobleEnlazadoPorId(id);
 	if (canal->getId() != 0) {
 		if (canal->getDato()->getActivo() == false) {
 			cout << "El canal seleccionado no esta activo.\n";
@@ -924,7 +924,7 @@ void ListaDeCanales::filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, strin
 
 void ListaDeCanales::gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llave)
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int opcion;
 	int id;
 	do {
@@ -949,7 +949,7 @@ void ListaDeCanales::gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llav
 
 			cout << "Ingrese el ID del canal: ";
 			cin >> id;
-			canal = obtenerNodoPorId(id);
+			canal = obtenerNodoDobleEnlazadoPorId(id);
 			if (canal->getId() != 0) {
 				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
 					menuParaActualizarCanal(canal);
@@ -980,7 +980,7 @@ void ListaDeCanales::gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llav
 
 void ListaDeCanales::gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string llave)
 {
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	int opcion;
 	int id;
 	do {
@@ -1001,7 +1001,7 @@ void ListaDeCanales::gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string
 
 			cout << "Ingrese el ID del canal: ";
 			cin >> id;
-			canal = obtenerNodoPorId(id);
+			canal = obtenerNodoDobleEnlazadoPorId(id);
 			if (canal->getId() != 0) {
 				if (canal->getDato()->getTipoDeCanal() == tipoDeCanal) {
 					menuParaActualizarCanal(canal);
@@ -1027,7 +1027,7 @@ void ListaDeCanales::gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string
 }
 
 
-void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
+void ListaDeCanales::menuDeOperacionPorCanal(NodoDobleEnlazado<Canal*>* canal)
 {
 	int opcion;
 	do {
@@ -1051,7 +1051,7 @@ void ListaDeCanales::menuDeOperacionPorCanal(Nodo<Canal*>* canal)
 }
 
 
-void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, Nodo<Canal*>* canal)
+void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, NodoDobleEnlazado<Canal*>* canal)
 {
 	int opcion;
 	do {
@@ -1075,10 +1075,10 @@ void ListaDeCanales::menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*
 }
 
 
-Nodo<Canal*>* ListaDeCanales::obtenerCanal()
+NodoDobleEnlazado<Canal*>* ListaDeCanales::obtenerCanal()
 {
 	int opcion;
-	Nodo<Canal*, nullptr>* canal;
+	NodoDobleEnlazado<Canal*, nullptr>* canal;
 	string Nombre, Ciudad, Distrito, Departamento;
 	ETipoDeCanal tipoDeCanal;
 	do {
@@ -1139,7 +1139,7 @@ Nodo<Canal*>* ListaDeCanales::obtenerCanal()
 	do {
 		cout << "Ingrese el ID del canal: ";
 		cin >> id;
-		canal = obtenerNodoPorId(id);
+		canal = obtenerNodoDobleEnlazadoPorId(id);
 	} while (canal->getId() == 0);
 
 	return canal;
@@ -1158,7 +1158,7 @@ void ListaDeCanales::eliminarCanal(int id)
 
 void ListaDeCanales::eliminarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getTipoDeCanal() == tipoDeCanal)
@@ -1176,7 +1176,7 @@ void ListaDeCanales::eliminarCanalPorTipo(ETipoDeCanal tipoDeCanal)
 
 void ListaDeCanales::eliminarCanalPorNombre(string nombre)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getNombre() == nombre)
@@ -1194,7 +1194,7 @@ void ListaDeCanales::eliminarCanalPorNombre(string nombre)
 
 void ListaDeCanales::eliminarCanalPorDistrito(string distrito)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDistrito() == distrito)
@@ -1212,7 +1212,7 @@ void ListaDeCanales::eliminarCanalPorDistrito(string distrito)
 
 void ListaDeCanales::eliminarCanalPorDepartamento(string departamento)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getDepartamento() == departamento)
@@ -1230,7 +1230,7 @@ void ListaDeCanales::eliminarCanalPorDepartamento(string departamento)
 
 void ListaDeCanales::eliminarCanalPorCiudad(string ciudad)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
+	NodoDobleEnlazado<Canal*, nullptr>* aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getCiudad() == ciudad)
