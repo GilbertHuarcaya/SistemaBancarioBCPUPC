@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Nodo.h"
+#include "NodoDobleEnlazado.h"
 #include <iostream>
 #include <functional>
 
@@ -14,9 +14,9 @@ class ListaDobleEnlazada
 private:
     int idUltimoAgregado = 0;
     uint lon;
-    Nodo<T, NADA>* ini;
-    Nodo<T, NADA>* fin;
-    Nodo<T, NADA>* actual; // Nuevo miembro para mantener el nodo actual
+    NodoDobleEnlazado<T, NADA>* ini;
+    NodoDobleEnlazado<T, NADA>* fin;
+    NodoDobleEnlazado<T, NADA>* actual; // Nuevo miembro para mantener el NodoDobleEnlazado actual
     Comp comparar; // lambda de criterio de comparación
 public:
     ListaDobleEnlazada() : fin(nullptr), actual(nullptr), ini(nullptr), lon(0), idUltimoAgregado(0), comparar([](T a, T b) {return a - b; }) {}
@@ -48,14 +48,14 @@ public:
     void eliminaFinal(); // Elimina el último elemento de la ListaDobleEnlazada
 
     // BUSCAR
-    Nodo<T, NADA>* obtenerNodoPorId(int id); // Obtiene un nodo por su id
-    Nodo<T, NADA>* obtenerInicial(); // Obtiene el primer nodo de la ListaDobleEnlazada
-    Nodo<T, NADA>* obtenerSiguiente(); // Obtiene el siguiente nodo de la ListaDobleEnlazada
-    Nodo<T, NADA>  obtenerAnterior(); // Obtiene el nodo anterior de la ListaDobleEnlazada
-    Nodo<T, NADA>* obtenerPos(uint pos); // Obtiene un nodo por su posición
-    Nodo<T, NADA>* obtenerFinal(); // Obtiene el último nodo de la ListaDobleEnlazada
+    NodoDobleEnlazado<T, NADA>* obtenerNodoDobleEnlazadoPorId(int id); // Obtiene un NodoDobleEnlazado por su id
+    NodoDobleEnlazado<T, NADA>* obtenerInicial(); // Obtiene el primer NodoDobleEnlazado de la ListaDobleEnlazada
+    NodoDobleEnlazado<T, NADA>* obtenerSiguiente(); // Obtiene el siguiente NodoDobleEnlazado de la ListaDobleEnlazada
+    NodoDobleEnlazado<T, NADA>  obtenerAnterior(); // Obtiene el NodoDobleEnlazado anterior de la ListaDobleEnlazada
+    NodoDobleEnlazado<T, NADA>* obtenerPos(uint pos); // Obtiene un NodoDobleEnlazado por su posición
+    NodoDobleEnlazado<T, NADA>* obtenerFinal(); // Obtiene el último NodoDobleEnlazado de la ListaDobleEnlazada
 
-    Nodo<T, NADA>* buscar(T elem); // Busca un nodo por su valor
+    NodoDobleEnlazado<T, NADA>* buscar(T elem); // Busca un NodoDobleEnlazado por su valor
     int buscarId(int id); // Busca un elemento en la ListaDobleEnlazada por su id
 
 };
@@ -65,7 +65,7 @@ ListaDobleEnlazada<T, NADA>::~ListaDobleEnlazada()
 {
     while (!esVacia())
     {
-        Nodo<T, NADA>* temp = ini;
+        NodoDobleEnlazado<T, NADA>* temp = ini;
         ini = ini->getSiguiente();
         delete temp;
     }
@@ -84,7 +84,7 @@ bool ListaDobleEnlazada<T, NADA>::esVacia() {
 template <typename T, T NADA>
 void ListaDobleEnlazada<T, NADA>::agregarAlini(T v)
 {
-    Nodo<T, NADA>* aux = new Nodo<T, NADA>(v, idUltimoAgregado + 1);
+    NodoDobleEnlazado<T, NADA>* aux = new NodoDobleEnlazado<T, NADA>(v, idUltimoAgregado + 1);
     if (aux != nullptr) {
         ini = aux;
         lon++;
@@ -106,10 +106,10 @@ void ListaDobleEnlazada<T, NADA>::eliminarPorId(int id)
         eliminaInicial();
     }
     else {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         while (aux->getSiguiente() != nullptr) {
             if (aux->getSiguiente()->getId() == id) {
-                Nodo<T, NADA>* temp = aux->getSiguiente();
+                NodoDobleEnlazado<T, NADA>* temp = aux->getSiguiente();
                 aux->setSiguiente(temp->getSiguiente());
                 delete temp;
                 lon--;
@@ -124,7 +124,7 @@ template<typename T, T NADA>
 inline void ListaDobleEnlazada<T, NADA>::eliminaInicial()
 {
     if (lon == 0) return;
-    Nodo<T, NADA>* temp = ini;
+    NodoDobleEnlazado<T, NADA>* temp = ini;
     ini = ini->getSiguiente();
     delete temp;
     lon--;
@@ -138,11 +138,11 @@ inline void ListaDobleEnlazada<T, NADA>::eliminaPos(uint pos)
         eliminaInicial();
     }
     else {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         for (int i = 1; i < pos; i++) {
             aux = aux->getSiguiente();
         }
-        Nodo<T, NADA>* temp = aux->getSiguiente();
+        NodoDobleEnlazado<T, NADA>* temp = aux->getSiguiente();
         aux->setSiguiente(temp->getSiguiente());
         delete temp;
         lon--;
@@ -158,7 +158,7 @@ inline void ListaDobleEnlazada<T, NADA>::eliminaFinal()
 template <typename T, T NADA>
 int ListaDobleEnlazada<T, NADA>::buscarId(int id)
 {
-    Nodo<T, NADA>* temp = ini;
+    NodoDobleEnlazado<T, NADA>* temp = ini;
     while (temp != nullptr)
     {
         if (temp->getId() == id)
@@ -171,9 +171,9 @@ int ListaDobleEnlazada<T, NADA>::buscarId(int id)
 }
 
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerNodoPorId(int id)
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerNodoDobleEnlazadoPorId(int id)
 {
-    Nodo<T, NADA>* temp = ini;
+    NodoDobleEnlazado<T, NADA>* temp = ini;
     while (temp != nullptr)
     {
         if (temp->getId() == id)
@@ -182,7 +182,7 @@ Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerNodoPorId(int id)
         }
         temp = temp->getSiguiente();
     }
-    return new Nodo<T, NADA>();
+    return new NodoDobleEnlazado<T, NADA>();
 }
 
 template <typename T, T NADA>
@@ -193,8 +193,8 @@ void ListaDobleEnlazada<T, NADA>::ordenarPorId()
         return;
     }
 
-    Nodo<T, NADA>* current = ini;
-    Nodo<T, NADA>* index = nullptr;
+    NodoDobleEnlazado<T, NADA>* current = ini;
+    NodoDobleEnlazado<T, NADA>* index = nullptr;
     T temp;
     int tempId;
 
@@ -224,7 +224,7 @@ void ListaDobleEnlazada<T, NADA>::ordenarPorId()
 template <typename T, T NADA>
 inline void ListaDobleEnlazada<T, NADA>::mostrar()
 {
-    Nodo<T, NADA>* temp = ini;
+    NodoDobleEnlazado<T, NADA>* temp = ini;
     while (temp != nullptr)
     {
         cout << temp->getDato() << endl;
@@ -234,7 +234,7 @@ inline void ListaDobleEnlazada<T, NADA>::mostrar()
 }
 
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerSiguiente()
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerSiguiente()
 {
     if (actual != nullptr)
     {
@@ -244,7 +244,7 @@ Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerSiguiente()
 }
 
 template<class T, T NADA>
-inline Nodo<T, NADA> ListaDobleEnlazada<T, NADA>::obtenerAnterior()
+inline NodoDobleEnlazado<T, NADA> ListaDobleEnlazada<T, NADA>::obtenerAnterior()
 {
 	if (actual != nullptr)
 	{
@@ -260,11 +260,11 @@ void ListaDobleEnlazada<T, NADA>::agregaPos(T elem, uint pos) {
         agregarAlini(elem);
     }
     else {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         for (int i = 1; i < pos; i++) {
             aux = aux->getSiguiente();
         }
-        Nodo<T, NADA>* nuevo = new Nodo<T, NADA>(elem, idUltimoAgregado + 1, aux->getSiguiente());
+        NodoDobleEnlazado<T, NADA>* nuevo = new NodoDobleEnlazado<T, NADA>(elem, idUltimoAgregado + 1, aux->getSiguiente(), aux->getAnterior());
         if (nuevo != nullptr) {
             aux->setSiguiente(nuevo);
             lon++;
@@ -280,11 +280,11 @@ void ListaDobleEnlazada<T, NADA>::agregaPosConIdDesordenado(T elem, uint pos, in
         agregarAlini(elem);
     }
     else {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         for (int i = 1; i < pos; i++) {
             aux = aux->getSiguiente();
         }
-        Nodo<T, NADA>* nuevo = new Nodo<T, NADA>(elem, id, aux->getSiguiente());
+        NodoDobleEnlazado<T, NADA>* nuevo = new NodoDobleEnlazado<T, NADA>(elem, id, aux->getSiguiente(), aux->getAnterior());
         if (nuevo != nullptr) {
             aux->setSiguiente(nuevo);
             lon++;
@@ -310,7 +310,7 @@ void ListaDobleEnlazada<T, NADA>::modificarInicial(T elem) {
 template <typename T, T NADA>
 void ListaDobleEnlazada<T, NADA>::modificarPos(T elem, uint pos) {
     if (pos >= 0 && pos < lon) {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         for (int i = 0; i < pos; i++) {
             aux = aux->getSiguiente();
         }
@@ -320,7 +320,7 @@ void ListaDobleEnlazada<T, NADA>::modificarPos(T elem, uint pos) {
 
 template <typename T, T NADA>
 void ListaDobleEnlazada<T, NADA>::modificarPorId(T elem, int id) {
-    Nodo<T, NADA>* temp = ini;
+    NodoDobleEnlazado<T, NADA>* temp = ini;
     while (temp != nullptr) {
         if (temp->getId() == id) {
             temp->setDato(elem);
@@ -337,37 +337,37 @@ void ListaDobleEnlazada<T, NADA>::modificarFinal(T elem) {
 }
 
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerInicial() {
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerInicial() {
     return obtenerPos(0);
 }
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerPos(uint pos) {
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerPos(uint pos) {
     if (pos >= 0 && pos < lon) {
-        Nodo<T, NADA>* aux = ini;
+        NodoDobleEnlazado<T, NADA>* aux = ini;
         for (int i = 0; i < pos; i++) {
             aux = aux->getSiguiente();
         }
         return aux;
     }
     else {
-        return new Nodo<T, NADA>();
+        return new NodoDobleEnlazado<T, NADA>();
     }
 }
 
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerFinal() {
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::obtenerFinal() {
     return obtenerPos(lon - 1);
 }
 
 template <typename T, T NADA>
-Nodo<T, NADA>* ListaDobleEnlazada<T, NADA>::buscar(T elem) {
-    Nodo<T, NADA>* aux = ini;
+NodoDobleEnlazado<T, NADA>* ListaDobleEnlazada<T, NADA>::buscar(T elem) {
+    NodoDobleEnlazado<T, NADA>* aux = ini;
     while (aux != nullptr) {
         if (comparar(aux->getDato(), elem) == 0) {
             return aux;
         }
         aux = aux->getSiguiente();
     }
-    return new Nodo<T, NADA>();
+    return new NodoDobleEnlazado<T, NADA>();
 }
 

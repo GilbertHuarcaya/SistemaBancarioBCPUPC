@@ -3,19 +3,27 @@
 #include "string"
 using namespace std;
 
-Sede::Sede(std::string Nombre, std::string Direccion, std::string Telefono, bool Activado)
-{
-	this->Nombre = Nombre;
-	this->Direccion = Direccion;
-	this->Telefono = Telefono;
-	this->Activado = true;
-}
+class Sede {
+private:
+    string Nombre;
+    string Direccion;
+    string Telefono;
+    bool Activado;
 
-string Sede::getNombre() { return Nombre; }
-string Sede::getDireccion() { return Direccion; }
-string Sede::getTelefono() { return Telefono; }
-void Sede::updateName(string name) { this->Nombre = Nombre; }
-void Sede::updateAdress(string adress) { this->Direccion = Direccion; }
-void Sede::updatePhone(string phone) { this->Telefono = Telefono; }
-void Sede::Activar() { this->Activado = true; }
-void Sede::Desactivar() { this->Activado = false; }
+public:
+    Sede(string Nombre, string Direccion, string Telefono, bool Activado) {
+        this->Nombre = Nombre;
+        this->Direccion = Direccion;
+        this->Telefono = Telefono;
+        this->Activado = true;
+    }
+
+    string getNombre() { return Nombre; }
+    string getDireccion() { return Direccion; }
+    string getTelefono() { return Telefono; }
+    void updateName(string name) { this->Nombre = name; }
+    void updateAdress(string adress) { this->Direccion = adress; }
+    void updatePhone(string phone) { this->Telefono = phone; }
+    void Activar() { this->Activado = true; }
+    void Desactivar() { this->Activado = false; }
+};
