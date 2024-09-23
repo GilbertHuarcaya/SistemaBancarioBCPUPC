@@ -74,6 +74,12 @@
     <ClInclude Include="ListaDeTarjetas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="ListaDobleEnlazada.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoDobleEnlazado.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SistemaBancarioBCPUPC.cpp">
@@ -122,6 +128,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ListaDeTarjetas.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaDobleEnlazada.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoDobleEnlazado.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

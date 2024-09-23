@@ -489,7 +489,7 @@ void ListaDeTarjetas::cargarTarjetas() {
 			activado = Activado == 1 ? true : false;
 			Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
 				ApellidoCliente, idCuentaB, idCliente);
-			agregarAlFinal(nuevaTarjeta);
+			agregaPorIdDesordenado(nuevaTarjeta, id);
 		}
 		file.close(); // Cierra archivo
 		cout << "Cuentas cargadas correctamente.\n";

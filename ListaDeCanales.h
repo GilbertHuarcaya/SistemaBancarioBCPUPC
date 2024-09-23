@@ -1,9 +1,9 @@
 #pragma once
-#include "Lista.h"
+#include "ListaDobleEnlazada.h"
 #include "Canal.h"
 #include "CuentaBancaria.h"
 
-class ListaDeCanales : public Lista<Canal*>
+class ListaDeCanales : public ListaDobleEnlazada<Canal*>
 {
 public:
 	void mostrar();
@@ -54,11 +54,6 @@ public:
 
 	//Metodos para ordenar canales
 	void ordenarPorNombre();
-	void ordenarPorDistrito();
-	void ordenarPorDepartamento();
-	void ordenarPorCiudad();
-	void ordenarPorActivo();
-	void ordenarPorTipoDeCanal();
 
 	//Metodo para obtener canal
 	Nodo<Canal*>* obtenerCanal();

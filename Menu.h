@@ -51,6 +51,7 @@ int mostrarMenuPrincipal() {
     listaClientes->cargarClientes();
     listaCanales->cargarCanales();
     listaCuentasB->cargarCuentasBancarias();
+	listaTarjetas->cargarTarjetas();
 
     do {
         system("cls");

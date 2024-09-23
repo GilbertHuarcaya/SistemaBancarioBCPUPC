@@ -688,7 +688,7 @@ void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 			FechaCreacion = line.substr(0, pos);
 			line = line.substr(pos + 1);
 			CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,NombreCliente,ApellidoCliente,TipoCuenta,FechaCreacion,IdCliente,idTarjeta);
-			agregarAlFinal(nuevoCuentaBancaria);
+			agregaPorIdDesordenado(nuevoCuentaBancaria, id);
 		}
 		file.close(); // Cierra archivo
 		cout << "Cuentas cargadas correctamente.\n";

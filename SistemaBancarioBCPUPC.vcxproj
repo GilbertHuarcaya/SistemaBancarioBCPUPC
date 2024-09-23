@@ -136,8 +136,10 @@
     <ClInclude Include="ListaDeClientes.h" />
     <ClInclude Include="ListaDeCuentasBancarias.h" />
     <ClInclude Include="ListaDeTarjetas.h" />
+    <ClInclude Include="ListaDobleEnlazada.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="NodoDobleEnlazado.h" />
     <ClInclude Include="Operacion.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pila.h" />
@@ -156,7 +158,9 @@
     <ClCompile Include="ListaDeClientes.cpp" />
     <ClCompile Include="ListaDeCuentasBancarias.cpp" />
     <ClCompile Include="ListaDeTarjetas.cpp" />
+    <ClCompile Include="ListaDobleEnlazada.cpp" />
     <ClCompile Include="Nodo.cpp" />
+    <ClCompile Include="NodoDobleEnlazado.cpp" />
     <ClCompile Include="Operacion.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

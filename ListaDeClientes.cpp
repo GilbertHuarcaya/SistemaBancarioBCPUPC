@@ -317,15 +317,16 @@ void ListaDeClientes::cargarClientes() {
 
 	if (file.is_open()) {
 		string line;
-
+		getline(file, line);//Ignora primera linea 
 		while (getline(file, line)) {
-			string id, nombre, apellido, direccion, telefono, email, DNI;
+			int id;
+			string nombre, apellido, direccion, telefono, email, DNI;
 			int pos = 1;
 			// Id,Nombre,Apellido,Direccion,Telefono,Email,DNI 
 			// 1, Nombre, Apellido, Direccion, Telefono, Email, DNI
 			//ignore the first line and ignore the first col of id for each read
 			pos = line.find(",");
-			id = line.substr(0, pos);
+			id = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
 			pos = line.find(",");
 			nombre = line.substr(0, pos);
@@ -343,10 +344,10 @@ void ListaDeClientes::cargarClientes() {
 			email = line.substr(0, pos);
 			line = line.substr(pos + 1);
 			DNI = line;
-			if (id != "Id" && id != "id" && id != "ID") {
-				Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
-				agregarAlFinal(nuevoCliente);
-			}
+
+			Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
+			agregaPorIdDesordenado(nuevoCliente, id);
+		
 			
 		}
 

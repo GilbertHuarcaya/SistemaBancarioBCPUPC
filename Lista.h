@@ -1,5 +1,4 @@
-#ifndef __Lista_H__
-#define __Lista_H__
+#pragma once
 #include "Nodo.h"
 #include <iostream>
 #include <functional>
@@ -30,10 +29,12 @@ public:
 	// AGREGAR
     void agregarAlini(T v); // Agrega al ini un elem
 	void agregaPos(T elem, uint pos); // Agrega un elemento en una posición
+    void agregaPosConIdDesordenado(T elem, uint pos, int id);
+    void agregaPorIdDesordenado(T elem, int id);
     void agregarAlFinal(T v); // Agrega un elemento al final de la lista
 
 	// MODIFICAR
-    virtual void ordenar(); // Ordena la lista por el id
+    virtual void ordenarPorId(); // Ordena la lista por el id
 
 	void modificarInicial(T elem);  // Modifica el primer elemento de la lista
 	void modificarPos(T elem, uint pos); // Modifica un elemento de la lista por su posición
@@ -53,7 +54,6 @@ public:
 	Nodo<T, NADA>* obtenerPos(uint pos); // Obtiene un nodo por su posición
 	Nodo<T, NADA>* obtenerFinal(); // Obtiene el último nodo de la lista
 
-	Nodo<T, NADA>* buscar(T elem); // Busca un nodo por su valor
     virtual int buscarId(int id); // Busca un elemento en la lista por su id
 
 };
@@ -184,35 +184,39 @@ Nodo<T, NADA>* Lista<T, NADA>::obtenerNodoPorId(int id)
 }
 
 template <typename T, T NADA>
-void Lista<T, NADA>::ordenar()
+void Lista<T, NADA>::ordenarPorId()
 {
     if (esVacia())
     {
         return;
     }
-    bool swapped;
-    Nodo<T, NADA>* ptr1;
-    Nodo<T, NADA>* lptr = nullptr;
-    do
+
+    Nodo<T, NADA>* current = ini;
+    Nodo<T, NADA>* index = nullptr;
+    T temp;
+    int tempId;
+
+    while (current != nullptr)
     {
-        swapped = false;
-        ptr1 = ini;
-        while (ptr1->getSiguiente() != lptr)
+        index = current->getSiguiente();
+
+        while (index != nullptr)
         {
-            if (ptr1->getId() > ptr1->getSiguiente()->getId())
+            if (current->getId() > index->getId())
             {
-                T temp = ptr1->getDato();
-                ptr1->setDato(ptr1->getSiguiente()->getDato());
-                ptr1->getSiguiente()->setDato(temp);
-                int tempId = ptr1->getId();
-                ptr1->setId(ptr1->getSiguiente()->getId());
-                ptr1->getSiguiente()->setId(tempId);
-                swapped = true;
+				tempId = current->getId();
+                temp = current->getDato();
+				current->setId(index->getId());
+                current->setDato(index->getDato());
+				index->setId(tempId);
+                index->setDato(temp);
             }
-            ptr1 = ptr1->getSiguiente();
+
+            index = index->getSiguiente();
         }
-        lptr = ptr1;
-    } while (swapped);
+
+        current = current->getSiguiente();
+    }
 }
 
 template <typename T, T NADA>
@@ -255,6 +259,33 @@ void Lista<T, NADA>::agregaPos(T elem, uint pos) {
             idUltimoAgregado++;
         }
     }
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::agregaPosConIdDesordenado(T elem, uint pos, int id) {
+    if (pos > lon) return;
+    if (pos == 0) {
+        agregarAlini(elem);
+    }
+    else {
+        Nodo<T, NADA>* aux = ini;
+        for (int i = 1; i < pos; i++) {
+            aux = aux->getSiguiente();
+        }
+        Nodo<T, NADA>* nuevo = new Nodo<T, NADA>(elem, id, aux->getSiguiente());
+        if (nuevo != nullptr) {
+            aux->setSiguiente(nuevo);
+            lon++;
+            if (idUltimoAgregado < id) {
+                idUltimoAgregado = id;
+            };
+        }
+    }
+}
+
+template <typename T, T NADA>
+void Lista<T, NADA>::agregaPorIdDesordenado(T elem, int id) {
+    agregaPosConIdDesordenado(elem, lon, id);
 }
 
 template <typename T, T NADA>
@@ -315,17 +346,3 @@ template <typename T, T NADA>
 Nodo<T, NADA>* Lista<T, NADA>::obtenerFinal() {
     return obtenerPos(lon - 1);
 }
-
-template <typename T, T NADA>
-Nodo<T, NADA>* Lista<T, NADA>::buscar(T elem) {
-    Nodo<T, NADA>* aux = ini;
-    while (aux != nullptr) {
-        if (comparar(aux->getDato(), elem) == 0) {
-            return aux;
-        }
-        aux = aux->getSiguiente();
-    }
-    return new Nodo<T, NADA>();
-}
-
-#endif

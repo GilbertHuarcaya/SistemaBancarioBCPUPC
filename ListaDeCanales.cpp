@@ -3,7 +3,6 @@
 #include <fstream>
 #include "CuentaBancaria.h"
 
-
 void ListaDeCanales::mostrar()
 {
 	if (this->esVacia())
@@ -188,20 +187,16 @@ void ListaDeCanales::agregarCanalPorCiudad(string ciudad)
 
 int ListaDeCanales::buscar(int id)
 {
-	Nodo<Canal*, nullptr>* aux = this->obtenerInicial();
-	while (aux != nullptr)
+	Nodo<Canal*, nullptr>* canal = obtenerNodoPorId(id);
+	if (canal->getId() != 0)
 	{
-		if (aux->getId() == id)
-		{
-			cout << endl;
-			cout << "ID: " << aux->getId() << endl;
-			cout << aux->getDato()->descripcion() << endl << endl;
-			cout << "----------------------" << endl;
-			cout << endl;
-			system("pause");
-			return aux->getId();
-		}
-		aux = aux->getSiguiente();
+		cout << endl;
+		cout << "ID: " << canal->getId() << endl;
+		cout << canal->getDato()->descripcion() << endl << endl;
+		cout << "----------------------" << endl;
+		cout << endl;
+		system("pause");
+		return canal->getId();
 	}
 	cout << "No se encontro el canal" << endl;
 	system("pause");
@@ -365,6 +360,46 @@ int ListaDeCanales::buscarPorActivo(bool activo)
 }
 
 
+void ListaDeCanales::ordenarPorNombre()
+{
+    if (this->esVacia())
+    {
+        cout << "No hay canales registrados" << endl;
+        return;
+    }
+
+    bool intercambio = true;
+    Nodo<Canal*, nullptr>* actual;
+    Nodo<Canal*, nullptr>* siguiente = nullptr;
+
+    while (intercambio)
+    {
+        intercambio = false;
+        actual = this->obtenerInicial();
+
+        while (actual->getSiguiente() != siguiente)
+        {
+            if (actual->getDato()->getNombre() > actual->getSiguiente()->getDato()->getNombre())
+            {
+				int tempId = actual->getId();
+                Canal* temp = actual->getDato();
+				actual->setId(actual->getSiguiente()->getId());
+                actual->setDato(actual->getSiguiente()->getDato());
+				actual->getSiguiente()->setId(tempId);
+                actual->getSiguiente()->setDato(temp);
+                intercambio = true;
+            }
+            actual = actual->getSiguiente();
+        }
+        siguiente = actual;
+    }
+	escribirEnArchivo();
+    cout << "Canales ordenados por nombre" << endl;
+    system("pause");
+    system("cls");
+}
+
+
 void ListaDeCanales::actualizarDatos(int id)
 {
 	string nombre, direccion, ciudad, distrito, departamento;
@@ -402,9 +437,10 @@ void ListaDeCanales::menu()
 		cout << "4. Actualizar canal" << endl;
 		cout << "5. Eliminar canal" << endl;
 		cout << "6. Agregar canal random" << endl;
-		cout << "7. Mostrar Ventanillas" << endl;
-		cout << "8. Mostrar Agentes" << endl;
-		cout << "9. Salir" << endl;
+		cout << "7. Gestionar Por tipo" << endl;
+		cout << "8. Ordenar Canales por Nombre\n";
+		cout << "9. Ordenar Canales por Id\n";
+		cout << "10. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -437,20 +473,24 @@ void ListaDeCanales::menu()
 			cout << "Canal agregado" << endl;
 			break;
 		case 7:
-			buscarPorTipo(VENTANILLA);
+			menuDeGestion();
 			break;
 		case 8:
-			buscarPorTipo(AGENTE);
+			ordenarPorNombre();
 			break;
-
 		case 9:
-			cout << "Saliendo del menu de canales" << endl;
+			ordenarPorId();
+			escribirEnArchivo();
+			cout << "Canales ordenados" << endl;
+			system("pause");
+			break;
+		case 10: 
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 9);
+	} while (opcion != 10);
 }
 
 
@@ -577,13 +617,14 @@ void ListaDeCanales::cargarCanales() {
 
 	if (file.is_open()) {
 		string line;
-
+		getline(file, line);//Ignora primera linea 
 		while (getline(file, line)) {
-			string id, nombre, direccion, ciudad, distrito, departamento, tipoDeCanal, activo;
+			string nombre, direccion, ciudad, distrito, departamento, tipoDeCanal, activo;
+			int id;
 			int pos = 1;
 			// ID,Nombre,Direccion,Ciudad,Distrito,Departamento,Activo,TipoDeCanal
 			pos = line.find(",");
-			id = line.substr(0, pos);
+			id = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
 			pos = line.find(",");
 			nombre = line.substr(0, pos);
@@ -632,10 +673,10 @@ void ListaDeCanales::cargarCanales() {
 			//convertir string a bool
 			bool activoBool = activo == "1" ? true : false;
 
-			if (id != "Id" && id != "id" && id != "ID") {
-				Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, activoBool, tipoDeCanalInt);
-				agregarAlFinal(nuevoCanal);
-			}
+			
+			Canal* nuevoCanal = new Canal(nombre, direccion, ciudad, distrito, departamento, activoBool, tipoDeCanalInt);
+			agregaPorIdDesordenado(nuevoCanal, id);
+			
 		}
 
 		file.close(); // Close the file
@@ -701,6 +742,7 @@ void ListaDeCanales::menuDeGestion() {
 		case 8:
 			break;
 		default:
+
 			cout << "Opcion no válida. Intente de nuevo.\n";
 		}
 	} while (opcion != 8);
