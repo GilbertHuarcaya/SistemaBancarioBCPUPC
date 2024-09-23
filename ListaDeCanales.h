@@ -1,9 +1,9 @@
 #pragma once
-#include "Lista.h"
+#include "ListaDobleEnlazada.h"
 #include "Canal.h"
 #include "CuentaBancaria.h"
 
-class ListaDeCanales : public Lista<Canal*> 
+class ListaDeCanales : public ListaDobleEnlazada<Canal*>
 {
 public:
 	void mostrar();
@@ -54,26 +54,17 @@ public:
 
 	//Metodos para ordenar canales
 	void ordenarPorNombre();
-	void ordenarPorDistrito();
-	void ordenarPorDepartamento();
-	void ordenarPorCiudad();
-	void ordenarPorActivo();
-	void ordenarPorTipoDeCanal();
 
 	//Metodo para obtener canal
 	Nodo<Canal*>* obtenerCanal();
 
 	// Templates de menus
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave);
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave, Nodo<CuentaBancaria*>* cuentaBancaria);
-	template<typename T>
-	void gestionarPorTipoLista(T tipoDeCanal, string llave);
-	template<typename T>
-	void gestionarPorTipoIndividual(T tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave, Nodo<CuentaBancaria*>*cuentaBancaria);
+	void gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llave);
+	void gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string llave);
 
 
 	//Menu para cliente
-	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria);
+	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>*cuentaBancaria);
 };

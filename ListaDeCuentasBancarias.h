@@ -26,5 +26,5 @@ public:
 	void buscarPorTipoCuenta(ETipoCuenta tipoDeCuenta);
 
 	//Menu para cliente
-	void menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancariaActual);
+	void menuCuentaBancariaParaCliente(Nodo< CuentaBancaria* > * cuentaBancariaActual);
 };

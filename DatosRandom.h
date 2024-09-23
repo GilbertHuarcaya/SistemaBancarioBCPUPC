@@ -93,10 +93,6 @@ inline string generar_CodigoTarjeta() {
 			aux.append(to_string(r.Next(1, 9)));
 			_sleep(10);
 		}
-		if (j != 3) {
-			// no coloca espacio al final de la tarjeta
-			aux.append(" ");
-		}
 	}
 	return aux;
 }
