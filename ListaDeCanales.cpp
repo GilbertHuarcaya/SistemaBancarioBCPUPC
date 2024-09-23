@@ -542,7 +542,7 @@ void ListaDeCanales::menuParaActualizarCanal(Nodo<Canal*>* canal)
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 3);
+	} while (opcion != 4);
 }
 
 
