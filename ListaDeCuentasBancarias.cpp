@@ -31,8 +31,9 @@ void ListaDeCuentasBancarias::mostrar()
 
 void ListaDeCuentasBancarias::agregarCuentaBancaria()
 {
-	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
-	int idCliente, TipoCuenta;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
+	int idCliente, TipoCuenta,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
 	cout << "Ingrese el id del Cliente: ";
 	cin >> idCliente;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
@@ -44,9 +45,12 @@ void ListaDeCuentasBancarias::agregarCuentaBancaria()
 	cout << "Ingrese el Tipo de Cuenta: \n";
 	cout << "(1:CREDITO, 2:DEBITO, 3:OTRO)\n";
 	cin >> TipoCuenta;
-	cout << "Ingrese la Fecha de creacion de la Cuenta Bancaria: ";
-	cin >> FechaCreacion;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
+	FechaCreacion = generar_fecha();
+	FechaCreacion_dia = FechaCreacion->tm_mday;
+	FechaCreacion_mes = FechaCreacion->tm_mon;
+	FechaCreacion_anio = FechaCreacion->tm_year;
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion,
+	FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio, idCliente);
 	this->agregarAlFinal(nuevoCuentaBancaria);
 	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
@@ -57,8 +61,9 @@ void ListaDeCuentasBancarias::agregarCuentaBancaria()
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaPorIdDelCliente(int idCliente)
 {
-	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
-	int TipoCuenta;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
+	int TipoCuenta, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
 	cin >> Contrasenia;
 	cout << "Ingrese el Nombre del cliente de la Cuenta Bancaria: ";
@@ -68,10 +73,12 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorIdDelCliente(int idCliente
 	cout << "Ingrese el Tipo de Cuenta: \n";
 	cout << "(1:CREDITO, 2:DEBITO, 3:OTRO)\n";
 	cin >> TipoCuenta;
-	cout << "Ingrese la Fecha de creacion de la Cuenta Bancaria: ";
-	cin >> FechaCreacion;
-	CuentaBancaria* nuevoCuentaBancaria = 
-new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
+	FechaCreacion = generar_fecha();
+	FechaCreacion_dia = FechaCreacion->tm_mday;
+	FechaCreacion_mes = FechaCreacion->tm_mon;
+	FechaCreacion_anio = FechaCreacion->tm_year;
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion,
+	FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio,idCliente);
 	agregarAlFinal(nuevoCuentaBancaria);
 	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
@@ -82,16 +89,17 @@ new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, Fech
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* clienteActual)
 {
-	string Contrasenia, FechaCreacion;
+	tm* FechaCreacion;
+	string Contrasenia;
 	int TipoCuenta;
 	cout << "Ingrese el Tipo de Cuenta: \n";
 	cout << "(1:CREDITO, 2:DEBITO, 3:OTRO)\n";
 	cin >> TipoCuenta;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
 	cin >> Contrasenia;
-	cout << "Ingrese la Fecha de creacion de la Cuenta Bancaria: ";
-	cin >> FechaCreacion;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, clienteActual->getDato()->getNombre(), clienteActual->getDato()->getApellido(), TipoCuenta, FechaCreacion, clienteActual->getId());
+	FechaCreacion = generar_fecha();
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, clienteActual->getDato()->getNombre(), clienteActual->getDato()->getApellido(),
+	TipoCuenta, FechaCreacion, FechaCreacion->tm_mday,FechaCreacion->tm_mon,FechaCreacion->tm_year,clienteActual->getId(),0);
 	agregarAlFinal(nuevoCuentaBancaria);
 	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
@@ -102,16 +110,18 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* cl
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
 {
-	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
 	int idCliente, TipoCuenta;
 
 	Contrasenia = generar_telefono();
 	NombreCliente = generar_nombre();
 	ApellidoCliente = generar_nombre();
-	FechaCreacion = "09/24";
+	FechaCreacion = generar_fecha();
 	idCliente = 0;
 	TipoCuenta = 1;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, FechaCreacion->tm_mday,
+	FechaCreacion->tm_mon,FechaCreacion->tm_year,idCliente,0);
 	agregarAlFinal(nuevoCuentaBancaria);
 	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
@@ -122,15 +132,20 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorIdDeCliente(int idCliente)
 {
-	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
-	int TipoCuenta;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
+	int TipoCuenta, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
 
 	Contrasenia = generar_telefono();
 	NombreCliente = generar_nombre();
 	ApellidoCliente = generar_nombre();
-	FechaCreacion = "09/24";
+	FechaCreacion = generar_fecha();
+	FechaCreacion_dia = FechaCreacion->tm_mday;
+	FechaCreacion_mes = FechaCreacion->tm_mon;
+	FechaCreacion_anio = FechaCreacion->tm_year;
 	TipoCuenta = 1;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion, idCliente);
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, NombreCliente, ApellidoCliente, TipoCuenta, FechaCreacion,
+	FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio,idCliente);
 	this->agregarAlFinal(nuevoCuentaBancaria);
 	escribirEnArchivo();
 	cout << "Cuenta agregada correctamente.\n";
@@ -138,6 +153,22 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorIdDeCliente(int idCl
 	system("cls");
 }
 
+void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorCliente(Nodo<Cliente*>* clienteActual) 
+{
+	tm* FechaCreacion;
+	string Contrasenia;
+	int TipoCuenta;
+	TipoCuenta = random(1, 3);
+	Contrasenia = generar_telefono();
+	FechaCreacion = generar_fecha();
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, clienteActual->getDato()->getNombre(), clienteActual->getDato()->getApellido(),
+	TipoCuenta, FechaCreacion, FechaCreacion->tm_mday,FechaCreacion->tm_mon, FechaCreacion->tm_year, clienteActual->getId(), 0);
+	agregarAlFinal(nuevoCuentaBancaria);
+	escribirEnArchivo();
+	cout << "Cuenta Random agregada correctamente.\n";
+	system("pause");
+	system("cls");
+}
 
 int ListaDeCuentasBancarias::buscar(int id)
 {
@@ -216,8 +247,9 @@ int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
 void ListaDeCuentasBancarias::actualizarDatos(int id)
 {
 	Nodo<CuentaBancaria*>* aux;
-	string Contrasenia, NombreCliente, ApellidoCliente, FechaCreacion;
-	int idCliente=0, TipoCuenta;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
+	int idCliente=0, TipoCuenta, FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio;
 	cout << "Ingrese la Contrasenia de la Cuenta Bancaria: ";
 	cin >> Contrasenia;
 	cout << "Ingrese el Nombre del cliente: ";
@@ -227,9 +259,33 @@ void ListaDeCuentasBancarias::actualizarDatos(int id)
 	cout << "Ingrese el Tipo de Cuenta de la Cuenta Bancaria: \n";
 	cout << "(1: CREDITO, 2: DEBITO, 3: OTRO";
 	cin >> TipoCuenta;
-	cout << "Ingrese la Fecha de creacion de la Cuenta Bancaria: ";
-	cin >> FechaCreacion;
-	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,  NombreCliente, ApellidoCliente,  TipoCuenta,  FechaCreacion,  idCliente);
+	FechaCreacion = generar_fecha();
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,  NombreCliente, ApellidoCliente,  TipoCuenta,  FechaCreacion,  idCliente,
+	FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio);
+	modificarPorId(nuevoCuentaBancaria, id);
+	escribirEnArchivo();
+	cout << "Se reemplazo correctamente los datos.\n";
+	system("pause");
+	system("cls");
+}
+
+void ListaDeCuentasBancarias::actualizarDatosPorCliente(Nodo<Cliente*>* cliente, int id) 
+{
+	Nodo<CuentaBancaria*>* aux;
+	tm* FechaCreacion;
+	string Contrasenia, NombreCliente, ApellidoCliente;
+	int idCliente = 0, TipoCuenta, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
+	cout << "Ingrese la nueva contrasenia de la Cuenta Bancaria: ";
+	cin >> Contrasenia;
+	cout << "Ingrese el nuevo Tipo de Cuenta de la Cuenta Bancaria: \n";
+	cout << "(1: CREDITO, 2: DEBITO, 3: OTRO";
+	cin >> TipoCuenta;
+	FechaCreacion = generar_fecha();
+	FechaCreacion_dia = FechaCreacion->tm_mday;
+	FechaCreacion_mes = FechaCreacion->tm_mon;
+	FechaCreacion_anio = FechaCreacion->tm_year;
+	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, cliente->getDato()->getNombre(), cliente->getDato()->getApellido(), TipoCuenta,
+	FechaCreacion, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio,cliente->getId());
 	modificarPorId(nuevoCuentaBancaria, id);
 	escribirEnArchivo();
 	cout << "Se reemplazo correctamente los datos.\n";
@@ -314,13 +370,13 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Agregar una Cuenta Bancaria al Cliente" << endl;
-		cout << "2. Mostrar las Cuentas Bancarias del Cliente" << endl;
-		cout << "3. Acceder a la Cuenta Bancaria del Cliente" << endl;
-		cout << "4. Eliminar una Cuenta Bancaria del Cliente" << endl;
-		cout << "5. Agregar Cuenta Bancaria Random al Cliente" << endl;
-		cout << "6. Salir" << endl;
+		cout << "2. Agregar Cuenta Bancaria Random al Cliente" << endl;
+		cout << "3. Mostrar las Cuentas Bancarias del Cliente" << endl;
+		cout << "4. Acceder a la Cuenta Bancaria del Cliente" << endl;
+		cout << "5. Eliminar una Cuenta Bancaria del Cliente" << endl;
+		cout << "6. Actualizar Datos de una Cuenta Bancaria del cliente" << endl;
+		cout << "7. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -328,33 +384,34 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 		{
 		case 1:
 			agregarCuentaBancariaPorCliente(clienteActual);
-			cout << "Cuenta Bancaria agregada" << endl;
-			system("pause");
 			break;
 		case 2:
-			listarPorIdDeCliente(clienteActual->getId());
+			agregarCuentaBancariaRandomPorCliente(clienteActual);
 			break;
 		case 3:
 			listarPorIdDeCliente(clienteActual->getId());
-			cout << "Ingrese id de su cuenta bancaria: ";
+			break;
+		case 4:
+			listarPorIdDeCliente(clienteActual->getId());
+			cout << "Ingrese id de la cuenta bancaria: ";
 			cin >> idCuentaBancaria;
 			cuentaBancariaActual = obtenerNodoPorId(idCuentaBancaria);
-
 			if (cuentaBancariaActual->getId() != 0) {
 				if (cuentaBancariaActual->getDato()->getIdCliente() == clienteActual->getId()) {
 					menuCuentaBancariaParaCliente(cuentaBancariaActual);
 				}
 				else {
-					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
-					system("pause");
+					cout << "Esta cuenta no pertenece al cliente actual" << endl;
 				}
-			} else {
+			} 
+			else {
 				cout << "No existe esta cuenta" << endl;
-				system("pause");
 			}
+			system("pause");
+			system("cls");
 			break;
-		case 4:
-			cout << "Ingrese id de su cuenta bancaria a eliminar: ";
+		case 5:
+			cout << "Ingrese id de la cuenta bancaria a eliminar: ";
 			cin >> idCuentaBancaria;
 			cuentaBancariaActual = obtenerNodoPorId(idCuentaBancaria);
 			if (cuentaBancariaActual->getId() != 0) {
@@ -363,28 +420,37 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 					eliminarPorId(idCuentaBancaria);
 				}
 				else {
-					cout << "No se puede acceder a una cuenta bancaria que no es tuya" << endl;
-					system("pause");
+					cout << "No se puede eliminar una Cuenta Bancaria de otro cliente" << endl;
 				}
 			}
 			else {
 				cout << "No existe esta cuenta" << endl;
-				system("pause");
 			}
 			system("pause");
 			system("cls");
 			break;
-		case 5:
-			agregarCuentaBancariaRandomPorIdDeCliente(clienteActual->getId());
-			break;
 		case 6:
+			cout << "Ingrese id de la cuenta bancaria para actualizar sus datos: \n";
+			cin >> idCuentaBancaria;
+			cuentaBancariaActual = obtenerNodoPorId(idCuentaBancaria);
+			if (cuentaBancariaActual->getId() > 0) {
+				if (cuentaBancariaActual->getDato()->getIdCliente() == clienteActual->getId()) {
+					actualizarDatosPorCliente(clienteActual, idCuentaBancaria);
+				}
+				else cout << "No se puede modificar los datos de una Cuenta Bancaria de otro cliente\n";
+			}
+			else cout << "No se encontro la Cuenta Bancaria"<<endl;
+			system("pause");
+			system("cls");
+			break;
+		case 7:
 			cout << "Saliendo del menu de clientes" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 6);
+	} while (opcion != 7);
 }
 
 
@@ -472,7 +538,8 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 					cout << "Tarjeta agregada" << endl;
 				}
 				else {
-					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+					cout << "La Cuenta Bancaria ya tiene  una tarjeta asociada" << endl;
+
 				}
 				system("pause");
 				system("cls");
@@ -487,7 +554,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 					cout << "Tarjeta agregada" << endl;
 				}
 				else {
-					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+					cout << "La Cuenta Bancaria ya tiene  una tarjeta asociada" << endl;
 				}
 				system("pause");
 				system("cls");
@@ -520,10 +587,10 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 		do
 		{
 			system("cls");
-			cout << "1. Acceder a Mi Tarjeta" << endl;
-			cout << "2. Eliminar Mi Tarjeta" << endl;
-			cout << "3. Renovar Mi Tarjeta" << endl;
-			cout << "4. Acceder a un Canal Para iniciar una Operacion" << endl;
+			cout << "1. Acceder a la Tarjeta" << endl;
+			cout << "2. Eliminar la Tarjeta" << endl;
+			cout << "3. Renovar la Tarjeta" << endl;
+			cout << "4. Acceder a un Canal para iniciar una Operacion" << endl;
 			cout << "5. Salir" << endl;
 			cout << "Ingrese una opcion: ";
 			cin >> opcion;
@@ -592,6 +659,9 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 				}
 				else {
 					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+					//Agrega de nuevo el id de la tarjeta a la cuenta bancaria
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
 				}
 				system("pause");
 				system("cls");
@@ -606,14 +676,17 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 					cout << "Tarjeta agregada" << endl;
 				}
 				else {
-					cout << "Ya tienes una tarjeta asociada a esta cuenta bancaria" << endl;
+					cout << "Ya tienes una tarjeta asociada a esta Cuenta Bancaria" << endl;
+					//Agrega de nuevo el id de la tarjeta a la cuenta bancaria
+					idTarjeta = listaTarjetas->obtenerIdDeTarjetaPorIdDeCuentaBancaria(cuentaBancariaActual->getId());
+					cuentaBancariaActual->getDato()->setIdTarjeta(idTarjeta);
 				}
 				system("pause");
 				system("cls");
 				return;
 				break;
 			case 3:
-				cout << "Saliendo del menu de cuenta bancaria" << endl;
+				cout << "Saliendo del menu de Cuenta Bancaria" << endl;
 				break;
 			default:
 				cout << "Opcion invalida" << endl;
@@ -621,7 +694,6 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 			}
 		} while (opcion != 3);
 	}
-
 }
 
 
@@ -629,8 +701,8 @@ void ListaDeCuentasBancarias::escribirEnArchivo()
 {
 	ofstream file("CuentasBancarias.csv");
 	if (file.is_open()) {
-		Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
-		file << "Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion,\n"; // Header
+		Nodo<CuentaBancaria*>* aux = this->obtenerInicial();
+		file << "Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_Anio\n"; // Header
 		while (aux != nullptr)
 		{
 			file << aux->getId() << ","
@@ -640,7 +712,9 @@ void ListaDeCuentasBancarias::escribirEnArchivo()
 				<< aux->getDato()->getIdTarjeta() << ","
 				<< aux->getDato()->getTipoCuenta() << ","
 				<< aux->getDato()->getContrasenia() << ","
-				<< aux->getDato()->getFechaCreacion() << "\n";
+				<< aux->getDato()->getFechaCreacion_dia() << ","
+				<<aux->getDato()->getFechaCreacion_mes()<<","
+				<<aux->getDato()->getFechaCreacion_anio()<<"\n";
 			aux = aux->getSiguiente();
 		}
 		file.close();
@@ -657,15 +731,14 @@ void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 		string line;
 		getline(file, line);//Ignora primera linea 
 		while (getline(file, line)) {
-			int id, IdCliente, idTarjeta, TipoCuenta;
-			string Contrasenia,FechaCreacion, NombreCliente, ApellidoCliente;
+			tm* FechaCreacion = generar_fecha();
+			int id, IdCliente, idTarjeta, TipoCuenta,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
+			string Contrasenia,NombreCliente, ApellidoCliente;
 			int pos = 1;
-			// Id,Contrasenia,FechaCreacion,IdCliente,NombreCliente,TipoCuenta
-			//Esto es un
+			//Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_Anio
 			pos = line.find(",");
 			id = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
-			//solo tramo de busqueda, repetir cuantas veces sea necesario
 			pos = line.find(",");
 			NombreCliente = line.substr(0, pos);
 			line = line.substr(pos + 1);
@@ -685,9 +758,19 @@ void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 			Contrasenia = line.substr(0, pos);
 			line = line.substr(pos + 1);
 			pos = line.find(",");
-			FechaCreacion = line.substr(0, pos);
+			FechaCreacion_dia = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
-			CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,NombreCliente,ApellidoCliente,TipoCuenta,FechaCreacion,IdCliente,idTarjeta);
+			pos = line.find(",");
+			FechaCreacion_mes = stoi(line.substr(0, pos));
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			FechaCreacion_anio = stoi(line.substr(0, pos));
+			line = line.substr(pos + 1);
+			FechaCreacion->tm_mday = FechaCreacion_dia;
+			FechaCreacion->tm_mon = FechaCreacion_mes;
+			FechaCreacion->tm_year = FechaCreacion_anio;
+			CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,NombreCliente,ApellidoCliente,TipoCuenta,FechaCreacion,
+			FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio,IdCliente,idTarjeta);
 			agregaPorIdDesordenado(nuevoCuentaBancaria, id);
 		}
 		file.close(); // Cierra archivo

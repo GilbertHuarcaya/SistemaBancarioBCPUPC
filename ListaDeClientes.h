@@ -17,7 +17,6 @@ public:
 	void menu();
 	void escribirEnArchivo();
 	void cargarClientes();
-
 	//Menu para cliente
 	void menuCliente();
 };

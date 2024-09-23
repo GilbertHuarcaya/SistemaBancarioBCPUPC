@@ -1,2 +1,2 @@
-Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion,FechaCaducidad,IdCliente,IdCuentaBancaria
-1,6614 8486 2242 8485,686,0,Valentino,Valentino,2,2,0,Hoy,1/29,1003,1,
+Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion_mes,FechaCreacion_anio,FechaCaducidad_mes,FechaCaducidad_anio,IdCliente,IdCuentaBancaria
+1,3827368832338842,352,0,pepe,oscategui,1,1,0,0,128,0,128,1004,1,

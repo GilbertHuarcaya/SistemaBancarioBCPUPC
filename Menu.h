@@ -57,7 +57,7 @@ int mostrarMenuPrincipal() {
         system("cls");
         mostrarBCP();
         cout << "\nMenu:\n";
-        cout << "1. Gestion de clientes\n";
+        cout << "1. Gestion de Clientes\n";
         cout << "2. Gestion de Canales\n";
         cout << "3. Gestion de Cuentas Bancarias\n";
         cout << "4. Gestion de Tarjetas\n";
@@ -72,12 +72,10 @@ int mostrarMenuPrincipal() {
         switch (opcion) {
         case 1: {
             listaClientes->menu();
-            system("pause");
             break;
         }
         case 2: {
             listaCanales->menu();
-            system("pause");
             break;
         }
         case 3: {
@@ -94,7 +92,6 @@ int mostrarMenuPrincipal() {
             break;
         case 7:
             listaClientes->menuCliente();
-            system("pause");
             break;
         case 8:
             break;

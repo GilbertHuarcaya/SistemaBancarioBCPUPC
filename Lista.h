@@ -22,6 +22,7 @@ public:
     Lista(): fin(nullptr), actual(nullptr), ini(nullptr), lon(0), idUltimoAgregado(0), comparar([](T a, T b) {return a - b; }) {}
     //Operaciones auxiliares
     virtual ~Lista();
+    int getUltimoid();
     bool esVacia(); // Comprueba si la lista est� vac�a
     uint longitud();
     virtual void mostrar(); // Muestra la lista (metodo virtual)
@@ -67,6 +68,12 @@ Lista<T, NADA>::~Lista()
         ini = ini->getSiguiente();
         delete temp;
     }
+}
+
+template <typename T, T NADA>
+int Lista<T, NADA>::getUltimoid()
+{
+    return idUltimoAgregado;
 }
 
 template <typename T, T NADA>

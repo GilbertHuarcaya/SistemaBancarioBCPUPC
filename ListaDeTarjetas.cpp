@@ -10,7 +10,7 @@ void ListaDeTarjetas::mostrar()
 {
 	if (this->esVacia())
 	{
-		cout << "No hay cuentasbancarias registrados" << endl;
+		cout << "No hay Tarjetas registradas" << endl;
 		system("pause");
 		system("cls");
 		return;
@@ -31,9 +31,10 @@ void ListaDeTarjetas::mostrar()
 
 void ListaDeTarjetas::agregarTarjeta()
 {
+	tm* FechaCreacion, * FechaCaducidad;
 	bool activado;
 	int Activado, idCuentaB, idCliente,CVV,Divisa,TipoTarjeta;
-	string Codigo,FechaCreacion,FechaCaducidad,NombreCliente,ApellidoCliente;
+	string Codigo,NombreCliente,ApellidoCliente;
 	double saldo = 0;
 	cout << "Ingrese el id del Cliente: ";
 	cin >> idCliente;
@@ -51,17 +52,15 @@ void ListaDeTarjetas::agregarTarjeta()
 	cout << "Ingrese el Tipo de Tarjeta: \n";
 	cout << "(1:Visa, 2:American Express)\n";
 	cin >> TipoTarjeta;
-	cout << "Ingrese la Fecha de Creacion de la Tarjeta: ";
-	cin >> FechaCreacion;
-	cout << "Ingrese la Fecha de Caducidad de la Tarjeta: ";
-	cin >> FechaCaducidad;
 	cout << "Ingrese el Nombre del Cliente de la Tarjeta: ";
 	cin >> NombreCliente;
 	cout << "Ingrese el Apellido del Cliente de la Tarjeta: ";
 	cin >> ApellidoCliente;
 	activado = Activado == 1 ? true : false;
-	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo,CVV,activado,TipoTarjeta,Divisa,saldo,FechaCreacion,FechaCaducidad,NombreCliente,
-		ApellidoCliente,idCuentaB,idCliente);
+	FechaCreacion = generar_fecha();
+	FechaCaducidad = generar_fecha_expiracion_tarjeta();
+	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo,CVV,activado,TipoTarjeta,Divisa,saldo,FechaCreacion,FechaCaducidad, FechaCreacion->tm_mon, FechaCreacion->tm_year, FechaCaducidad->tm_mon, 
+		FechaCaducidad->tm_year, NombreCliente,	ApellidoCliente,idCuentaB,idCliente);
 	this->agregarAlFinal(nuevaTarjeta);
 	escribirEnArchivo();
 	cout << "Tarjeta agregada correctamente.\n";
@@ -72,9 +71,10 @@ void ListaDeTarjetas::agregarTarjeta()
 
 void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>*cuentaBancariaActual)
 {
+	tm* FechaCreacion, *FechaCaducidad;
 	bool activado;
 	int Activado, CVV, Divisa, TipoTarjeta;
-	string Codigo, FechaCreacion, FechaCaducidad;
+	string Codigo;
 	double saldo = 0;
 	cout << "Ingrese el Codigo de la Tarjeta: ";
 	cin >> Codigo;
@@ -88,13 +88,11 @@ void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>*cuen
 	cout << "Ingrese el Tipo de Tarjeta: \n";
 	cout << "(1:Visa, 2:American Express)\n";
 	cin >> TipoTarjeta;
-	cout << "Ingrese la Fecha de Creacion de la Tarjeta: ";
-	cin >> FechaCreacion;
-	cout << "Ingrese la Fecha de Caducidad de la Tarjeta: ";
-	cin >> FechaCaducidad;
+	FechaCreacion = generar_fecha();
+	FechaCaducidad = generar_fecha_expiracion_tarjeta();
 	activado = Activado == 1 ? true : false;
-	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, cuentaBancariaActual->getDato()->getNombreCliente(),
-		cuentaBancariaActual->getDato()->getApellidoCliente(), cuentaBancariaActual->getId(), cuentaBancariaActual->getDato()->getIdCliente());
+	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad,FechaCreacion->tm_mon,FechaCreacion->tm_year,FechaCaducidad->tm_mon,
+	FechaCaducidad->tm_year,cuentaBancariaActual->getDato()->getNombreCliente(),cuentaBancariaActual->getDato()->getApellidoCliente(), cuentaBancariaActual->getId(), cuentaBancariaActual->getDato()->getIdCliente());
 	this->agregarAlFinal(nuevaTarjeta);
 	escribirEnArchivo();
 	cout << "Tarjeta agregada correctamente.\n";
@@ -105,9 +103,10 @@ void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>*cuen
 
 void ListaDeTarjetas::agregarTarjetaRandom()
 {
+	tm* FechaCreacion, * FechaCaducidad;
 	bool activado;
 	int idCuentaB, idCliente, CVV, Divisa, TipoTarjeta;
-	string Codigo, FechaCreacion, FechaCaducidad, NombreCliente, ApellidoCliente;
+	string Codigo, NombreCliente, ApellidoCliente;
 	double saldo=0;
 
 	activado = random(0, 1);
@@ -122,8 +121,8 @@ void ListaDeTarjetas::agregarTarjetaRandom()
 	NombreCliente = generar_nombre();
 	ApellidoCliente = generar_apellido();
 
-	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
-		ApellidoCliente, idCuentaB, idCliente);
+	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, FechaCreacion->tm_mon, FechaCreacion->tm_year, FechaCaducidad->tm_mon, FechaCaducidad->tm_year,
+		NombreCliente, ApellidoCliente, 0, 0);
 	this->agregarAlFinal(nuevaTarjeta);
 	escribirEnArchivo();
 	cout << "Tarjeta agregada correctamente.\n";
@@ -134,10 +133,12 @@ void ListaDeTarjetas::agregarTarjetaRandom()
 
 void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*>*cuentaBancariaActual)
 {
+	tm* FechaCreacion, * FechaCaducidad;
 	bool activado;
 	int CVV, Divisa, TipoTarjeta;
-	string Codigo, FechaCreacion, FechaCaducidad;
+	string Codigo;
 	double saldo = 0;
+	int FechaCreacion_mes, FechaCreacion_anio;
 
 	activado = random(0, 1);
 	CVV = generar_CVV();
@@ -145,10 +146,12 @@ void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*
 	TipoTarjeta = random(1, 3);
 	Codigo = generar_CodigoTarjeta();
 	FechaCreacion = generar_fecha();
+	FechaCreacion_mes = FechaCreacion->tm_mon;
+	FechaCreacion_anio = FechaCreacion->tm_year;
 	FechaCaducidad = generar_fecha_expiracion_tarjeta();
 
-	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, cuentaBancariaActual->getDato()->getNombreCliente(),
-		cuentaBancariaActual->getDato()->getApellidoCliente(), cuentaBancariaActual->getId(), cuentaBancariaActual->getDato()->getIdCliente());
+	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, FechaCreacion_mes,FechaCreacion_anio,FechaCaducidad->tm_mon,FechaCaducidad->tm_year,
+	cuentaBancariaActual->getDato()->getNombreCliente(),cuentaBancariaActual->getDato()->getApellidoCliente(), cuentaBancariaActual->getId(), cuentaBancariaActual->getDato()->getIdCliente());
 	this->agregarAlFinal(nuevaTarjeta);
 	escribirEnArchivo();
 	cout << "Tarjeta agregada correctamente.\n";
@@ -181,6 +184,22 @@ int ListaDeTarjetas::buscar(int id)
 	system("cls");
 }
 
+void ListaDeTarjetas::listarPorId(int id)
+{
+	Nodo<Tarjeta*>* aux = this->obtenerInicial();
+	while (aux != nullptr)
+	{
+		if (aux->getId() == id)
+		{
+			cout << endl;
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+		}
+		aux = aux->getSiguiente();
+	}
+}
 
 bool ListaDeTarjetas::buscarPorIdDeCliente(int idCliente)
 {
@@ -239,43 +258,31 @@ int ListaDeTarjetas::obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancari
 	return 0;
 }
 
-
-void ListaDeTarjetas::actualizarDatos(int id)
+void ListaDeTarjetas::actualizarDatos(Nodo<Tarjeta*>* tarjeta)
 {
+	tm* FechaCreacion, * FechaCaducidad;
 	bool activado;
-	int Activado, idCuentaB, idCliente, CVV, Divisa, TipoTarjeta;
-	string Codigo, FechaCreacion, FechaCaducidad, NombreCliente, ApellidoCliente;
+	int Activado, CVV, Divisa, TipoTarjeta,FechaCreacion_mes,FechaCreacion_anio,FechaCaducidad_mes,FechaCaducidad_anio;
+	string Codigo, NombreCliente, ApellidoCliente;
 	double saldo = 0;
-	cout << "Ingrese el id del Cliente: ";
-	cin >> idCliente;
-	cout << "Ingrese el id de la Cuenta Bancaria: ";
-	cin >> idCuentaB;
-	cout << "Ingrese el Codigo de la Tarjeta: ";
+	cout << "Ingrese el nuevo codigo de la Tarjeta: ";
 	cin >> Codigo;
-	cout << "Ingrese el CVV de la Tarjeta: ";
+	cout << "Ingrese el nuevo CVV de la Tarjeta: ";
 	cin >> CVV;
-	cout << "Ingrese si esta activada la tarjeta: ";
-	cin >> Activado;
 	cout << "Ingrese la Divisa de la tarjeta: \n";
 	cout << "(1: Soles, 2:Dolares)";
 	cin >> Divisa;
 	cout << "Ingrese el Tipo de Tarjeta: \n";
 	cout << "(1:Visa, 2:American Express)\n";
 	cin >> TipoTarjeta;
-	cout << "Ingrese la Fecha de Creacion de la Tarjeta: ";
-	cin >> FechaCreacion;
-	cout << "Ingrese la Fecha de Caducidad de la Tarjeta: ";
-	cin >> FechaCaducidad;
-	cout << "Ingrese el Nombre del Cliente de la Tarjeta: ";
-	cin >> NombreCliente;
-	cout << "Ingrese el Apellido del Cliente de la Tarjeta: ";
-	cin >> ApellidoCliente;
-	activado = Activado == 1 ? true : false;
-	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
-		ApellidoCliente, idCuentaB, idCliente);
-	this->modificarPorId(nuevaTarjeta, id);
+	activado = true;
+	FechaCreacion = generar_fecha();
+	FechaCaducidad = generar_fecha_expiracion_tarjeta();
+	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad,FechaCreacion->tm_mon,FechaCreacion->tm_year,
+	FechaCaducidad->tm_mon,FechaCaducidad->tm_year,NombreCliente,ApellidoCliente,tarjeta->getDato()->getIdCuentaBancaria(),tarjeta->getDato()->getIdCliente());
+	this->modificarPorId(nuevaTarjeta, tarjeta->getId());
 	escribirEnArchivo();
-	cout << "Se reemplazo correctamente los datos.\n";
+	cout << "Se actualizo correctamente los datos.\n";
 	system("pause");
 	system("cls");
 }
@@ -283,25 +290,110 @@ void ListaDeTarjetas::actualizarDatos(int id)
 
 void ListaDeTarjetas::activarPorId(int id) 
 {
-
+	Nodo<Tarjeta*>* aux = this->obtenerInicial();
+	while (aux != nullptr) 
+	{
+		if (aux->getId() == id) {
+			aux->getDato()->Activar();
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			cout << "Tarjeta activada\n";
+			escribirEnArchivo();
+			system("pause");
+			system("cls");
+			return;
+		}
+		aux = aux->getSiguiente();
+	}
+	cout << "Tarjeta no encontrada\n";
+	system("pause");
+	system("cls");
+	return;
 }
 
 
 void ListaDeTarjetas::desactivarPorId(int id) 
 {
-
+	Nodo<Tarjeta*>* aux = this->obtenerInicial();
+	while (aux != nullptr)
+	{
+		if (aux->getId() == id) {
+			aux->getDato()->Desactivar();
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			cout << "Tarjeta desactivada\n";
+			escribirEnArchivo();
+			system("pause");
+			system("cls");
+			return;
+		}
+		aux = aux->getSiguiente();
+	}
+	cout << "Tarjeta no encontrada\n";
+	system("pause");
+	system("cls");
+	return;
 }
 
 
 void ListaDeTarjetas::listarTarjetasActivadas() 
 {
-
+	int contador = 0;
+	Nodo<Tarjeta*>* aux = this->obtenerInicial();
+	while (aux != nullptr)
+	{
+		if (aux->getDato()->getActivado()) {
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			contador++;
+		}
+		aux = aux->getSiguiente();
+	}
+	if(contador==0)
+	{
+		cout << "Tarjeta no encontrada\n";
+	}
+	system("pause");
+	system("cls");
+	return;
 }
 
 
 void ListaDeTarjetas::listarTarjetasDesactivadas() 
 {
+	int contador = 0;
+	Nodo<Tarjeta*>* aux = this->obtenerInicial();
+	while (aux != nullptr)
+	{
+		if (!aux->getDato()->getActivado()) {
+			cout << "ID: " << aux->getId() << endl;
+			cout << aux->getDato()->descripcion() << endl << endl;
+			cout << "----------------------" << endl;
+			cout << endl;
+			contador++;
+		}
+		aux = aux->getSiguiente();
+	}
+	if(contador==0)cout << "Tarjeta no encontrada\n";
+	system("pause");
+	system("cls");
+	return;
+}
 
+void ListaDeTarjetas::listarMayorMenorSaldo()
+{
+	//TODO
+}
+
+void ListaDeTarjetas::listarMenorMayorSaldo()
+{
+	//TODO
 }
 
 
@@ -312,15 +404,16 @@ void ListaDeTarjetas::menu()
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Listar Tarjetas" << endl;
 		cout << "2. Consultar Tarjeta" << endl;
 		cout << "3. Activar Tarjeta" << endl;
 		cout << "4. Desactivar Tarjeta" << endl;
 		cout << "5. Listar Tarjetas Activas" << endl;
 		cout << "6. Listar Tarjetas Desactivadas" << endl;
-		cout << "7. Eliminar Tarjeta" << endl;
-		cout << "8. Salir" << endl;
+		cout << "7. Listar tarjetas de menor a mayor saldo" << endl;
+		cout << "8. Listar tarjetas de mayor a menor saldo" << endl;
+		cout << "9. Eliminar Tarjeta" << endl;
+		cout << "10. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -351,18 +444,24 @@ void ListaDeTarjetas::menu()
 			listarTarjetasDesactivadas();
 			break;
 		case 7:
+			listarMenorMayorSaldo();
+			break;
+		case 8:
+			listarMayorMenorSaldo();
+			break;
+		case 9:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
 			this->eliminarPorId(id);
 			break;
-		case 8:
-			cout << "Saliendo del menu de cuentasbancarias" << endl;
+		case 10:
+			cout << "Saliendo del menu de Tarjetas" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 8);
+	} while (opcion != 10);
 }
 
 
@@ -374,8 +473,9 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual)
 	{
 		system("cls");
 		cout << "1. Ver datos de la Tarjeta de la Cuenta Bancaria" << endl;
-		cout << "2. Validar si la tarjeta esta Vigente" << endl;
-		cout << "3. Salir" << endl;
+		cout << "2. Actualizar datos de la Tarjeta de la Cuenta Bancaria" << endl;
+		cout << "3. Validar si la tarjeta esta Vigente" << endl;
+		cout << "4. Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin >> opcion;
 		system("cls");
@@ -386,17 +486,20 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual)
 			system("pause");
 			break;
 		case 2:
-			cout << (tarjetaActual->getDato()->validateFechaCaducidad() ? "Vigente" : "Vencido") << endl;
-			system("pause");
+			actualizarDatos(tarjetaActual);
 			break;
 		case 3:
+			cout << (tarjetaActual->getDato()->validateFechaCaducidad() ? "La tarjeta esta vigente" : "La tarjeta esta vencida") << endl;
+			system("pause");
+			break;
+		case 4:
 			cout << "Saliendo del menu de tarjeta" << endl;
 			break;
 		default:
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 3);
+	} while (opcion != 5);
 }
 
 
@@ -404,8 +507,8 @@ void ListaDeTarjetas::escribirEnArchivo()
 {
 	ofstream file("Tarjetas.csv");
 	if (file.is_open()) {
-		Nodo<Tarjeta*, nullptr>*  aux = this->obtenerInicial();
-		file << "Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion,FechaCaducidad,IdCliente,IdCuentaBancaria\n"; // Header
+		Nodo<Tarjeta*>* aux = this->obtenerInicial();
+		file << "Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion_mes,FechaCreacion_anio,FechaCaducidad_mes,FechaCaducidad_anio,IdCliente,IdCuentaBancaria\n"; // Header
 		while (aux != nullptr)
 		{
 			file << aux->getId() << ","
@@ -417,15 +520,15 @@ void ListaDeTarjetas::escribirEnArchivo()
 				<< aux->getDato()->getTipoTarjeta() << ","
 				<< aux->getDato()->getDivisa() << ","
 				<< aux->getDato()->getActivado_int() << ","
-				<< aux->getDato()->getFechaCreacion() << ","
-				<< aux->getDato()->getFechaCaducidad() << ","
+				<< aux->getDato()->getFechaCreacion_mes() << ","
+				<< aux->getDato()->getFechaCreacion_anio()<<","
+				<< aux->getDato()->getFechaCaducidad_mes()<<","
+				<< aux->getDato()->getFechaCaducidad_anio()<<","
 				<< aux->getDato()->getIdCliente() << ","
-				<< aux->getDato()->getIdCuentaBancaria() << "," << "\n";
+				<< aux->getDato()->getIdCuentaBancaria() << "\n";
 			aux = aux->getSiguiente();
 		}
 		file.close();
-		cout << "Lista escrita correctamente en el archivo.\n";
-		system("pause");
 		system("cls");
 	}
 	else {
@@ -443,11 +546,14 @@ void ListaDeTarjetas::cargarTarjetas() {
 		getline(file, line);//Ignora primera linea 
 		while (getline(file, line)) {
 			bool activado;
-			int id, Activado, idCuentaB, idCliente, CVV, Divisa, TipoTarjeta;
-			string Codigo, FechaCreacion, FechaCaducidad, NombreCliente, ApellidoCliente;
+			tm* FechaCreacion, * FechaCaducidad;
+			int id, Activado, idCuentaB, idCliente, CVV, Divisa, TipoTarjeta, FechaCreacion_mes, FechaCreacion_anio,
+			FechaCaducidad_mes,FechaCaducidad_anio;
+			string Codigo, NombreCliente, ApellidoCliente;
 			double saldo;
 			int pos = 1;
-			// Id,Contrasenia,FechaCreacion,IdCliente,NombreCliente,TipoCuenta
+			// Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion_mes,FechaCreacion_anio,
+			// FechaCaducidad_mes,FechaCaducidad_anio,IdCliente,NombreCliente,TipoCuenta
 			pos = line.find(",");
 			id = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
@@ -476,10 +582,16 @@ void ListaDeTarjetas::cargarTarjetas() {
 			Activado = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
 			pos = line.find(",");
-			FechaCreacion = line.substr(0, pos);
+			FechaCreacion_mes = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
 			pos = line.find(",");
-			FechaCaducidad = line.substr(0, pos);
+			FechaCreacion_anio = stoi(line.substr(0, pos));
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			FechaCaducidad_mes = stoi(line.substr(0, pos));
+			line = line.substr(pos + 1);
+			pos = line.find(",");
+			FechaCaducidad_anio = stoi(line.substr(0, pos));
 			line = line.substr(pos + 1);
 			pos = line.find(",");
 			idCliente = stoi(line.substr(0, pos));
@@ -487,14 +599,17 @@ void ListaDeTarjetas::cargarTarjetas() {
 			pos = line.find(",");
 			idCuentaB = stoi(line.substr(0, pos));
 			activado = Activado == 1 ? true : false;
-			Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
-				ApellidoCliente, idCuentaB, idCliente);
+			FechaCreacion = generar_fecha();
+			FechaCreacion->tm_year = FechaCreacion_anio;
+			FechaCreacion->tm_mon = FechaCaducidad_mes;
+			FechaCaducidad = generar_fecha_expiracion_tarjeta();
+			FechaCaducidad->tm_year = FechaCaducidad_anio;
+			FechaCaducidad->tm_mon = FechaCaducidad_mes;
+			Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad,FechaCreacion_mes,
+				FechaCreacion_anio,FechaCaducidad_mes,FechaCaducidad_anio,NombreCliente,ApellidoCliente, idCuentaB, idCliente);
 			agregaPorIdDesordenado(nuevaTarjeta, id);
 		}
 		file.close(); // Cierra archivo
-		cout << "Cuentas cargadas correctamente.\n";
-		system("pause");
-		system("cls");
 	}
 	else {
 		cout << "No se pudo abrir el archivo.\n";

@@ -20,33 +20,41 @@ private:
     double saldo;
     ETipoTarjeta TipoTarjeta;
     EDivisa Divisa;
-    string FechaCreacion; //cambiar tipo ed dato para validar la fecha segun cuando se filtre y valide
-    string FechaCaducidad; //cambiar tipo ed dato para validar la fecha segun cuando se filtre y valide
+    tm* FechaCreacion; 
+    tm* FechaCaducidad; 
+    int FechaCreacion_mes;
+    int FechaCreacion_anio;
+    int FechaCaducidad_mes;
+    int FechaCaducidad_anio;
     string NombreCliente;
     string ApellidoCliente;
     int idCuentaBancaria;
     int idCliente;
 
 public:
-	Tarjeta();
-    Tarjeta(string Codigo, int CVV, bool Activado, ETipoTarjeta TipoTarjeta, EDivisa Divisa, double saldo, string FechaCreacion, string FechaCaducidad,
-    string NombreCliente, string ApellidoCliente, int idCuentaBancaria,
+    Tarjeta(string Codigo, int CVV, bool Activado, ETipoTarjeta TipoTarjeta, EDivisa Divisa, double saldo, tm* FechaCreacion, tm* FechaCaducidad,
+    int FechaCreacion_mes, int FechaCreacion_anio, int FechaCaducidad_mes, int FechaCaducidad_anio, string NombreCliente, string ApellidoCliente, int idCuentaBancaria,
     int idCliente);
+
     Tarjeta(string Codigo, int CVV, bool Activado, int TipoTarjeta, int Divisa, double saldo,
-        string FechaCreacion, string FechaCaducidad, string NombreCliente, string ApellidoCliente, 
-        int idCuentaBancaria, int idCliente);
+        tm* FechaCreacion, tm* FechaCaducidad, int FechaCreacion_mes, int FechaCreacion_anio, int FechaCaducidad_mes, int FechaCaducidad_anio,
+        string NombreCliente, string ApellidoCliente, int idCuentaBancaria, int idCliente);
 
     //Metodos para listar datos
     string descripcion();
 
-    // M�todos de acceso
+    // Metodos de acceso
     int getCVV();
     string getCodigo();
     ETipoTarjeta getTipoTarjeta();
     double getSaldo();
     EDivisa getDivisa();
-    string getFechaCreacion();
-    string getFechaCaducidad();
+    tm* getFechaCreacion();
+    tm* getFechaCaducidad();
+    int getFechaCreacion_mes();
+    int getFechaCreacion_anio();
+    int getFechaCaducidad_mes();
+    int getFechaCaducidad_anio();
     bool getActivado();
     string getNombreCliente();
     string getApellidoCliente();
@@ -57,7 +65,7 @@ public:
     int getIdCuentaBancaria();
     int getActivado_int();
 
-    // M�todos de manipulaci�n
+    // Metodos de manipulacion
     void updateAmount();
     bool validateTarjeta(string Codigo);
     bool validateCVV(int CVV);
