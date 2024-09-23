@@ -5,12 +5,12 @@
 
 using namespace std;
 
-template<class T>
+template<class T, T NADA = nullptr>
 class Cola
 {
 private:
-	Nodo<T>* inicio;
-	Nodo<T>* fin;
+	Nodo<T, NADA>* inicio;
+	Nodo<T, NADA>* fin;
 public:
 	Cola()
 	{
@@ -23,16 +23,16 @@ public:
 
 };
 
-template<class T>
-bool Cola<T>::esVacia()
+template<class T, T NADA>
+bool Cola<T, NADA>::esVacia()
 {
 	return (inicio == nullptr);
 }
 
-template<class T>
-void Cola<T>::enqueue(T v)
+template<class T, T NADA>
+void Cola<T, NADA>::enqueue(T v)
 {
-	Nodo<T>* nodo = new Nodo<T>(v);
+	Nodo<T>* nodo = new Nodo<T, NADA>(v);
 	if (esVacia())
 	{
 		inicio = nodo;
@@ -46,8 +46,8 @@ void Cola<T>::enqueue(T v)
 	nodo = nullptr;
 }
 
-template<class T>
-T Cola<T>::dequeue()
+template<class T, T NADA>
+T Cola<T, NADA>::dequeue()
 {
 	T dato = inicio->dato;
 

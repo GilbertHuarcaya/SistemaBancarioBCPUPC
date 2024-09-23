@@ -1,15 +1,15 @@
 #ifndef __NODO_H__
 #define __NODO_H__
 
-template<class T>
+template<class T, T NADA = nullptr>
 class Nodo
 {
 private:
 	int id;
 	T dato;
-	Nodo<T>* siguiente;
+	Nodo<T, NADA>* siguiente;
 public:
-	Nodo(T v, int id, Nodo<T>* sig = nullptr)
+	Nodo(T v = NADA, int id = 0, Nodo<T, NADA>* sig = nullptr)
 	{
 		this->id = id;
 		dato = v;
@@ -37,7 +37,7 @@ public:
 		dato = d;
 	}
 
-	void setSiguiente(Nodo<T>* s)
+	void setSiguiente(Nodo<T, NADA>* s)
 	{
 		siguiente = s;
 	}
@@ -47,7 +47,7 @@ public:
 		return dato;
 	}
 
-	Nodo<T>* getSiguiente()
+	Nodo<T, NADA>* getSiguiente()
 	{
 		return siguiente;
 	}

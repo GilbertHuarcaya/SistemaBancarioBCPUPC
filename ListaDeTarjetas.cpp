@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string>
 #include "DatosRandom.h"
+
+
 void ListaDeTarjetas::mostrar()
 {
 	if (this->esVacia())
@@ -13,7 +15,7 @@ void ListaDeTarjetas::mostrar()
 		system("cls");
 		return;
 	}
-	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
+	Nodo<Tarjeta*, nullptr>*  aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		cout << "ID: " << aux->getId() << endl;
@@ -25,6 +27,7 @@ void ListaDeTarjetas::mostrar()
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeTarjetas::agregarTarjeta()
 {
@@ -66,7 +69,8 @@ void ListaDeTarjetas::agregarTarjeta()
 	system("cls");
 }
 
-void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>* cuentaBancariaActual)
+
+void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>*cuentaBancariaActual)
 {
 	bool activado;
 	int Activado, CVV, Divisa, TipoTarjeta;
@@ -98,6 +102,7 @@ void ListaDeTarjetas::agregarTarjetaPorCuentaBancaria(Nodo<CuentaBancaria*>* cue
 	system("cls");
 }
 
+
 void ListaDeTarjetas::agregarTarjetaRandom()
 {
 	bool activado;
@@ -126,7 +131,8 @@ void ListaDeTarjetas::agregarTarjetaRandom()
 	system("cls");
 }
 
-void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*>* cuentaBancariaActual)
+
+void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*>*cuentaBancariaActual)
 {
 	bool activado;
 	int CVV, Divisa, TipoTarjeta;
@@ -150,9 +156,10 @@ void ListaDeTarjetas::agregarTarjetaRandomPorCuentaBancaria(Nodo<CuentaBancaria*
 	system("cls");
 }
 
+
 int ListaDeTarjetas::buscar(int id)
 {
-	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
+	Nodo<Tarjeta*, nullptr>*  aux = obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -174,10 +181,11 @@ int ListaDeTarjetas::buscar(int id)
 	system("cls");
 }
 
+
 bool ListaDeTarjetas::buscarPorIdDeCliente(int idCliente)
 {
 	int eoncontradas = 0;
-	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
+	Nodo<Tarjeta*, nullptr>*  aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getIdCliente() == idCliente)
@@ -203,10 +211,11 @@ bool ListaDeTarjetas::buscarPorIdDeCliente(int idCliente)
 	return true;
 }
 
+
 int ListaDeTarjetas::obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancaria)
 {
 	int contador = 0;
-	Nodo<Tarjeta*>* aux = this->obtenerPrimero();
+	Nodo<Tarjeta*, nullptr>*  aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getIdCuentaBancaria() == idCuentaBancaria)
@@ -229,6 +238,7 @@ int ListaDeTarjetas::obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancari
 	system("pause");
 	return 0;
 }
+
 
 void ListaDeTarjetas::actualizarDatos(int id)
 {
@@ -263,32 +273,37 @@ void ListaDeTarjetas::actualizarDatos(int id)
 	activado = Activado == 1 ? true : false;
 	Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
 		ApellidoCliente, idCuentaB, idCliente);
-	this->reemplazar(id, nuevaTarjeta);
+	this->modificarPorId(nuevaTarjeta, id);
 	escribirEnArchivo();
 	cout << "Se reemplazo correctamente los datos.\n";
 	system("pause");
 	system("cls");
 }
 
+
 void ListaDeTarjetas::activarPorId(int id) 
 {
 
 }
+
 
 void ListaDeTarjetas::desactivarPorId(int id) 
 {
 
 }
 
+
 void ListaDeTarjetas::listarTarjetasActivadas() 
 {
 
 }
 
+
 void ListaDeTarjetas::listarTarjetasDesactivadas() 
 {
 
 }
+
 
 void ListaDeTarjetas::menu()
 {
@@ -338,7 +353,7 @@ void ListaDeTarjetas::menu()
 		case 7:
 			cout << "Ingrese id a eliminar: ";
 			cin >> id;
-			this->eliminar(id);
+			this->eliminarPorId(id);
 			break;
 		case 8:
 			cout << "Saliendo del menu de cuentasbancarias" << endl;
@@ -350,7 +365,8 @@ void ListaDeTarjetas::menu()
 	} while (opcion != 8);
 }
 
-void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
+
+void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual)
 {
 	int opcion;
 	int id;
@@ -383,11 +399,12 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual)
 	} while (opcion != 3);
 }
 
+
 void ListaDeTarjetas::escribirEnArchivo()
 {
 	ofstream file("Tarjetas.csv");
 	if (file.is_open()) {
-		Nodo<Tarjeta*>* aux = this->obtenerPrimero();
+		Nodo<Tarjeta*, nullptr>*  aux = this->obtenerInicial();
 		file << "Id,Codigo,CVV,Saldo,NombreCliente,ApellidoCliente,TipoTarjeta,Divisa,Activado,FechaCreacion,FechaCaducidad,IdCliente,IdCuentaBancaria\n"; // Header
 		while (aux != nullptr)
 		{
@@ -417,6 +434,7 @@ void ListaDeTarjetas::escribirEnArchivo()
 		system("cls");
 	}
 }
+
 
 void ListaDeTarjetas::cargarTarjetas() {
 	ifstream file("Tarjetas.csv"); // Abre archivo
@@ -471,7 +489,7 @@ void ListaDeTarjetas::cargarTarjetas() {
 			activado = Activado == 1 ? true : false;
 			Tarjeta* nuevaTarjeta = new Tarjeta(Codigo, CVV, activado, TipoTarjeta, Divisa, saldo, FechaCreacion, FechaCaducidad, NombreCliente,
 				ApellidoCliente, idCuentaB, idCliente);
-			agregarAlFinal(nuevaTarjeta);
+			agregaPorIdDesordenado(nuevaTarjeta, id);
 		}
 		file.close(); // Cierra archivo
 		cout << "Cuentas cargadas correctamente.\n";
