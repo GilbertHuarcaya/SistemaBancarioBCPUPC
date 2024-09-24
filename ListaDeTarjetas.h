@@ -19,8 +19,8 @@ public:
 	int obtenerIdDeTarjetaPorIdDeCuentaBancaria(int idCuentaBancaria);
 	void actualizarDatos(Nodo<Tarjeta*>* tarjeta);
 	void listarPorId(int id);
-	void listarMayorMenorSaldo();
-	void listarMenorMayorSaldo();
+	void ordenarMayorMenorSaldo();
+	void ordenarMenorMayorSaldo();
 	void menu();
 	void menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual);
 	void escribirEnArchivo();

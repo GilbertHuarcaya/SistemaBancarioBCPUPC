@@ -386,14 +386,58 @@ void ListaDeTarjetas::listarTarjetasDesactivadas()
 	return;
 }
 
-void ListaDeTarjetas::listarMayorMenorSaldo()
+void ListaDeTarjetas::ordenarMayorMenorSaldo()
 {
-	//TODO
+	Nodo<Tarjeta*>* aux = obtenerPrimero();
+	Nodo<Tarjeta*>* aux2;
+	for (int i = 1; i <= getUltimoid(); i++)
+	{
+		aux2 = aux;
+		for (int j = 1; j <= getUltimoid()-i; j++) {
+			if (aux2 != nullptr)
+			{
+				if (aux2->getDato()->getSaldo() < aux2->getSiguiente()->getDato()->getSaldo())
+				{
+					int temp_id = aux2->getId();
+					Tarjeta* tarj_aux = aux2->getDato();
+					aux2->setId(aux2->getSiguiente()->getId());
+					aux2->setDato(aux2->getSiguiente()->getDato());
+					aux2->getSiguiente()->setId(temp_id);
+					aux2->getSiguiente()->setDato(tarj_aux);
+				}
+				aux2 = aux2->getSiguiente();
+			}
+			else break;
+		}
+		aux = aux->getSiguiente();
+	}
 }
 
-void ListaDeTarjetas::listarMenorMayorSaldo()
+void ListaDeTarjetas::ordenarMenorMayorSaldo()
 {
-	//TODO
+	Nodo<Tarjeta*>* aux = obtenerPrimero();
+	Nodo<Tarjeta*>* aux2;
+	for (int i = 1; i <= getUltimoid(); i++)
+	{
+		aux2 = aux;
+		for (int j = 1; j <= getUltimoid() - i; j++) {
+			if (aux2 != nullptr)
+			{
+				if (aux2->getDato()->getSaldo() > aux2->getSiguiente()->getDato()->getSaldo())
+				{
+					int temp_id = aux2->getId();
+					Tarjeta* tarj_aux = aux2->getDato();
+					aux2->setId(aux2->getSiguiente()->getId());
+					aux2->setDato(aux2->getSiguiente()->getDato());
+					aux2->getSiguiente()->setId(temp_id);
+					aux2->getSiguiente()->setDato(tarj_aux);
+				}
+				aux2 = aux2->getSiguiente();
+			}
+			else break;
+		}
+		aux = aux->getSiguiente();
+	}
 }
 
 
@@ -444,10 +488,10 @@ void ListaDeTarjetas::menu()
 			listarTarjetasDesactivadas();
 			break;
 		case 7:
-			listarMenorMayorSaldo();
+			ordenarMenorMayorSaldo();
 			break;
 		case 8:
-			listarMayorMenorSaldo();
+			ordenarMayorMenorSaldo();
 			break;
 		case 9:
 			cout << "Ingrese id a eliminar: ";
@@ -499,7 +543,7 @@ void ListaDeTarjetas::menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual)
 			cout << "Opcion invalida" << endl;
 			break;
 		}
-	} while (opcion != 5);
+	} while (opcion != 4);
 }
 
 

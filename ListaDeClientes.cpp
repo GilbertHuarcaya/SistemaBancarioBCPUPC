@@ -58,7 +58,7 @@ void ListaDeClientes::agregarClienteRandom()
 	nombre = generar_nombre();
 	apellido = generar_apellido();
 	email = generar_email(nombre, apellido);
-	direccion = "Jiron Tupac";
+	direccion = generar_Direccion();
 	telefono = generar_telefono();
 	DNI = generar_DNI();
     Cliente* nuevoCliente = new Cliente(nombre, apellido, direccion, telefono, email, DNI);
