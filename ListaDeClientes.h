@@ -1,9 +1,10 @@
 #pragma once
+#include "string"
 #include "Lista.h"
 #include "Cliente.h"
 #include "ListaDeCuentasBancarias.h"
 
-class ListaDeClientes :public Lista<Cliente*>
+class ListaDeClientes : public Lista<Cliente*>
 {
 public:
 	void mostrar();

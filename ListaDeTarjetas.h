@@ -22,7 +22,7 @@ public:
 	void ordenarMayorMenorSaldo();
 	void ordenarMenorMayorSaldo();
 	void menu();
-	void menuTarjetaIndividual(Nodo<Tarjeta*>* tarjetaActual);
+	void menuTarjetaIndividual(Nodo<Tarjeta*>*  tarjetaActual);
 	void escribirEnArchivo();
 	void cargarTarjetas();
 };

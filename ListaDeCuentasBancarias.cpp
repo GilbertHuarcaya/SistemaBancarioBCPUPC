@@ -7,6 +7,7 @@
 #include "ListaDeTarjetas.h"
 #include "ListaDeCanales.h"
 
+
 void ListaDeCuentasBancarias::mostrar()
 {
 	if (this->esVacia())
@@ -14,7 +15,7 @@ void ListaDeCuentasBancarias::mostrar()
 		cout << "No hay cuentasbancarias registradas" << endl;
 		return;
 	}
-	Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+	Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		cout << endl;
@@ -26,6 +27,7 @@ void ListaDeCuentasBancarias::mostrar()
 	}
 	system("pause");
 }
+
 
 void ListaDeCuentasBancarias::agregarCuentaBancaria()
 {
@@ -56,6 +58,7 @@ void ListaDeCuentasBancarias::agregarCuentaBancaria()
 	system("cls");
 }
 
+
 void ListaDeCuentasBancarias::agregarCuentaBancariaPorIdDelCliente(int idCliente)
 {
 	tm* FechaCreacion;
@@ -83,6 +86,7 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorIdDelCliente(int idCliente
 	system("cls");
 }
 
+
 void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* clienteActual)
 {
 	tm* FechaCreacion;
@@ -102,6 +106,7 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaPorCliente(Nodo<Cliente*>* cl
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
 {
@@ -123,6 +128,7 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandom()
 	system("pause");
 	system("cls");
 }
+
 
 void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorIdDeCliente(int idCliente)
 {
@@ -166,7 +172,7 @@ void ListaDeCuentasBancarias::agregarCuentaBancariaRandomPorCliente(Nodo<Cliente
 
 int ListaDeCuentasBancarias::buscar(int id)
 {
-	Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+	Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getId() == id)
@@ -188,10 +194,11 @@ int ListaDeCuentasBancarias::buscar(int id)
 	return 0;
 }
 
+
 void ListaDeCuentasBancarias::listarPorIdDeCliente(int idCliente)
 {
 	int encontrados = 0;
-	Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+	Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getIdCliente() == idCliente)
@@ -211,9 +218,10 @@ void ListaDeCuentasBancarias::listarPorIdDeCliente(int idCliente)
 	system("pause");
 }
 
+
 int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
 {
-	Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+	Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
 	while (aux != nullptr)
 	{
 		if (aux->getDato()->getIdTarjeta() == idTarjeta)
@@ -235,9 +243,10 @@ int ListaDeCuentasBancarias::buscarPorIdDeTarjeta(int idTarjeta)
 	return 0;
 }
 
+
 void ListaDeCuentasBancarias::actualizarDatos(int id)
 {
-	Nodo<CuentaBancaria*> aux;
+	Nodo<CuentaBancaria*>* aux;
 	tm* FechaCreacion;
 	string Contrasenia, NombreCliente, ApellidoCliente;
 	int idCliente=0, TipoCuenta, FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio;
@@ -253,7 +262,7 @@ void ListaDeCuentasBancarias::actualizarDatos(int id)
 	FechaCreacion = generar_fecha();
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,  NombreCliente, ApellidoCliente,  TipoCuenta,  FechaCreacion,  idCliente,
 	FechaCreacion_dia, FechaCreacion_mes, FechaCreacion_anio);
-	reemplazar(id, nuevoCuentaBancaria);
+	modificarPorId(nuevoCuentaBancaria, id);
 	escribirEnArchivo();
 	cout << "Se reemplazo correctamente los datos.\n";
 	system("pause");
@@ -262,7 +271,7 @@ void ListaDeCuentasBancarias::actualizarDatos(int id)
 
 void ListaDeCuentasBancarias::actualizarDatosPorCliente(Nodo<Cliente*>* cliente, int id) 
 {
-	Nodo<CuentaBancaria*> aux;
+	Nodo<CuentaBancaria*>* aux;
 	tm* FechaCreacion;
 	string Contrasenia, NombreCliente, ApellidoCliente;
 	int idCliente = 0, TipoCuenta, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio;
@@ -277,7 +286,7 @@ void ListaDeCuentasBancarias::actualizarDatosPorCliente(Nodo<Cliente*>* cliente,
 	FechaCreacion_anio = FechaCreacion->tm_year;
 	CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia, cliente->getDato()->getNombre(), cliente->getDato()->getApellido(), TipoCuenta,
 	FechaCreacion, FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio,cliente->getId());
-	reemplazar(id, nuevoCuentaBancaria);
+	modificarPorId(nuevoCuentaBancaria, id);
 	escribirEnArchivo();
 	cout << "Se reemplazo correctamente los datos.\n";
 	system("pause");
@@ -292,7 +301,6 @@ void ListaDeCuentasBancarias::menu()
 	do
 	{
 		system("cls");
-		escribirEnArchivo();
 		cout << "1. Listar Cuentas Bancarias" << endl;
 		cout << "2. Consultar Cuenta Bancaria" << endl;
 		cout << "3. Eliminar Cuenta Bancaria" << endl;
@@ -315,7 +323,7 @@ void ListaDeCuentasBancarias::menu()
 		case 3:
 			cout << "Ingrese id de la Cuenta Bancaria a eliminar: ";
 			cin >> id;
-			this->eliminar(id);
+			this->eliminarPorId(id);
 			break;
 		case 4:
 			cout << "Ingrese el id del cliente: ";
@@ -351,6 +359,7 @@ void ListaDeCuentasBancarias::menu()
 		}
 	} while (opcion != 6);
 }
+
 
 void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* clienteActual)
 {
@@ -408,8 +417,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 			if (cuentaBancariaActual->getId() != 0) {
 
 				if (cuentaBancariaActual->getDato()->getIdCliente() == clienteActual->getId()) {
-					eliminar(idCuentaBancaria);
-					cout << "Cuenta eliminada" << endl;
+					eliminarPorId(idCuentaBancaria);
 				}
 				else {
 					cout << "No se puede eliminar una Cuenta Bancaria de otro cliente" << endl;
@@ -445,6 +453,7 @@ void ListaDeCuentasBancarias::menuCuentasBancariasPorCliente(Nodo<Cliente*>* cli
 	} while (opcion != 7);
 }
 
+
 void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>* cuentaBancariaActual)
 {
 	ListaDeTarjetas* listaTarjetas = new ListaDeTarjetas();
@@ -454,7 +463,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 	int opcion;
 	int idCuentaBancaria;
 	int idTarjeta;
-	Nodo<Tarjeta*>* tarjetaActual;
+	Nodo<Tarjeta*, nullptr>*  tarjetaActual;
 	if (cuentaBancariaActual->getDato()->getIdTarjeta() != 0) {
 		do
 		{
@@ -563,6 +572,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaIndividual(Nodo<CuentaBancaria*>
 
 }
 
+
 void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancariaActual)
 {
 	ListaDeTarjetas* listaTarjetas = new ListaDeTarjetas();
@@ -572,7 +582,7 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 	int opcion;
 	int idCuentaBancaria;
 	int idTarjeta;
-	Nodo<Tarjeta*>* tarjetaActual;
+	Nodo<Tarjeta*>*  tarjetaActual;
 	if (cuentaBancariaActual->getDato()->getIdTarjeta() != 0) {
 		do
 		{
@@ -686,11 +696,12 @@ void ListaDeCuentasBancarias::menuCuentaBancariaParaCliente(Nodo<CuentaBancaria*
 	}
 }
 
+
 void ListaDeCuentasBancarias::escribirEnArchivo()
 {
 	ofstream file("CuentasBancarias.csv");
 	if (file.is_open()) {
-		Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+		Nodo<CuentaBancaria*>* aux = this->obtenerInicial();
 		file << "Id,NombreCliente,ApellidoCliente,IdCliente,idTarjeta,TipoCuenta,Contrasenia,FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_Anio\n"; // Header
 		while (aux != nullptr)
 		{
@@ -712,6 +723,7 @@ void ListaDeCuentasBancarias::escribirEnArchivo()
 		cout << "No se pudo abrir el archivo.\n";
 	}
 }
+
 
 void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 	ifstream file("CuentasBancarias.csv"); // Abre archivo
@@ -759,7 +771,7 @@ void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 			FechaCreacion->tm_year = FechaCreacion_anio;
 			CuentaBancaria* nuevoCuentaBancaria = new CuentaBancaria(Contrasenia,NombreCliente,ApellidoCliente,TipoCuenta,FechaCreacion,
 			FechaCreacion_dia,FechaCreacion_mes,FechaCreacion_anio,IdCliente,idTarjeta);
-			agregarAlFinal(nuevoCuentaBancaria);
+			agregaPorIdDesordenado(nuevoCuentaBancaria, id);
 		}
 		file.close(); // Cierra archivo
 		cout << "Cuentas cargadas correctamente.\n";
@@ -770,8 +782,9 @@ void ListaDeCuentasBancarias::cargarCuentasBancarias() {
 
 }
 
+
 void ListaDeCuentasBancarias::buscarPorTipoCuenta(ETipoCuenta tipoDeCuenta) {
-	Nodo<CuentaBancaria*>* aux = this->obtenerPrimero();
+	Nodo<CuentaBancaria*, nullptr>*aux = this->obtenerInicial();
 	while (aux != nullptr) {
 		if (aux->getDato()->getTipoCuenta() == tipoDeCuenta) {
 			cout << endl;

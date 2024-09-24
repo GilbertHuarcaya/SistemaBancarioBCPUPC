@@ -1,9 +1,9 @@
 #pragma once
-#include "Lista.h"
+#include "ListaDobleEnlazada.h"
 #include "Canal.h"
 #include "CuentaBancaria.h"
 
-class ListaDeCanales : public Lista<Canal*> 
+class ListaDeCanales : public ListaDobleEnlazada<Canal*>
 {
 public:
 	void mostrar();
@@ -11,15 +11,16 @@ public:
 	void menu();
 	void menuDeGestion();
 	void menuDeAcceso();
-	void menuDeOperacionPorCanal(Nodo<Canal*>* canal);
-	void menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, Nodo<Canal*>* canal);
+	void menuDeOperacionPorCanal(NodoDobleEnlazado<Canal*>* canal);
+	void menuDeOperacionPorCuentaBancariaYCanal(Nodo<CuentaBancaria*>* cuentaBancaria, NodoDobleEnlazado<Canal*>* canal);
 	ETipoDeCanal menuParaObtenerTipoDeCanal();
 
 	//Menu para actualizar canal
-	void menuParaActualizarCanal(Nodo<Canal*>* canal);
+	void menuParaActualizarCanal(NodoDobleEnlazado<Canal*>* canal);
 	void activarCanal(int id);
 	void desactivarCanal(int id);
-
+	//Metodo recursivo para actualizar todos los canales a activo
+	void activarTodosLosCanales(NodoDobleEnlazado<Canal*>* canal);
 
 	//Metodos para cargar y escribir en archivo
 	void escribirEnArchivo();
@@ -54,26 +55,17 @@ public:
 
 	//Metodos para ordenar canales
 	void ordenarPorNombre();
-	void ordenarPorDistrito();
-	void ordenarPorDepartamento();
-	void ordenarPorCiudad();
-	void ordenarPorActivo();
-	void ordenarPorTipoDeCanal();
 
 	//Metodo para obtener canal
-	Nodo<Canal*>* obtenerCanal();
+	NodoDobleEnlazado<Canal*>* obtenerCanal();
 
 	// Templates de menus
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave);
-	template<typename T>
-	void filtrarYAccederAMenuPorTipo(T tipoDeCanal, string llave, Nodo<CuentaBancaria*>* cuentaBancaria);
-	template<typename T>
-	void gestionarPorTipoLista(T tipoDeCanal, string llave);
-	template<typename T>
-	void gestionarPorTipoIndividual(T tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave);
+	void filtrarYAccederAMenuPorTipo(ETipoDeCanal tipoDeCanal, string llave, Nodo<CuentaBancaria*>*cuentaBancaria);
+	void gestionarPorTipoLista(ETipoDeCanal tipoDeCanal, string llave);
+	void gestionarPorTipoIndividual(ETipoDeCanal tipoDeCanal, string llave);
 
 
 	//Menu para cliente
-	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>* cuentaBancaria);
+	void menuDeAccesoPorCuentaBancariaParaCliente(Nodo<CuentaBancaria*>*cuentaBancaria);
 };
